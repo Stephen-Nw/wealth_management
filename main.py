@@ -26,12 +26,18 @@ username = StringVar()
 username_entry = ttk.Entry(main_frame, textvariable=username, width=30, justify="left")
 username_entry.grid(row=1, column=1)
 
+blank1 = ttk.Label(main_frame, text=" ")
+blank1.grid(row=2, column=0)
+
+blank2 = ttk.Label(main_frame, text=" ")
+blank2.grid(row=2, column=1)
+
 password_label = ttk.Label(main_frame, text="Password")
-password_label.grid(row=2, column=0)
+password_label.grid(row=3, column=0)
 
 password = StringVar()
 password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left")
-password_entry.grid(row=2, column=1)
+password_entry.grid(row=3, column=1)
 
 
 
