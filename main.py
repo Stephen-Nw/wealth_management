@@ -23,6 +23,22 @@ def forgot_password_login(event):
     print("Forgot Password!!!!")
 
 
+def change_new_user_color(event):
+    new_user.config(foreground="purple")
+
+
+def change_password_color(event):
+    forgot_password.config(foreground="purple")
+
+
+def restore_new_user_color(event):
+    new_user.config(foreground="black")
+
+
+def restore_password_color(event):
+    forgot_password.config(foreground="black")
+
+
 # ==============FONTS ================================= #
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 new_user_font = Font(family="Helvetica", size=8)
@@ -65,13 +81,17 @@ blank3.grid(row=4, column=1)
 submit_button = ttk.Button(main_frame, text="Submit", command="login")
 submit_button.grid(row=5, column=1)
 
-new_user = Label(main_frame, text="new user?", anchor='nw', font=new_user_font)
+new_user = Label(main_frame, text="New user", anchor='nw', font=new_user_font)
 new_user.grid(row=6, column=0)
 new_user.bind("<Button-1>", new_user_login)
+new_user.bind("<Enter>", change_new_user_color)
+new_user.bind("<Leave>", restore_new_user_color)
 
-forgot_password = Label(main_frame, text="Forgot password?", font=forgot_password_font)
+forgot_password = Label(main_frame, text="Forgot password", font=forgot_password_font)
 forgot_password.grid(row=7, column=0)
 forgot_password.bind("<Button-1>", forgot_password_login)
+forgot_password.bind("<Enter>", change_password_color)
+forgot_password.bind("<Leave>", restore_password_color)
 
 
 
