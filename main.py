@@ -15,8 +15,18 @@ def login():
     pass
 
 
+def new_user_login(event):
+    print("New User!!!")
+
+
+def forgot_password_login(event):
+    print("Forgot Password!!!!")
+
+
 # ==============FONTS ================================= #
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
+new_user_font = Font(family="Helvetica", size=8)
+forgot_password_font = Font(family="Helvetica", size=8)
 
 
 # =============UI DESIGN ============================== #
@@ -54,6 +64,15 @@ blank3.grid(row=4, column=1)
 
 submit_button = ttk.Button(main_frame, text="Submit", command="login")
 submit_button.grid(row=5, column=1)
+
+new_user = Label(main_frame, text="new user?", anchor='nw', font=new_user_font)
+new_user.grid(row=6, column=0)
+new_user.bind("<Button-1>", new_user_login)
+
+forgot_password = Label(main_frame, text="Forgot password?", font=forgot_password_font)
+forgot_password.grid(row=7, column=0)
+forgot_password.bind("<Button-1>", forgot_password_login)
+
 
 
 
