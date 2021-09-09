@@ -7,6 +7,11 @@ root = Tk()
 app_name = "Interprimos Wealth\nManagement Solution"
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
+
+def get_question1(event):
+    print(challenge_question1.get())
+
+
 challenge_questions = [
     "What is your mother's maiden name?",
     "What is the name of your first pet?",
@@ -67,8 +72,13 @@ challenge_question1_label.grid(row=7, column=0)
 
 question1 = StringVar()
 question1.set("Select a question below")
-challenge_question1 = ttk.Combobox(main_frame, textvariable=question1, values=challenge_questions, state="readonly", width=37)
+challenge_question1 = ttk.Combobox(main_frame, textvariable=question1, values=challenge_questions, state="readonly",
+                                   width=37)
 challenge_question1.grid(row=7, column=1)
+challenge_question1.bind("<<ComboboxSelected>>", get_question1)
+
+
+
 
 
 
