@@ -7,6 +7,15 @@ root = Tk()
 app_name = "Interprimos Wealth\nManagement Solution"
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
+challenge_questions = [
+    "What is your mother's maiden name?",
+    "What is the name of your first pet?",
+    "What is the middle name of your last child?",
+    "What is the make of your first car?",
+    "Who was your favorite teacher in high school?",
+    "What is your favorite food?",
+]
+
 main_frame = ttk.Frame(root, padding=10, width=950, height=350)
 main_frame.grid(row=0, column=0)
 
