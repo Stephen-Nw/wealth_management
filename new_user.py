@@ -34,5 +34,18 @@ password = StringVar()
 password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left")
 password_entry.grid(row=3, column=1)
 
+blank3 = ttk.Label(main_frame, text=" ")
+blank3.grid(row=4, column=0)
+
+blank4 = ttk.Label(main_frame, text=" ")
+blank4.grid(row=4, column=1)
+
+password_reentry_label = ttk.Label(main_frame, text="Re-enter Password  ")
+password_reentry_label.grid(row=5, column=0)
+
+reenter_password = StringVar()
+password_reentry = ttk.Entry(main_frame, textvariable=reenter_password, width=30, justify="left")
+password_reentry.grid(row=5, column=1)
+
 
 root.mainloop()
