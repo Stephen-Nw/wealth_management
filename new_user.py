@@ -17,7 +17,12 @@ def get_question2(event):
 
 
 def create_user():
-    print("New User has been created!!!")
+    initial_password = password_entry.get()
+    validate_password = reenter_password.get()
+    if initial_password == validate_password:
+        print("New User")
+    else:
+        print("Password mismatch")
 
 
 challenge_questions = [
