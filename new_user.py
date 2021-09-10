@@ -16,6 +16,10 @@ def get_question2(event):
     print(challenge_question2.get())
 
 
+def create_user():
+    print("New User has been created!!!")
+
+
 challenge_questions = [
     "What is your mother's maiden name?",
     "What is the name of your first pet?",
@@ -151,6 +155,15 @@ answer_three_label.grid(row=17, column=0)
 challenge_answer3 = StringVar()
 answer_three = ttk.Entry(main_frame, textvariable=challenge_answer3, width=40, justify="left")
 answer_three.grid(row=17, column=1)
+
+blank9a = ttk.Label(main_frame, text=" ")
+blank9a.grid(row=18, column=0)
+
+blank9b = ttk.Label(main_frame, text=" ")
+blank9b.grid(row=18, column=1)
+
+submit_button = ttk.Button(main_frame, text="Submit", command=create_user)
+submit_button.grid(row=19, column=0, columnspan=2)
 
 
 

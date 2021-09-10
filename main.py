@@ -78,7 +78,7 @@ blank3.grid(row=4, column=0)
 blank3 = ttk.Label(main_frame, text=" ")
 blank3.grid(row=4, column=1)
 
-submit_button = ttk.Button(main_frame, text="Submit", command="login")
+submit_button = ttk.Button(main_frame, text="Submit", command=login)
 submit_button.grid(row=5, column=1)
 
 new_user = Label(main_frame, text="New user", anchor='nw', font=new_user_font)
