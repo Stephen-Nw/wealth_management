@@ -12,6 +12,10 @@ def get_question1(event):
     print(challenge_question1.get())
 
 
+def get_question2(event):
+    print(challenge_question2.get())
+
+
 challenge_questions = [
     "What is your mother's maiden name?",
     "What is the name of your first pet?",
@@ -76,6 +80,35 @@ challenge_question1 = ttk.Combobox(main_frame, textvariable=question1, values=ch
                                    width=37)
 challenge_question1.grid(row=7, column=1)
 challenge_question1.bind("<<ComboboxSelected>>", get_question1)
+
+blank4a = ttk.Label(main_frame, text=" ")
+blank4a.grid(row=8, column=0)
+
+blank4b = ttk.Label(main_frame, text=" ")
+blank4b.grid(row=8, column=1)
+
+answer_one_label = ttk.Label(main_frame, text="Answer",)
+answer_one_label.grid(row=9, column=0)
+
+challenge_answer1 = StringVar()
+answer_one = ttk.Entry(main_frame, textvariable=challenge_answer1, width=40, justify="left")
+answer_one.grid(row=9, column=1)
+
+blank5a = ttk.Label(main_frame, text=" ")
+blank5a.grid(row=10, column=0)
+
+blank5b = ttk.Label(main_frame, text=" ")
+blank5b.grid(row=10, column=1)
+
+challenge_question2_label = ttk.Label(main_frame, text="Challenge Question  ")
+challenge_question2_label.grid(row=11, column=0)
+
+question2 = StringVar()
+question2.set("Select a question below")
+challenge_question2 = ttk.Combobox(main_frame, textvariable=question2, values=challenge_questions, state="readonly",
+                                   width=37)
+challenge_question2.grid(row=11, column=1)
+challenge_question2.bind("<<ComboboxSelected>>", get_question2)
 
 
 
