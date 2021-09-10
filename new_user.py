@@ -53,7 +53,7 @@ password_label = ttk.Label(main_frame, text="Enter Password")
 password_label.grid(row=3, column=0)
 
 password = StringVar()
-password_entry = ttk.Entry(main_frame, textvariable=password, width=40, justify="left")
+password_entry = ttk.Entry(main_frame, textvariable=password, width=40, justify="left", show="*")
 password_entry.grid(row=3, column=1)
 
 blank2a = ttk.Label(main_frame, text=" ")
@@ -62,11 +62,11 @@ blank2a.grid(row=4, column=0)
 blank2b = ttk.Label(main_frame, text=" ")
 blank2b.grid(row=4, column=1)
 
-password_reentry_label = ttk.Label(main_frame, text="Re-enter Password  ",)
+password_reentry_label = ttk.Label(main_frame, text="Re-enter Password  ")
 password_reentry_label.grid(row=5, column=0)
 
 reenter_password = StringVar()
-password_reentry = ttk.Entry(main_frame, textvariable=reenter_password, width=40, justify="left")
+password_reentry = ttk.Entry(main_frame, textvariable=reenter_password, width=40, justify="left", show="*")
 password_reentry.grid(row=5, column=1)
 
 blank3a = ttk.Label(main_frame, text=" ")
