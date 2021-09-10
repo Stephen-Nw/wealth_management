@@ -75,7 +75,7 @@ challenge_question1_label = ttk.Label(main_frame, text="Challenge Question")
 challenge_question1_label.grid(row=7, column=0)
 
 question1 = StringVar()
-question1.set("Select a question below")
+question1.set("Select one of the questions below")
 challenge_question1 = ttk.Combobox(main_frame, textvariable=question1, values=challenge_questions, state="readonly",
                                    width=37)
 challenge_question1.grid(row=7, column=1)
@@ -104,11 +104,53 @@ challenge_question2_label = ttk.Label(main_frame, text="Challenge Question  ")
 challenge_question2_label.grid(row=11, column=0)
 
 question2 = StringVar()
-question2.set("Select a question below")
+question2.set("Select one of the questions below")
 challenge_question2 = ttk.Combobox(main_frame, textvariable=question2, values=challenge_questions, state="readonly",
                                    width=37)
 challenge_question2.grid(row=11, column=1)
 challenge_question2.bind("<<ComboboxSelected>>", get_question2)
+
+blank6a = ttk.Label(main_frame, text=" ")
+blank6a.grid(row=12, column=0)
+
+blank6b = ttk.Label(main_frame, text=" ")
+blank6b.grid(row=12, column=1)
+
+answer_two_label = ttk.Label(main_frame, text="Answer",)
+answer_two_label.grid(row=13, column=0)
+
+challenge_answer2 = StringVar()
+answer_two = ttk.Entry(main_frame, textvariable=challenge_answer2, width=40, justify="left")
+answer_two.grid(row=13, column=1)
+
+blank7a = ttk.Label(main_frame, text=" ")
+blank7a.grid(row=14, column=0)
+
+blank7b = ttk.Label(main_frame, text=" ")
+blank7b.grid(row=14, column=1)
+
+challenge_question3_label = ttk.Label(main_frame, text="Challenge Question  ")
+challenge_question3_label.grid(row=15, column=0)
+
+question3 = StringVar()
+question3.set("Select one of the questions below")
+challenge_question3 = ttk.Combobox(main_frame, textvariable=question3, values=challenge_questions, state="readonly",
+                                   width=37)
+challenge_question3.grid(row=15, column=1)
+challenge_question3.bind("<<ComboboxSelected>>", get_question2)
+
+blank8a = ttk.Label(main_frame, text=" ")
+blank8a.grid(row=16, column=0)
+
+blank8b = ttk.Label(main_frame, text=" ")
+blank8b.grid(row=16, column=1)
+
+answer_three_label = ttk.Label(main_frame, text="Answer",)
+answer_three_label.grid(row=17, column=0)
+
+challenge_answer3 = StringVar()
+answer_three = ttk.Entry(main_frame, textvariable=challenge_answer3, width=40, justify="left")
+answer_three.grid(row=17, column=1)
 
 
 
