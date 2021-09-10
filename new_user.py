@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
 
@@ -23,6 +24,7 @@ def create_user():
         print("New User")
     else:
         print("Password mismatch")
+        messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
 
 
 challenge_questions = [
