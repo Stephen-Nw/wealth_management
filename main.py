@@ -1,6 +1,8 @@
 from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
+from new_user import new_user_details
 
 app_name = "Interprimos Wealth\nManagement Solution"
 
@@ -17,6 +19,8 @@ def login():
 
 def new_user_login(event):
     print("New User!!!")
+    root.destroy()
+    new_user_details()
 
 
 def forgot_password_login(event):
