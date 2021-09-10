@@ -51,9 +51,7 @@ new_user_font = Font(family="Helvetica", size=8)
 forgot_password_font = Font(family="Helvetica", size=8)
 
 
-# =============UI DESIGN ============================== #
-
-# ***********Login Page*******************************
+# =============LOGIN PAGE DESIGN ============================== #
 app_label = ttk.Label(main_frame, text=app_name, font=title_font, wraplength=280, anchor="center", padding=10)
 app_label.grid(row=0, column=0, columnspan=2)
 

@@ -11,13 +11,21 @@ def new_user_details():
     app_name = "Interprimos Wealth\nManagement Solution"
     title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
+    # =================FUNCTIONS===================================== #
     def get_question1(event):
+        """Retrieve questions and answer to challenge question 1"""
         print(challenge_question1.get())
 
     def get_question2(event):
+        """Retrieve questions and answer to challenge question 2"""
         print(challenge_question2.get())
 
+    def get_question3(event):
+        """Retrieve questions and answer to challenge question 3"""
+        print(challenge_question3.get())
+
     def create_user():
+        """Retrieves user information in window and saves to database. Takes user to main application page"""
         initial_password = password_entry.get()
         validate_password = reenter_password.get()
         if initial_password == validate_password:
@@ -26,6 +34,7 @@ def new_user_details():
             print("Password mismatch")
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
 
+    # =================DROPDOWN QUESTIONS===================================== #
     challenge_questions = [
         "What is your mother's maiden name?",
         "What is the name of your first pet?",
@@ -35,6 +44,7 @@ def new_user_details():
         "What is your favorite food?",
     ]
 
+    # =================NEW USER PAGE DESIGN===================================== #
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame.grid(row=0, column=0)
 
@@ -147,7 +157,7 @@ def new_user_details():
     challenge_question3 = ttk.Combobox(main_frame, textvariable=question3, values=challenge_questions, state="readonly",
                                        width=37)
     challenge_question3.grid(row=15, column=1)
-    challenge_question3.bind("<<ComboboxSelected>>", get_question2)
+    challenge_question3.bind("<<ComboboxSelected>>", get_question3)
 
     blank8a = ttk.Label(main_frame, text=" ")
     blank8a.grid(row=16, column=0)
