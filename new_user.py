@@ -35,7 +35,7 @@ main_frame.grid(row=0, column=0)
 app_label = ttk.Label(main_frame, text=app_name, font=title_font, wraplength=280, anchor="center", padding=10)
 app_label.grid(row=0, column=0, columnspan=2)
 
-username_label = ttk.Label(main_frame, text="Username")
+username_label = ttk.Label(main_frame, text="Enter Username")
 username_label.grid(row=1, column=0)
 
 username = StringVar()
@@ -49,7 +49,7 @@ blank1a.grid(row=2, column=0)
 blank1b = ttk.Label(main_frame, text=" ")
 blank1b.grid(row=2, column=1)
 
-password_label = ttk.Label(main_frame, text="Password")
+password_label = ttk.Label(main_frame, text="Enter Password")
 password_label.grid(row=3, column=0)
 
 password = StringVar()
@@ -91,7 +91,7 @@ blank4a.grid(row=8, column=0)
 blank4b = ttk.Label(main_frame, text=" ")
 blank4b.grid(row=8, column=1)
 
-answer_one_label = ttk.Label(main_frame, text="Answer",)
+answer_one_label = ttk.Label(main_frame, text="Challenge Answer",)
 answer_one_label.grid(row=9, column=0)
 
 challenge_answer1 = StringVar()
@@ -120,7 +120,7 @@ blank6a.grid(row=12, column=0)
 blank6b = ttk.Label(main_frame, text=" ")
 blank6b.grid(row=12, column=1)
 
-answer_two_label = ttk.Label(main_frame, text="Answer",)
+answer_two_label = ttk.Label(main_frame, text="Challenge Answer",)
 answer_two_label.grid(row=13, column=0)
 
 challenge_answer2 = StringVar()
@@ -149,7 +149,7 @@ blank8a.grid(row=16, column=0)
 blank8b = ttk.Label(main_frame, text=" ")
 blank8b.grid(row=16, column=1)
 
-answer_three_label = ttk.Label(main_frame, text="Answer",)
+answer_three_label = ttk.Label(main_frame, text="Challenge Answer",)
 answer_three_label.grid(row=17, column=0)
 
 challenge_answer3 = StringVar()
@@ -162,7 +162,7 @@ blank9a.grid(row=18, column=0)
 blank9b = ttk.Label(main_frame, text=" ")
 blank9b.grid(row=18, column=1)
 
-submit_button = ttk.Button(main_frame, text="Submit", command=create_user)
+submit_button = ttk.Button(main_frame, text="Create User", command=create_user)
 submit_button.grid(row=19, column=0, columnspan=2)
 
 
