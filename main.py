@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
 from new_user import new_user_details
@@ -14,16 +13,19 @@ main_frame.grid(row=0, column=0)
 
 # ==============FUNCTIONS =============================== #
 def login():
+    """Directs user to main page of the application"""
     pass
 
 
 def new_user_login(event):
+    """Creates new window for user to create an account"""
     print("New User!!!")
     root.destroy()
     new_user_details()
 
 
 def forgot_password_login(event):
+    """Creates new window for user to create a new password"""
     print("Forgot Password!!!!")
 
 
