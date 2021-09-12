@@ -43,7 +43,7 @@ def new_user_details():
             third_question = challenge_question3.get()
             print(f"Question 3 is {third_question}")
             third_answer = answer_three.get()
-            print(f"Answer 3 is {third_answer}")
+            print(f"Answer 3 is {third_answer}.")
         else:
             print("Password mismatch")
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
