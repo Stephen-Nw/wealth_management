@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from new_user import new_user_details
 
+
 app_name = "Interprimos Wealth\nManagement Solution"
 
 root = Tk()
