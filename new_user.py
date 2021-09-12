@@ -31,24 +31,15 @@ def new_user_details():
         validate_password = reenter_password.get()
         if initial_password == validate_password:
             user_name = username_entry.get()
-            print(f"New user name is {user_name}")
-            print(f"User password is {initial_password}")
             first_question = challenge_question1.get()
-            print(f"Question 1 is {first_question}")
             first_answer = answer_one.get()
-            print(f"Answer 1 is {first_answer}")
             second_question = challenge_question2.get()
-            print(f"Question 2 is {second_question}")
             second_answer = answer_two.get()
-            print(f"Answer 2 is {second_answer}")
             third_question = challenge_question3.get()
-            print(f"Question 3 is {third_question}")
             third_answer = answer_three.get()
-            print(f"Answer 3 is {third_answer}.")
             add_new_user(user_name, initial_password, first_question, first_answer, second_question, second_answer,
                          third_question, third_answer)
         else:
-            print("Password mismatch")
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
 
     # =================DROPDOWN QUESTIONS===================================== #
