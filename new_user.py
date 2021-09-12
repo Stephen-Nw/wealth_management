@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
+from finance_database import add_new_user
 
 
 def new_user_details():
@@ -44,6 +45,8 @@ def new_user_details():
             print(f"Question 3 is {third_question}")
             third_answer = answer_three.get()
             print(f"Answer 3 is {third_answer}.")
+            add_new_user(user_name, initial_password, first_question, first_answer, second_question, second_answer,
+                         third_question, third_answer)
         else:
             print("Password mismatch")
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
