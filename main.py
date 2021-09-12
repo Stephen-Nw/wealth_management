@@ -20,7 +20,6 @@ def login():
 
 def new_user_login(event):
     """Creates new window for user to create an account"""
-    print("New User!!!")
     root.destroy()
     new_user_details()
 

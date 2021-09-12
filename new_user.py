@@ -12,24 +12,38 @@ def new_user_details():
     title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
     # =================FUNCTIONS===================================== #
-    def get_question1(event):
-        """Retrieve questions and answer to challenge question 1"""
-        print(challenge_question1.get())
-
-    def get_question2(event):
-        """Retrieve questions and answer to challenge question 2"""
-        print(challenge_question2.get())
-
-    def get_question3(event):
-        """Retrieve questions and answer to challenge question 3"""
-        print(challenge_question3.get())
+    # def get_question1(event):
+    #     """Retrieve questions and answer to challenge question 1"""
+    #     print(challenge_question1.get())
+    #
+    # def get_question2(event):
+    #     """Retrieve questions and answer to challenge question 2"""
+    #     print(challenge_question2.get())
+    #
+    # def get_question3(event):
+    #     """Retrieve questions and answer to challenge question 3"""
+    #     print(challenge_question3.get())
 
     def create_user():
         """Retrieves user information in window and saves to database. Takes user to main application page"""
         initial_password = password_entry.get()
         validate_password = reenter_password.get()
         if initial_password == validate_password:
-            print("New User")
+            user_name = username_entry.get()
+            print(f"New user name is {user_name}")
+            print(f"User password is {initial_password}")
+            first_question = challenge_question1.get()
+            print(f"Question 1 is {first_question}")
+            first_answer = answer_one.get()
+            print(f"Answer 1 is {first_answer}")
+            second_question = challenge_question2.get()
+            print(f"Question 2 is {second_question}")
+            second_answer = answer_two.get()
+            print(f"Answer 2 is {second_answer}")
+            third_question = challenge_question3.get()
+            print(f"Question 3 is {third_question}")
+            third_answer = answer_three.get()
+            print(f"Answer 3 is {third_answer}")
         else:
             print("Password mismatch")
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
@@ -99,7 +113,7 @@ def new_user_details():
     challenge_question1 = ttk.Combobox(main_frame, textvariable=question1, values=challenge_questions, state="readonly",
                                        width=37)
     challenge_question1.grid(row=7, column=1)
-    challenge_question1.bind("<<ComboboxSelected>>", get_question1)
+    # challenge_question1.bind("<<ComboboxSelected>>", get_question1)
 
     blank4a = ttk.Label(main_frame, text=" ")
     blank4a.grid(row=8, column=0)
@@ -128,7 +142,7 @@ def new_user_details():
     challenge_question2 = ttk.Combobox(main_frame, textvariable=question2, values=challenge_questions, state="readonly",
                                        width=37)
     challenge_question2.grid(row=11, column=1)
-    challenge_question2.bind("<<ComboboxSelected>>", get_question2)
+    # challenge_question2.bind("<<ComboboxSelected>>", get_question2)
 
     blank6a = ttk.Label(main_frame, text=" ")
     blank6a.grid(row=12, column=0)
@@ -157,7 +171,7 @@ def new_user_details():
     challenge_question3 = ttk.Combobox(main_frame, textvariable=question3, values=challenge_questions, state="readonly",
                                        width=37)
     challenge_question3.grid(row=15, column=1)
-    challenge_question3.bind("<<ComboboxSelected>>", get_question3)
+    # challenge_question3.bind("<<ComboboxSelected>>", get_question3)
 
     blank8a = ttk.Label(main_frame, text=" ")
     blank8a.grid(row=16, column=0)
