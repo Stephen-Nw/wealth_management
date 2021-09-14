@@ -22,3 +22,4 @@ def add_new_user(name, pword, q1, a1, q2, a2, q3, a3):
                                                                     "question_two": q2, "answer_two": a2,
                                                                     "question_three": q3, "answer_three": a3})
     db.commit()
+
