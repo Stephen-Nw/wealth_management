@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
+import werkzeug.security
 from finance_database import add_new_user
 
 
@@ -30,6 +31,8 @@ def new_user_details():
         initial_password = password_entry.get()
         validate_password = reenter_password.get()
         if initial_password == validate_password:
+            secure_password = werkzeug.security.generate_password_hash(initial_password,
+                                                                       method='pbkdf2:sha256', salt_length=8)
             user_name = username_entry.get()
             first_question = challenge_question1.get()
             first_answer = answer_one.get()
@@ -37,7 +40,7 @@ def new_user_details():
             second_answer = answer_two.get()
             third_question = challenge_question3.get()
             third_answer = answer_three.get()
-            add_new_user(user_name, initial_password, first_question, first_answer, second_question, second_answer,
+            add_new_user(user_name, secure_password, first_question, first_answer, second_question, second_answer,
                          third_question, third_answer)
         else:
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
