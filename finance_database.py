@@ -16,10 +16,21 @@ cursor = db.cursor()
 # )
 
 def add_new_user(name, pword, q1, a1, q2, a2, q3, a3):
+    """Add new user to database"""
     cursor.execute("INSERT INTO user VALUES (:user, :password, :question_one, :answer_one, :question_two, "
                    ":answer_two, :question_three, :answer_three)", {"user": name, "password": pword, "question_one": q1,
                                                                     "answer_one": a1,
                                                                     "question_two": q2, "answer_two": a2,
                                                                     "question_three": q3, "answer_three": a3})
     db.commit()
+
+
+def retrieve_user_info(name):
+    """Retrieve specific user information from database using username"""
+    cursor.execute("SELECT * FROM user WHERE username=?", (name,))
+    print(f"Account name is {name}")
+    user_info = cursor.fetchall()
+    # db.commit()
+    return user_info
+
 

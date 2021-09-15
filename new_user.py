@@ -14,17 +14,6 @@ def new_user_details():
     title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
     # =================FUNCTIONS===================================== #
-    # def get_question1(event):
-    #     """Retrieve questions and answer to challenge question 1"""
-    #     print(challenge_question1.get())
-    #
-    # def get_question2(event):
-    #     """Retrieve questions and answer to challenge question 2"""
-    #     print(challenge_question2.get())
-    #
-    # def get_question3(event):
-    #     """Retrieve questions and answer to challenge question 3"""
-    #     print(challenge_question3.get())
 
     def create_user():
         """Retrieves user information in window and saves to database. Takes user to main application page"""
