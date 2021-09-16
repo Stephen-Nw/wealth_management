@@ -21,8 +21,8 @@ def ask_question():
     key_list = list(user_dict.keys())
     print(key_list)
 
-    # challenge_questions = key_list[1:]
-    # print(challenge_questions)
+    challenge_questions = key_list[1:]
+    print(challenge_questions)
 
 
 
