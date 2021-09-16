@@ -11,11 +11,13 @@ root.title("Interprimos Wealth Management Solution")
 def ask_question():
     """Generate a form for user to validate his/her identity using challenge questions"""
     id_name = username_entry.get()
-    a = retrieve_user_info(id_name)
-    if not a:
+    user_db_info = retrieve_user_info(id_name)
+    if not user_db_info:
         messagebox.showwarning(title="Oops!!", message="That user does not exist.")
-    print(f"id_name is {id_name}")
-    print(f"a is {a}")
+    user_db_list = list(user_db_info[0])
+    print(user_db_list)
+    user_dict = {user_db_list[i]: user_db_list[i + 1] for i in range(0, len(user_db_list), 2)}
+    print(user_dict)
 
 
 app_name = "Password reset"
@@ -35,7 +37,6 @@ username_entry = ttk.Entry(main_frame, textvariable=username, width=20, justify=
 username_entry.grid(row=1, column=1)
 username_entry.focus()
 
-
 blank = ttk.Label(main_frame, text=" ")
 blank.grid(row=2, column=0)
 
@@ -44,20 +45,5 @@ blank.grid(row=2, column=1)
 
 submit_button = ttk.Button(main_frame, text="Submit", command=ask_question)
 submit_button.grid(row=3, column=1, columnspan=2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 root.mainloop()
