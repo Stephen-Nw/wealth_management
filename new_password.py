@@ -15,9 +15,17 @@ def ask_question():
     if not user_db_info:
         messagebox.showwarning(title="Oops!!", message="That user does not exist.")
     user_db_list = list(user_db_info[0])
-    print(user_db_list)
     user_dict = {user_db_list[i]: user_db_list[i + 1] for i in range(0, len(user_db_list), 2)}
     print(user_dict)
+
+    key_list = list(user_dict.keys())
+    print(key_list)
+
+    # challenge_questions = key_list[1:]
+    # print(challenge_questions)
+
+
+
 
 
 app_name = "Password reset"
