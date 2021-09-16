@@ -12,9 +12,10 @@ def ask_question():
     """Generate a form for user to validate his/her identity using challenge questions"""
     id_name = username_entry.get()
     a = retrieve_user_info(id_name)
-    # a = retrieve_user_info()
-    print(id_name)
-    print(a)
+    if not a:
+        messagebox.showwarning(title="Oops!!", message="That user does not exist.")
+    print(f"id_name is {id_name}")
+    print(f"a is {a}")
 
 
 app_name = "Password reset"
