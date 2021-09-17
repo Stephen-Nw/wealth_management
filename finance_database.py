@@ -28,9 +28,7 @@ def add_new_user(name, pword, q1, a1, q2, a2, q3, a3):
 def retrieve_user_info(name):
     """Retrieve specific user information from database using username"""
     cursor.execute("SELECT * FROM user WHERE username=?", (name,))
-    print(f"Account name is {name}")
     user_info = cursor.fetchall()
-    # db.commit()
     return user_info
 
 
