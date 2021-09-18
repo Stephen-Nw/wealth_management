@@ -43,15 +43,64 @@ def ask_question():
     blank1 = ttk.Label(main_frame, text=" ")
     blank1.grid(row=3, column=0)
 
-    reset_password = ttk.Button(main_frame, text="Submit", command=password_reset)
+    print(f"question = {validate_question_asked[0]}")
+    print(f"answer = {validation_answer[0]}")
+
+    reset_password = ttk.Button(main_frame, text="Submit", command=lambda: password_reset(validate_user_password.get(),
+                                                                                          validate_user_question,
+                                                                                          validate_user_password,
+                                                                                          blank1, reset_password))
     reset_password.grid(row=4, column=0)
 
 
-def password_reset():
+def password_reset(user_response, q_label, pw_label, blank_label, submit_btn):
+    """Generate form for user to enter new password"""
+    print(f"My response is {user_response}")
     print(f"Validate question is {validate_question_asked[0]}")
     print(f"validate answer is {validation_answer[0]}")
+    if user_response != validation_answer[0]:
+        messagebox.showwarning(title="Oops!!", message="That is incorrect!!")
+    else:
+        q_label.destroy()
+        pw_label.destroy()
+        blank_label.destroy()
+        submit_btn.destroy()
+
+        new_password_label = ttk.Label(main_frame, text="New Password")
+        new_password_label.grid(row=1, column=0)
+
+        new_password = StringVar()
+        new_password = ttk.Entry(main_frame, textvariable=new_password, width=20, justify="left", show="*")
+        new_password.grid(row=1, column=1)
+        new_password.focus()
+
+        blk1a = ttk.Label(main_frame, text=" ")
+        blk1a.grid(row=2, column=0)
+
+        blk1b = ttk.Label(main_frame, text=" ")
+        blk1b.grid(row=2, column=1)
+
+        reenter_password_label = ttk.Label(main_frame, text="Reenter Password")
+        reenter_password_label.grid(row=3, column=0)
+
+        reenter_password = StringVar()
+        reenter_password = ttk.Entry(main_frame, textvariable=reenter_password, width=20, justify="left", show="*")
+        reenter_password.grid(row=3, column=1)
+
+        blk2a = ttk.Label(main_frame, text=" ")
+        blk2a.grid(row=4, column=0)
+
+        blk2b = ttk.Label(main_frame, text=" ")
+        blk2b.grid(row=4, column=1)
+
+        update_password = ttk.Button(main_frame, text="Submit",
+                                     command=lambda: update_db(new_password.get(), reenter_password.get()))
+        update_password.grid(row=5, column=0, columnspan=2)
 
 
+def update_db(pw1, pw2):
+    # update db if passwords match
+    pass
 
 
 app_name = "Password reset"
