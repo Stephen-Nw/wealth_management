@@ -2,8 +2,9 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import Font
-from finance_database import retrieve_user_info
+from finance_database import retrieve_user_info, update_user_password
 from random import choice
+import werkzeug.security
 
 root = Tk()
 root.title("Interprimos Wealth Management Solution")
@@ -23,6 +24,8 @@ def ask_question():
 
     key_list = list(user_dict.keys())
     challenge_questions = key_list[1:]
+    user = key_list[0]
+    print(f"User is {user}")
 
     random_question = choice(challenge_questions)
     validate_question_asked.append(random_question)
@@ -49,11 +52,11 @@ def ask_question():
     reset_password = ttk.Button(main_frame, text="Submit", command=lambda: password_reset(validate_user_password.get(),
                                                                                           validate_user_question,
                                                                                           validate_user_password,
-                                                                                          blank1, reset_password))
+                                                                                          blank1, reset_password, user))
     reset_password.grid(row=4, column=0)
 
 
-def password_reset(user_response, q_label, pw_label, blank_label, submit_btn):
+def password_reset(user_response, q_label, pw_label, blank_label, submit_btn, user):
     """Generate form for user to enter new password"""
     print(f"My response is {user_response}")
     print(f"Validate question is {validate_question_asked[0]}")
@@ -94,13 +97,18 @@ def password_reset(user_response, q_label, pw_label, blank_label, submit_btn):
         blk2b.grid(row=4, column=1)
 
         update_password = ttk.Button(main_frame, text="Submit",
-                                     command=lambda: update_db(new_password.get(), reenter_password.get()))
+                                     command=lambda: update_db(new_password.get(), reenter_password.get(), user))
         update_password.grid(row=5, column=0, columnspan=2)
 
 
-def update_db(pw1, pw2):
-    # update db if passwords match
-    pass
+def update_db(pw1, pw2, user):
+    """Update database with new user password"""
+    if pw1 != pw2:
+        messagebox.showwarning(title="Oops!!", message="Passwords do not match!!")
+    else:
+        updated_password = werkzeug.security.generate_password_hash(pw1,
+                                                                    method='pbkdf2:sha256', salt_length=8)
+        update_user_password(user, updated_password)
 
 
 app_name = "Password reset"

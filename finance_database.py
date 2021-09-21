@@ -32,3 +32,9 @@ def retrieve_user_info(name):
     return user_info
 
 
+def update_user_password(name, p_word):
+    """Update specific user password in database"""
+    cursor.execute("UPDATE user SET password = ? WHERE username = ?", (p_word, name))
+    db.commit()
+
+
