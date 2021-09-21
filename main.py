@@ -13,8 +13,15 @@ main_frame.grid(row=0, column=0)
 
 
 # ==============FUNCTIONS =============================== #
-def login():
+def submit_login():
     """Directs user to main page of the application"""
+    print("LOGIN!!!")
+    pass
+
+
+def login(event):
+    """Directs user to main page of the application"""
+    print("LOGIN!!!")
     pass
 
 
@@ -25,8 +32,7 @@ def new_user_login(event):
 
 
 def forgot_password_login(event):
-    """Creates new window for user to create a new password"""
-    print("Forgot Password!!!!")
+    """Creates new window for user to reset password"""
     root.destroy()
     password_reset_details()
 
@@ -76,6 +82,7 @@ password_label.grid(row=3, column=0)
 password = StringVar()
 password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left")
 password_entry.grid(row=3, column=1)
+password_entry.bind("<Return>", login)
 
 blank3 = ttk.Label(main_frame, text=" ")
 blank3.grid(row=4, column=0)
@@ -83,7 +90,7 @@ blank3.grid(row=4, column=0)
 blank3 = ttk.Label(main_frame, text=" ")
 blank3.grid(row=4, column=1)
 
-submit_button = ttk.Button(main_frame, text="Submit", command=login)
+submit_button = ttk.Button(main_frame, text="Submit", command=submit_login)
 submit_button.grid(row=5, column=1)
 
 new_user = Label(main_frame, text="New user", anchor='nw', font=new_user_font)
