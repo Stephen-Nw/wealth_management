@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 from new_user import new_user_details
-
+from new_password import password_reset_details
 
 app_name = "Interprimos Wealth\nManagement Solution"
 
@@ -27,6 +27,8 @@ def new_user_login(event):
 def forgot_password_login(event):
     """Creates new window for user to create a new password"""
     print("Forgot Password!!!!")
+    root.destroy()
+    password_reset_details()
 
 
 def change_new_user_color(event):
@@ -49,7 +51,6 @@ def restore_password_color(event):
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 new_user_font = Font(family="Helvetica", size=8)
 forgot_password_font = Font(family="Helvetica", size=8)
-
 
 # =============LOGIN PAGE DESIGN ============================== #
 app_label = ttk.Label(main_frame, text=app_name, font=title_font, wraplength=280, anchor="center", padding=10)
@@ -97,12 +98,4 @@ forgot_password.bind("<Button-1>", forgot_password_login)
 forgot_password.bind("<Enter>", change_password_color)
 forgot_password.bind("<Leave>", restore_password_color)
 
-
-
-
-
 root.mainloop()
-
-
-
-
