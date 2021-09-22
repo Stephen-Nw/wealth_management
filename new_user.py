@@ -6,6 +6,7 @@ import werkzeug.security
 from finance_database import add_new_user
 
 
+
 def new_user_details():
     root = Tk()
     root.title("Interprimos Wealth Management Solution")

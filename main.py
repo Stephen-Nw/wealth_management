@@ -3,6 +3,9 @@ from tkinter import ttk
 from tkinter.font import Font
 from new_user import new_user_details
 from new_password import password_reset_details
+from finance_database import retrieve_user_info
+from tkinter import messagebox
+import werkzeug.security
 
 app_name = "Interprimos Wealth\nManagement Solution"
 
@@ -13,16 +16,27 @@ main_frame.grid(row=0, column=0)
 
 
 # ==============FUNCTIONS =============================== #
-def submit_login():
+def submit_login(u_name, p_word):
     """Directs user to main page of the application"""
     print("LOGIN!!!")
-    pass
+    saved_user_info = retrieve_user_info(u_name)
+    if not saved_user_info:
+        messagebox.showwarning(title="Oops!!", message="User does not exist. Please create user")
+    user_info_list = list(saved_user_info[0])
+    user_dict = {user_info_list[i]: user_info_list[i + 1] for i in range(0, len(user_info_list), 2)}
+    print(user_dict)
+    saved_password = user_dict[u_name]
+    print(f"name: {u_name}")
+    print(f"Password: {saved_password}")
+    if werkzeug.security.check_password_hash(saved_password, p_word):
+        print("Passwords match!! Login accepted!!")  # Directs to home page
+    else:
+        messagebox.showwarning(title="Oops!!", message="Password is incorrect")
 
 
-def login(event):
+def login(event, ):
     """Directs user to main page of the application"""
     print("LOGIN!!!")
-    pass
 
 
 def new_user_login(event):
@@ -90,7 +104,8 @@ blank3.grid(row=4, column=0)
 blank3 = ttk.Label(main_frame, text=" ")
 blank3.grid(row=4, column=1)
 
-submit_button = ttk.Button(main_frame, text="Submit", command=submit_login)
+submit_button = ttk.Button(main_frame, text="Submit",
+                           command=lambda: submit_login(username_entry.get(), password_entry.get()))
 submit_button.grid(row=5, column=1)
 
 new_user = Label(main_frame, text="New user", anchor='nw', font=new_user_font)
