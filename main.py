@@ -22,16 +22,20 @@ def submit_login(u_name, p_word):
     saved_user_info = retrieve_user_info(u_name)
     if not saved_user_info:
         messagebox.showwarning(title="Oops!!", message="User does not exist. Please create user")
-    user_info_list = list(saved_user_info[0])
-    user_dict = {user_info_list[i]: user_info_list[i + 1] for i in range(0, len(user_info_list), 2)}
-    print(user_dict)
-    saved_password = user_dict[u_name]
-    print(f"name: {u_name}")
-    print(f"Password: {saved_password}")
-    if werkzeug.security.check_password_hash(saved_password, p_word):
-        print("Passwords match!! Login accepted!!")  # Directs to home page
+    try:
+        user_info_list = list(saved_user_info[0])
+    except IndexError:
+        print("index error")
     else:
-        messagebox.showwarning(title="Oops!!", message="Password is incorrect")
+        user_dict = {user_info_list[i]: user_info_list[i + 1] for i in range(0, len(user_info_list), 2)}
+        print(user_dict)
+        saved_password = user_dict[u_name]
+        print(f"name: {u_name}")
+        print(f"Password: {saved_password}")
+        if werkzeug.security.check_password_hash(saved_password, p_word):
+            print("Passwords match!! Login accepted!!")  # Directs to home page
+        else:
+            messagebox.showwarning(title="Oops!!", message="Password is incorrect")
 
 
 def login(event, ):
@@ -94,7 +98,7 @@ password_label = ttk.Label(main_frame, text="Password")
 password_label.grid(row=3, column=0)
 
 password = StringVar()
-password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left")
+password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left", show="*")
 password_entry.grid(row=3, column=1)
 password_entry.bind("<Return>", login)
 
