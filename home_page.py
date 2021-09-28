@@ -1,0 +1,46 @@
+from tkinter import *
+from tkinter import ttk
+from tkinter.font import Font
+
+app_name = "Make a Selection"
+
+root = Tk()
+root.title("Interprimos Wealth Management Solution")
+main_frame = ttk.Frame(root, padding=10, width=950, height=350)
+main_frame.grid(row=0, column=0)
+
+
+# =============BUTTON CONTROLS ============================== #
+def overview():
+    pass
+
+
+# ==============FONTS ================================= #
+title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
+
+# =============HOME PAGE DESIGN ============================== #
+app_label = ttk.Label(main_frame, text=app_name, font=title_font, wraplength=280, anchor="center", padding=10)
+app_label.grid(row=0, column=0, columnspan=2)
+
+overview_button = ttk.Button(main_frame, text="Overview", command=overview)
+overview_button.grid(row=1, column=0, pady=5, padx=5)
+
+income_button = ttk.Button(main_frame, text="Income", command=overview)
+income_button.grid(row=1, column=1, pady=5, padx=5)
+
+expense_button = ttk.Button(main_frame, text="Expenses", command=overview)
+expense_button.grid(row=2, column=0, pady=5, padx=5)
+
+reports_button = ttk.Button(main_frame, text="Reports", command=overview)
+reports_button.grid(row=2, column=1, pady=5, padx=5)
+
+savings_button = ttk.Button(main_frame, text="Savings", command=overview)
+savings_button.grid(row=3, column=0, pady=5, padx=5)
+
+investment_button = ttk.Button(main_frame, text="Investment", command=overview)
+investment_button.grid(row=3, column=1, pady=5, padx=5)
+
+di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=overview)
+di_ratio_button.grid(row=4, column=0, pady=5, columnspan=2, padx=5)
+
+root.mainloop()
