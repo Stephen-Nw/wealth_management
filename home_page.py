@@ -15,6 +15,30 @@ def overview():
     pass
 
 
+def income():
+    pass
+
+
+def expense():
+    pass
+
+
+def reports():
+    pass
+
+
+def savings():
+    pass
+
+
+def investment():
+    pass
+
+
+def debt_to_income_ratio():
+    pass
+
+
 # ==============FONTS ================================= #
 title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
@@ -25,22 +49,22 @@ app_label.grid(row=0, column=0, columnspan=2)
 overview_button = ttk.Button(main_frame, text="Overview", command=overview)
 overview_button.grid(row=1, column=0, pady=5, padx=5)
 
-income_button = ttk.Button(main_frame, text="Income", command=overview)
+income_button = ttk.Button(main_frame, text="Income", command=income)
 income_button.grid(row=1, column=1, pady=5, padx=5)
 
-expense_button = ttk.Button(main_frame, text="Expenses", command=overview)
+expense_button = ttk.Button(main_frame, text="Expenses", command=expense)
 expense_button.grid(row=2, column=0, pady=5, padx=5)
 
-reports_button = ttk.Button(main_frame, text="Reports", command=overview)
+reports_button = ttk.Button(main_frame, text="Reports", command=reports)
 reports_button.grid(row=2, column=1, pady=5, padx=5)
 
-savings_button = ttk.Button(main_frame, text="Savings", command=overview)
+savings_button = ttk.Button(main_frame, text="Savings", command=savings)
 savings_button.grid(row=3, column=0, pady=5, padx=5)
 
-investment_button = ttk.Button(main_frame, text="Investment", command=overview)
+investment_button = ttk.Button(main_frame, text="Investment", command=investment)
 investment_button.grid(row=3, column=1, pady=5, padx=5)
 
-di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=overview)
+di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=debt_to_income_ratio)
 di_ratio_button.grid(row=4, column=0, pady=5, columnspan=2, padx=5)
 
 root.mainloop()
