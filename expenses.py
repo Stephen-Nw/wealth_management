@@ -180,36 +180,6 @@ def fam_misc():
 
 
 # =============== FRAMES ============================ #
-# housing_frame = ttk.Frame(main_frame)
-# housing_frame.grid(row=0, column=0, padx=10, pady=10)
-#
-# utilities_frame = ttk.Frame(main_frame)
-# utilities_frame.grid(row=0, column=1, padx=10, pady=10)
-#
-# auto_frame = ttk.Frame(main_frame)
-# auto_frame.grid(row=0, column=2, padx=10, pady=10)
-#
-# food_frame = ttk.Frame(main_frame)
-# food_frame.grid(row=0, column=3, padx=10, pady=10)
-#
-# health_frame = ttk.Frame(main_frame)
-# health_frame.grid(row=1, column=0, padx=10, pady=10)
-#
-# entertainment_frame = ttk.Frame(main_frame)
-# entertainment_frame.grid(row=1, column=1, padx=10, pady=10)
-#
-# debt_frame = ttk.Frame(main_frame)
-# debt_frame.grid(row=1, column=2, padx=10, pady=10)
-#
-# personal_frame = ttk.Frame(main_frame)
-# personal_frame.grid(row=1, column=3, padx=10, pady=10)
-#
-# giving_frame = ttk.Frame(main_frame)
-# giving_frame.grid(row=3, column=0, padx=10, pady=10)
-#
-# family_frame = ttk.Frame(main_frame)
-# family_frame.grid(row=3, column=1, padx=10, pady=10)
-
 housing_frame = ttk.Frame(main_frame)
 housing_frame.grid(row=0, column=0, padx=10, pady=10)
 
