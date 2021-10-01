@@ -107,24 +107,140 @@ def ent_misc():
     pass
 
 
+def car_loans():
+    pass
+
+
+def std_loans():
+    pass
+
+
+def cards():
+    pass
+
+
+def med_bills():
+    pass
+
+
+def taxes():
+    pass
+
+
+def upkeep():
+    pass
+
+
+def edu():
+    pass
+
+
+def clothing():
+    pass
+
+
+def person_misc():
+    pass
+
+
+def person_subscr():
+    pass
+
+
+def tithes():
+    pass
+
+
+def donations():
+    pass
+
+
+def others():
+    pass
+
+
+def outing():
+    pass
+
+
+def fam_clothing():
+    pass
+
+
+def fam_gifts():
+    pass
+
+
+def school():
+    pass
+
+
+def fam_misc():
+    pass
+
+
 # =============== FRAMES ============================ #
+# housing_frame = ttk.Frame(main_frame)
+# housing_frame.grid(row=0, column=0, padx=10, pady=10)
+#
+# utilities_frame = ttk.Frame(main_frame)
+# utilities_frame.grid(row=0, column=1, padx=10, pady=10)
+#
+# auto_frame = ttk.Frame(main_frame)
+# auto_frame.grid(row=0, column=2, padx=10, pady=10)
+#
+# food_frame = ttk.Frame(main_frame)
+# food_frame.grid(row=0, column=3, padx=10, pady=10)
+#
+# health_frame = ttk.Frame(main_frame)
+# health_frame.grid(row=1, column=0, padx=10, pady=10)
+#
+# entertainment_frame = ttk.Frame(main_frame)
+# entertainment_frame.grid(row=1, column=1, padx=10, pady=10)
+#
+# debt_frame = ttk.Frame(main_frame)
+# debt_frame.grid(row=1, column=2, padx=10, pady=10)
+#
+# personal_frame = ttk.Frame(main_frame)
+# personal_frame.grid(row=1, column=3, padx=10, pady=10)
+#
+# giving_frame = ttk.Frame(main_frame)
+# giving_frame.grid(row=3, column=0, padx=10, pady=10)
+#
+# family_frame = ttk.Frame(main_frame)
+# family_frame.grid(row=3, column=1, padx=10, pady=10)
+
 housing_frame = ttk.Frame(main_frame)
 housing_frame.grid(row=0, column=0, padx=10, pady=10)
 
 utilities_frame = ttk.Frame(main_frame)
 utilities_frame.grid(row=0, column=1, padx=10, pady=10)
 
-auto_frame = ttk.Frame(main_frame)
-auto_frame.grid(row=0, column=2, padx=10, pady=10)
+family_frame = ttk.Frame(main_frame)
+family_frame.grid(row=0, column=2, padx=10, pady=10)
 
-food_frame = ttk.Frame(main_frame)
-food_frame.grid(row=0, column=3, padx=10, pady=10)
+personal_frame = ttk.Frame(main_frame)
+personal_frame.grid(row=0, column=3, padx=10, pady=10)
 
-health_frame = ttk.Frame(main_frame)
-health_frame.grid(row=1, column=0, padx=10, pady=10)
+debt_frame = ttk.Frame(main_frame)
+debt_frame.grid(row=1, column=0, padx=10, pady=10)
 
 entertainment_frame = ttk.Frame(main_frame)
 entertainment_frame.grid(row=1, column=1, padx=10, pady=10)
+
+food_frame = ttk.Frame(main_frame)
+food_frame.grid(row=1, column=2, padx=10, pady=10)
+
+auto_frame = ttk.Frame(main_frame)
+auto_frame.grid(row=1, column=3, padx=10, pady=10)
+
+health_frame = ttk.Frame(main_frame)
+health_frame.grid(row=2, column=0, padx=10, pady=10)
+
+giving_frame = ttk.Frame(main_frame)
+giving_frame.grid(row=2, column=1, padx=10, pady=10)
+
+
 
 # ================ EXPENSES CATEGORIES ================  #
 # **************** Housing ***************************** #
@@ -437,5 +553,231 @@ ent_misc_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 ent_blank1 = ttk.Label(entertainment_frame, text="")
 ent_blank1.grid(row=6, column=0, padx=3, pady=3)
+
+# ***************** Debt ***************************** #
+debt_header = ttk.Label(debt_frame, text="Debt", font=section_font, justify="center")
+debt_header.grid(row=0, column=0, columnspan=3)
+
+debt_item = ttk.Label(debt_frame, text="Item", font=column_font)
+debt_item.grid(row=1, column=0, padx=3)
+
+debt_amount = ttk.Label(debt_frame, text="Amount", font=column_font)
+debt_amount.grid(row=1, column=1, padx=3)
+# ------------------------------------------------------------------------ #
+car_loans_lbl = ttk.Label(debt_frame, text="Car")
+car_loans_lbl.grid(row=2, column=0, padx=3, pady=3)
+
+car_loans_entry = IntVar()
+car_loans_entry = ttk.Entry(debt_frame, textvariable=car_loans_entry, width=10)
+car_loans_entry.grid(row=2, column=1, padx=3, pady=3)
+
+car_loans_btn = ttk.Button(debt_frame, text="Submit", command=car_loans)
+car_loans_btn.grid(row=2, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+std_loans_lbl = ttk.Label(debt_frame, text="Student loans")
+std_loans_lbl.grid(row=3, column=0, padx=3, pady=3)
+
+std_loans_entry = IntVar()
+std_loans_entry = ttk.Entry(debt_frame, textvariable=std_loans_entry, width=10)
+std_loans_entry.grid(row=3, column=1, padx=3, pady=3)
+
+std_loans_btn = ttk.Button(debt_frame, text="Submit", command=std_loans)
+std_loans_btn.grid(row=3, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+cards_lbl = ttk.Label(debt_frame, text="Credit cards")
+cards_lbl.grid(row=4, column=0, padx=3, pady=3)
+
+cards_entry = IntVar()
+cards_entry = ttk.Entry(debt_frame, textvariable=cards_entry, width=10)
+cards_entry.grid(row=4, column=1, padx=3, pady=3)
+
+cards_btn = ttk.Button(debt_frame, text="Submit", command=cards)
+cards_btn.grid(row=4, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+med_bills_lbl = ttk.Label(debt_frame, text="Medical bills")
+med_bills_lbl.grid(row=5, column=0, padx=3, pady=3)
+
+med_bills_entry = IntVar()
+med_bills_entry = ttk.Entry(debt_frame, textvariable=med_bills_entry, width=10)
+med_bills_entry.grid(row=5, column=1, padx=3, pady=3)
+
+med_bills_btn = ttk.Button(debt_frame, text="Submit", command=med_bills)
+med_bills_btn.grid(row=5, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+taxes_lbl = ttk.Label(debt_frame, text="Taxes")
+taxes_lbl.grid(row=6, column=0, padx=3, pady=3)
+
+taxes_entry = IntVar()
+taxes_entry = ttk.Entry(debt_frame, textvariable=taxes_entry, width=10)
+taxes_entry.grid(row=6, column=1, padx=3, pady=3)
+
+taxes_btn = ttk.Button(debt_frame, text="Submit", command=taxes)
+taxes_btn.grid(row=6, column=2, pady=3, padx=3)
+
+# ***************** Personal ***************************** #
+personal_header = ttk.Label(personal_frame, text="Personal", font=section_font, justify="center")
+personal_header.grid(row=0, column=0, columnspan=3)
+
+personal_item = ttk.Label(personal_frame, text="Item", font=column_font)
+personal_item.grid(row=1, column=0, padx=3)
+
+personal_amount = ttk.Label(personal_frame, text="Amount", font=column_font)
+personal_amount.grid(row=1, column=1, padx=3)
+# ------------------------------------------------------------------------ #
+upkeep_lbl = ttk.Label(personal_frame, text="Upkeep")
+upkeep_lbl.grid(row=2, column=0, padx=3, pady=3)
+
+upkeep_entry = IntVar()
+upkeep_entry = ttk.Entry(personal_frame, textvariable=upkeep_entry, width=10)
+upkeep_entry.grid(row=2, column=1, padx=3, pady=3)
+
+upkeep_btn = ttk.Button(personal_frame, text="Submit", command=upkeep)
+upkeep_btn.grid(row=2, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+edu_lbl = ttk.Label(personal_frame, text="Education")
+edu_lbl.grid(row=3, column=0, padx=3, pady=3)
+
+edu_entry = IntVar()
+edu_entry = ttk.Entry(personal_frame, textvariable=edu_entry, width=10)
+edu_entry.grid(row=3, column=1, padx=3, pady=3)
+
+edu_btn = ttk.Button(personal_frame, text="Submit", command=edu)
+edu_btn.grid(row=3, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+clothing_lbl = ttk.Label(personal_frame, text="Clothing")
+clothing_lbl.grid(row=4, column=0, padx=3, pady=3)
+
+clothing_entry = IntVar()
+clothing_entry = ttk.Entry(personal_frame, textvariable=clothing_entry, width=10)
+clothing_entry.grid(row=4, column=1, padx=3, pady=3)
+
+clothing_btn = ttk.Button(personal_frame, text="Submit", command=clothing)
+clothing_btn.grid(row=4, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+person_misc_lbl = ttk.Label(personal_frame, text="Miscellaneous")
+person_misc_lbl.grid(row=5, column=0, padx=3, pady=3)
+
+person_misc_entry = IntVar()
+person_misc_entry = ttk.Entry(personal_frame, textvariable=person_misc_entry, width=10)
+person_misc_entry.grid(row=5, column=1, padx=3, pady=3)
+
+person_misc_btn = ttk.Button(personal_frame, text="Submit", command=person_misc)
+person_misc_btn.grid(row=5, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+person_subscr_lbl = ttk.Label(personal_frame, text="Taxes")
+person_subscr_lbl.grid(row=6, column=0, padx=3, pady=3)
+
+person_subscr_entry = IntVar()
+person_subscr_entry = ttk.Entry(personal_frame, textvariable=person_subscr_entry, width=10)
+person_subscr_entry.grid(row=6, column=1, padx=3, pady=3)
+
+person_subscr_btn = ttk.Button(personal_frame, text="Submit", command=person_subscr)
+person_subscr_btn.grid(row=6, column=2, pady=3, padx=3)
+
+# ***************** Giving ***************************** #
+giving_header = ttk.Label(giving_frame, text="Giving", font=section_font, justify="center")
+giving_header.grid(row=0, column=0, columnspan=3)
+
+giving_item = ttk.Label(giving_frame, text="Item", font=column_font)
+giving_item.grid(row=1, column=0, padx=3)
+
+giving_amount = ttk.Label(giving_frame, text="Amount", font=column_font)
+giving_amount.grid(row=1, column=1, padx=3)
+# ------------------------------------------------------------------------ #
+tithes_lbl = ttk.Label(giving_frame, text="Tithes/Offering")
+tithes_lbl.grid(row=2, column=0, padx=3, pady=3)
+
+tithes_entry = IntVar()
+tithes_entry = ttk.Entry(giving_frame, textvariable=tithes_entry, width=10)
+tithes_entry.grid(row=2, column=1, padx=3, pady=3)
+
+tithes_btn = ttk.Button(giving_frame, text="Submit", command=tithes)
+tithes_btn.grid(row=2, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+donations_lbl = ttk.Label(giving_frame, text="Donations")
+donations_lbl.grid(row=3, column=0, padx=3, pady=3)
+
+donations_entry = IntVar()
+donations_entry = ttk.Entry(giving_frame, textvariable=donations_entry, width=10)
+donations_entry.grid(row=3, column=1, padx=3, pady=3)
+
+donations_btn = ttk.Button(giving_frame, text="Submit", command=donations)
+donations_btn.grid(row=3, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+others_lbl = ttk.Label(giving_frame, text="Other giving")
+others_lbl.grid(row=4, column=0, padx=3, pady=3)
+
+others_entry = IntVar()
+others_entry = ttk.Entry(giving_frame, textvariable=others_entry, width=10)
+others_entry.grid(row=4, column=1, padx=3, pady=3)
+
+others_btn = ttk.Button(giving_frame, text="Submit", command=others)
+others_btn.grid(row=4, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+others_blank1 = ttk.Label(giving_frame, text="")
+others_blank1.grid(row=5, column=0, padx=3, pady=3)
+# ------------------------------------------------------------------------ #
+others_blank2 = ttk.Label(giving_frame, text="")
+others_blank2.grid(row=6, column=0, padx=3, pady=3)
+
+# ***************** Family ***************************** #
+family_header = ttk.Label(family_frame, text="Family", font=section_font, justify="center")
+family_header.grid(row=0, column=0, columnspan=3)
+
+family_item = ttk.Label(family_frame, text="Item", font=column_font)
+family_item.grid(row=1, column=0, padx=3)
+
+family_amount = ttk.Label(family_frame, text="Amount", font=column_font)
+family_amount.grid(row=1, column=1, padx=3)
+# ------------------------------------------------------------------------ #
+outing_lbl = ttk.Label(family_frame, text="Outing/Vacation")
+outing_lbl.grid(row=2, column=0, padx=3, pady=3)
+
+outing_entry = IntVar()
+outing_entry = ttk.Entry(family_frame, textvariable=outing_entry, width=10)
+outing_entry.grid(row=2, column=1, padx=3, pady=3)
+
+outing_btn = ttk.Button(family_frame, text="Submit", command=outing)
+outing_btn.grid(row=2, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+fam_clothing_lbl = ttk.Label(family_frame, text="Clothing")
+fam_clothing_lbl.grid(row=3, column=0, padx=3, pady=3)
+
+fam_clothing_entry = IntVar()
+fam_clothing_entry = ttk.Entry(family_frame, textvariable=fam_clothing_entry, width=10)
+fam_clothing_entry.grid(row=3, column=1, padx=3, pady=3)
+
+fam_clothing_btn = ttk.Button(family_frame, text="Submit", command=fam_clothing)
+fam_clothing_btn.grid(row=3, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+fam_gifts_lbl = ttk.Label(family_frame, text="Gifts")
+fam_gifts_lbl.grid(row=4, column=0, padx=3, pady=3)
+
+fam_gifts_entry = IntVar()
+fam_gifts_entry = ttk.Entry(family_frame, textvariable=fam_gifts_entry, width=10)
+fam_gifts_entry.grid(row=4, column=1, padx=3, pady=3)
+
+fam_gifts_btn = ttk.Button(family_frame, text="Submit", command=fam_gifts)
+fam_gifts_btn.grid(row=4, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+school_lbl = ttk.Label(family_frame, text="School")
+school_lbl.grid(row=5, column=0, padx=3, pady=3)
+
+school_entry = IntVar()
+school_entry = ttk.Entry(family_frame, textvariable=school_entry, width=10)
+school_entry.grid(row=5, column=1, padx=3, pady=3)
+
+school_btn = ttk.Button(family_frame, text="Submit", command=school)
+school_btn.grid(row=5, column=2, pady=3, padx=3)
+# ------------------------------------------------------------------------ #
+fam_misc_lbl = ttk.Label(family_frame, text="Miscellaneous")
+fam_misc_lbl.grid(row=6, column=0, padx=3, pady=3)
+
+fam_misc_entry = IntVar()
+fam_misc_entry = ttk.Entry(family_frame, textvariable=fam_misc_entry, width=10)
+fam_misc_entry.grid(row=6, column=1, padx=3, pady=3)
+
+fam_misc_btn = ttk.Button(family_frame, text="Submit", command=fam_misc)
+fam_misc_btn.grid(row=6, column=2, pady=3, padx=3)
 
 root.mainloop()
