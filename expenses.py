@@ -11,9 +11,10 @@ main_style.configure("Main.TFrame", background="gray70")
 main_frame = ttk.Frame(root, padding=10, width=930, height=330, style="Main.TFrame")
 main_frame.grid(row=0, column=0)
 
-# ================ FONTS ====================================== #
+# ================ STYLING ====================================== #
 section_font = Font(family="Helvetica", weight="bold", slant="italic", size=10)
 column_font = Font(family="Helvetica", weight="bold", size=8)
+heading_color = "MistyRose"
 
 
 # =============== FUNCTIONS ========================= #
@@ -219,7 +220,7 @@ giving_frame.grid(row=2, column=1, padx=10, pady=10)
 
 # ================ EXPENSES CATEGORIES ================  #
 # **************** Housing ***************************** #
-housing_header = ttk.Label(housing_frame, text="Housing", font=section_font, justify="center")
+housing_header = ttk.Label(housing_frame, text="Housing", font=section_font, justify="center", background=heading_color)
 housing_header.grid(row=0, column=0, columnspan=3)
 
 housing_item = ttk.Label(housing_frame, text="Item", font=column_font)
@@ -279,7 +280,7 @@ insurance_btn = ttk.Button(housing_frame, text="Submit", command=insurance)
 insurance_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # **************** Utilities ***************************** #
-utilities_header = ttk.Label(utilities_frame, text="Utilities", font=section_font, justify="center")
+utilities_header = ttk.Label(utilities_frame, text="Utilities", font=section_font, justify="center", background=heading_color)
 utilities_header.grid(row=0, column=0, columnspan=3)
 
 utilities_item = ttk.Label(utilities_frame, text="Item", font=column_font)
@@ -339,7 +340,7 @@ phone_btn = ttk.Button(utilities_frame, text="Submit", command=phone)
 phone_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Automobiles ***************************** #
-auto_header = ttk.Label(auto_frame, text="Automobile", font=section_font, justify="center")
+auto_header = ttk.Label(auto_frame, text="Automobile", font=section_font, justify="center", background=heading_color)
 auto_header.grid(row=0, column=0, columnspan=3)
 
 auto_item = ttk.Label(auto_frame, text="Item", font=column_font)
@@ -385,7 +386,7 @@ auto_blank2 = ttk.Label(auto_frame, text="")
 auto_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Food ***************************** #
-food_header = ttk.Label(food_frame, text="Food", font=section_font, justify="center")
+food_header = ttk.Label(food_frame, text="Food", font=section_font, justify="center", background=heading_color)
 food_header.grid(row=0, column=0, columnspan=3)
 
 food_item = ttk.Label(food_frame, text="Item", font=column_font)
@@ -431,7 +432,7 @@ food_blank2 = ttk.Label(food_frame, text="")
 food_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Health ***************************** #
-health_header = ttk.Label(health_frame, text="Health/Fitness", font=section_font, justify="center")
+health_header = ttk.Label(health_frame, text="Health/Fitness", font=section_font, justify="center", background=heading_color)
 health_header.grid(row=0, column=0, columnspan=3)
 
 health_item = ttk.Label(health_frame, text="Item", font=column_font)
@@ -477,7 +478,7 @@ health_blank2 = ttk.Label(health_frame, text="")
 health_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Entertainment ***************************** #
-entertainment_header = ttk.Label(entertainment_frame, text="Entertainment", font=section_font, justify="center")
+entertainment_header = ttk.Label(entertainment_frame, text="Entertainment", font=section_font, justify="center", background=heading_color)
 entertainment_header.grid(row=0, column=0, columnspan=3)
 
 entertainment_item = ttk.Label(entertainment_frame, text="Item", font=column_font)
@@ -530,7 +531,7 @@ ent_blank1 = ttk.Label(entertainment_frame, text="")
 ent_blank1.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Debt ***************************** #
-debt_header = ttk.Label(debt_frame, text="Debt", font=section_font, justify="center")
+debt_header = ttk.Label(debt_frame, text="Debt", font=section_font, justify="center", background=heading_color)
 debt_header.grid(row=0, column=0, columnspan=3)
 
 debt_item = ttk.Label(debt_frame, text="Item", font=column_font)
@@ -590,7 +591,7 @@ taxes_btn = ttk.Button(debt_frame, text="Submit", command=taxes)
 taxes_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Personal ***************************** #
-personal_header = ttk.Label(personal_frame, text="Personal", font=section_font, justify="center")
+personal_header = ttk.Label(personal_frame, text="Personal", font=section_font, justify="center", background=heading_color)
 personal_header.grid(row=0, column=0, columnspan=3)
 
 personal_item = ttk.Label(personal_frame, text="Item", font=column_font)
@@ -650,7 +651,7 @@ person_subscr_btn = ttk.Button(personal_frame, text="Submit", command=person_sub
 person_subscr_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Giving ***************************** #
-giving_header = ttk.Label(giving_frame, text="Giving", font=section_font, justify="center")
+giving_header = ttk.Label(giving_frame, text="Giving", font=section_font, justify="center", background=heading_color)
 giving_header.grid(row=0, column=0, columnspan=3)
 
 giving_item = ttk.Label(giving_frame, text="Item", font=column_font)
@@ -696,7 +697,7 @@ others_blank2 = ttk.Label(giving_frame, text="")
 others_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Family ***************************** #
-family_header = ttk.Label(family_frame, text="Family", font=section_font, justify="center")
+family_header = ttk.Label(family_frame, text="Family", font=section_font, justify="center", background=heading_color)
 family_header.grid(row=0, column=0, columnspan=3)
 
 family_item = ttk.Label(family_frame, text="Item", font=column_font)
