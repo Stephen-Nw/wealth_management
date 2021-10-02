@@ -6,7 +6,9 @@ app_name = "Expenses"
 
 root = Tk()
 root.title("Interprimos Wealth Management Solution")
-main_frame = ttk.Frame(root, padding=10, width=930, height=330)
+main_style = ttk.Style()
+main_style.configure("Main.TFrame", background="gray70")
+main_frame = ttk.Frame(root, padding=10, width=930, height=330, style="Main.TFrame")
 main_frame.grid(row=0, column=0)
 
 # ================ FONTS ====================================== #
@@ -180,34 +182,37 @@ def fam_misc():
 
 
 # =============== FRAMES ============================ #
-housing_frame = ttk.Frame(main_frame)
+s = ttk.Style()
+s.configure('Section.TFrame', background="AliceBlue", borderwidth=5, relief="solid")
+
+housing_frame = ttk.Frame(main_frame, style="Section.TFrame")
 housing_frame.grid(row=0, column=0, padx=10, pady=10)
 
-utilities_frame = ttk.Frame(main_frame)
+utilities_frame = ttk.Frame(main_frame, style="Section.TFrame")
 utilities_frame.grid(row=0, column=1, padx=10, pady=10)
 
-family_frame = ttk.Frame(main_frame)
+family_frame = ttk.Frame(main_frame, style="Section.TFrame")
 family_frame.grid(row=0, column=2, padx=10, pady=10)
 
-personal_frame = ttk.Frame(main_frame)
+personal_frame = ttk.Frame(main_frame, style="Section.TFrame")
 personal_frame.grid(row=0, column=3, padx=10, pady=10)
 
-debt_frame = ttk.Frame(main_frame)
+debt_frame = ttk.Frame(main_frame, style="Section.TFrame")
 debt_frame.grid(row=1, column=0, padx=10, pady=10)
 
-entertainment_frame = ttk.Frame(main_frame)
+entertainment_frame = ttk.Frame(main_frame, style="Section.TFrame")
 entertainment_frame.grid(row=1, column=1, padx=10, pady=10)
 
-food_frame = ttk.Frame(main_frame)
+food_frame = ttk.Frame(main_frame, style="Section.TFrame")
 food_frame.grid(row=1, column=2, padx=10, pady=10)
 
-auto_frame = ttk.Frame(main_frame)
+auto_frame = ttk.Frame(main_frame, style="Section.TFrame")
 auto_frame.grid(row=1, column=3, padx=10, pady=10)
 
-health_frame = ttk.Frame(main_frame)
+health_frame = ttk.Frame(main_frame, style="Section.TFrame")
 health_frame.grid(row=2, column=0, padx=10, pady=10)
 
-giving_frame = ttk.Frame(main_frame)
+giving_frame = ttk.Frame(main_frame, style="Section.TFrame")
 giving_frame.grid(row=2, column=1, padx=10, pady=10)
 
 
