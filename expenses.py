@@ -15,6 +15,7 @@ main_frame.grid(row=0, column=0)
 section_font = Font(family="Helvetica", weight="bold", slant="italic", size=10)
 column_font = Font(family="Helvetica", weight="bold", size=8)
 heading_color = "MistyRose"
+category_color = "AliceBlue"
 
 
 # =============== FUNCTIONS ========================= #
@@ -184,7 +185,7 @@ def fam_misc():
 
 # =============== FRAMES ============================ #
 s = ttk.Style()
-s.configure('Section.TFrame', background="AliceBlue", borderwidth=5, relief="solid")
+s.configure('Section.TFrame', background=category_color, borderwidth=5, relief="solid")
 
 housing_frame = ttk.Frame(main_frame, style="Section.TFrame")
 housing_frame.grid(row=0, column=0, padx=10, pady=10)
