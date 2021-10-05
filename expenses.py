@@ -1,8 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
+import datetime as dt
+
 
 app_name = "Expenses"
+
 
 root = Tk()
 root.title("Interprimos Wealth Management Solution")
@@ -14,13 +17,27 @@ main_frame.grid(row=0, column=0)
 # ================ STYLING ====================================== #
 section_font = Font(family="Helvetica", weight="bold", slant="italic", size=10)
 column_font = Font(family="Helvetica", weight="bold", size=8)
-heading_color = "MistyRose"
+heading_color = "green1"
 category_color = "AliceBlue"
 
 
 # =============== FUNCTIONS ========================= #
-def mortgage():
-    pass
+def mortgage(category, item, amount):
+    if type(amount) == str:
+        print("YOYOYO")
+    mort_cat = category
+    mort_item = item
+    mort_amt = amount
+    current_timestamp = dt.datetime.now()
+    current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+    print(current_day)
+    print(f"Mortgage category is {mort_cat}")
+    print(f"Mortgage item is {mort_item}")
+    print(f"Mortgage amount is {mort_amt}")
+
+
+    mortgage_entry.delete(0, END)
 
 
 def water():
@@ -217,8 +234,6 @@ health_frame.grid(row=2, column=0, padx=10, pady=10)
 giving_frame = ttk.Frame(main_frame, style="Section.TFrame")
 giving_frame.grid(row=2, column=1, padx=10, pady=10)
 
-
-
 # ================ EXPENSES CATEGORIES ================  #
 # **************** Housing ***************************** #
 housing_header = ttk.Label(housing_frame, text="Housing", font=section_font, justify="center", background=heading_color)
@@ -237,7 +252,9 @@ mortgage_entry = IntVar()
 mortgage_entry = ttk.Entry(housing_frame, textvariable=mortgage_entry, width=10)
 mortgage_entry.grid(row=2, column=1, padx=3, pady=3)
 
-mortgage_btn = ttk.Button(housing_frame, text="Submit", command=mortgage)
+mortgage_btn = ttk.Button(housing_frame, text="Submit", command=lambda: mortgage(housing_header["text"],
+                                                                                 mortgage_lbl["text"],
+                                                                                 mortgage_entry.get()))
 mortgage_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------- #
 supplies_lbl = ttk.Label(housing_frame, text="Supplies")
@@ -281,7 +298,8 @@ insurance_btn = ttk.Button(housing_frame, text="Submit", command=insurance)
 insurance_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # **************** Utilities ***************************** #
-utilities_header = ttk.Label(utilities_frame, text="Utilities", font=section_font, justify="center", background=heading_color)
+utilities_header = ttk.Label(utilities_frame, text="Utilities", font=section_font, justify="center",
+                             background=heading_color)
 utilities_header.grid(row=0, column=0, columnspan=3)
 
 utilities_item = ttk.Label(utilities_frame, text="Item", font=column_font)
@@ -433,7 +451,8 @@ food_blank2 = ttk.Label(food_frame, text="")
 food_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Health ***************************** #
-health_header = ttk.Label(health_frame, text="Health/Fitness", font=section_font, justify="center", background=heading_color)
+health_header = ttk.Label(health_frame, text="Health/Fitness", font=section_font, justify="center",
+                          background=heading_color)
 health_header.grid(row=0, column=0, columnspan=3)
 
 health_item = ttk.Label(health_frame, text="Item", font=column_font)
@@ -479,7 +498,8 @@ health_blank2 = ttk.Label(health_frame, text="")
 health_blank2.grid(row=6, column=0, padx=3, pady=3)
 
 # ***************** Entertainment ***************************** #
-entertainment_header = ttk.Label(entertainment_frame, text="Entertainment", font=section_font, justify="center", background=heading_color)
+entertainment_header = ttk.Label(entertainment_frame, text="Entertainment", font=section_font, justify="center",
+                                 background=heading_color)
 entertainment_header.grid(row=0, column=0, columnspan=3)
 
 entertainment_item = ttk.Label(entertainment_frame, text="Item", font=column_font)
@@ -592,7 +612,8 @@ taxes_btn = ttk.Button(debt_frame, text="Submit", command=taxes)
 taxes_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Personal ***************************** #
-personal_header = ttk.Label(personal_frame, text="Personal", font=section_font, justify="center", background=heading_color)
+personal_header = ttk.Label(personal_frame, text="Personal", font=section_font, justify="center",
+                            background=heading_color)
 personal_header.grid(row=0, column=0, columnspan=3)
 
 personal_item = ttk.Label(personal_frame, text="Item", font=column_font)
