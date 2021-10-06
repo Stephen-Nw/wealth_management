@@ -5,9 +5,7 @@ from tkinter import messagebox
 import datetime as dt
 from finance_database import add_new_expense
 
-
 app_name = "Expenses"
-
 
 root = Tk()
 root.title("Interprimos Wealth Management Solution")
@@ -43,163 +41,298 @@ def mortgage(category, item, amount):
     mortgage_entry.delete(0, END)
 
 
-def water():
+def auto_gas(category, item, amount):
     pass
 
 
-def auto_gas():
+def supplies(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            supplies_cat = category
+            supplies_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, supplies_cat, supplies_item, amt)
+
+    supplies_entry.delete(0, END)
+
+
+def storage(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            storage_cat = category
+            storage_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, storage_cat, storage_item, amt)
+
+    storage_entry.delete(0, END)
+
+
+def house_misc(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            house_misc_cat = category
+            house_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, house_misc_cat, house_misc_item, amt)
+
+    house_misc_entry.delete(0, END)
+
+
+def insurance(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            insurance_cat = category
+            insurance_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, insurance_cat, insurance_item, amt)
+
+    insurance_entry.delete(0, END)
+
+
+def water(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            water_cat = category
+            water_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, water_cat, water_item, amt)
+
+    water_entry.delete(0, END)
+
+
+def gas(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            gas_cat = category
+            gas_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, gas_cat, gas_item, amt)
+
+    gas_entry.delete(0, END)
+
+
+def light(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            light_cat = category
+            light_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, light_cat, light_item, amt)
+
+    light_entry.delete(0, END)
+
+
+def internet(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            internet_cat = category
+            internet_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, internet_cat, internet_item, amt)
+
+    internet_entry.delete(0, END)
+
+
+def phone(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            phone_cat = category
+            phone_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, phone_cat, phone_item, amt)
+
+    phone_entry.delete(0, END)
+
+
+def auto_ins(category, item, amount):
     pass
 
 
-def supplies():
+def auto_maint(category, item, amount):
     pass
 
 
-def storage():
+def groceries(category, item, amount):
     pass
 
 
-def house_misc():
+def eatout(category, item, amount):
     pass
 
 
-def insurance():
+def snacks(category, item, amount):
     pass
 
 
-def gas():
+def copay(category, item, amount):
     pass
 
 
-def light():
+def meds(category, item, amount):
     pass
 
 
-def internet():
+def gym(category, item, amount):
     pass
 
 
-def phone():
+def streaming(category, item, amount):
     pass
 
 
-def auto_ins():
+def events(category, item, amount):
     pass
 
 
-def auto_maint():
+def subscriptions(category, item, amount):
     pass
 
 
-def groceries():
+def ent_misc(category, item, amount):
     pass
 
 
-def eatout():
+def car_loans(category, item, amount):
     pass
 
 
-def snacks():
+def std_loans(category, item, amount):
     pass
 
 
-def copay():
+def cards(category, item, amount):
     pass
 
 
-def meds():
+def med_bills(category, item, amount):
     pass
 
 
-def gym():
+def taxes(category, item, amount):
     pass
 
 
-def streaming():
+def upkeep(category, item, amount):
     pass
 
 
-def events():
+def edu(category, item, amount):
     pass
 
 
-def subscriptions():
+def clothing(category, item, amount):
     pass
 
 
-def ent_misc():
+def person_misc(category, item, amount):
     pass
 
 
-def car_loans():
+def person_subscr(category, item, amount):
     pass
 
 
-def std_loans():
+def tithes(category, item, amount):
     pass
 
 
-def cards():
+def donations(category, item, amount):
     pass
 
 
-def med_bills():
+def others(category, item, amount):
     pass
 
 
-def taxes():
+def outing(category, item, amount):
     pass
 
 
-def upkeep():
+def fam_clothing(category, item, amount):
     pass
 
 
-def edu():
+def fam_gifts(category, item, amount):
     pass
 
 
-def clothing():
+def school(category, item, amount):
     pass
 
 
-def person_misc():
-    pass
-
-
-def person_subscr():
-    pass
-
-
-def tithes():
-    pass
-
-
-def donations():
-    pass
-
-
-def others():
-    pass
-
-
-def outing():
-    pass
-
-
-def fam_clothing():
-    pass
-
-
-def fam_gifts():
-    pass
-
-
-def school():
-    pass
-
-
-def fam_misc():
+def fam_misc(category, item, amount):
     pass
 
 
@@ -267,7 +400,9 @@ supplies_entry = IntVar()
 supplies_entry = ttk.Entry(housing_frame, textvariable=supplies_entry, width=10)
 supplies_entry.grid(row=3, column=1, padx=3, pady=3)
 
-supplies_btn = ttk.Button(housing_frame, text="Submit", command=supplies)
+supplies_btn = ttk.Button(housing_frame, text="Submit", command=lambda: supplies(housing_header["text"],
+                                                                                 supplies_lbl["text"],
+                                                                                 supplies_entry.get()))
 supplies_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 storage_lbl = ttk.Label(housing_frame, text="Storage")
@@ -277,7 +412,9 @@ storage_entry = IntVar()
 storage_entry = ttk.Entry(housing_frame, textvariable=storage_entry, width=10)
 storage_entry.grid(row=4, column=1, padx=3, pady=3)
 
-storage_btn = ttk.Button(housing_frame, text="Submit", command=storage)
+storage_btn = ttk.Button(housing_frame, text="Submit", command=lambda: storage(housing_header["text"],
+                                                                               storage_lbl["text"],
+                                                                               storage_entry.get()))
 storage_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 house_misc_lbl = ttk.Label(housing_frame, text="Miscellaneous")
@@ -287,7 +424,9 @@ house_misc_entry = IntVar()
 house_misc_entry = ttk.Entry(housing_frame, textvariable=house_misc_entry, width=10)
 house_misc_entry.grid(row=5, column=1, padx=3, pady=3)
 
-house_misc_btn = ttk.Button(housing_frame, text="Submit", command=house_misc)
+house_misc_btn = ttk.Button(housing_frame, text="Submit", command=lambda: house_misc(housing_header["text"],
+                                                                                     house_misc_lbl["text"],
+                                                                                     house_misc_entry.get()))
 house_misc_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 insurance_lbl = ttk.Label(housing_frame, text="Insurance")
@@ -297,7 +436,9 @@ insurance_entry = IntVar()
 insurance_entry = ttk.Entry(housing_frame, textvariable=insurance_entry, width=10)
 insurance_entry.grid(row=6, column=1, padx=3, pady=3)
 
-insurance_btn = ttk.Button(housing_frame, text="Submit", command=insurance)
+insurance_btn = ttk.Button(housing_frame, text="Submit", command=lambda: insurance(housing_header["text"],
+                                                                                   insurance_lbl["text"],
+                                                                                   insurance_entry.get()))
 insurance_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # **************** Utilities ***************************** #
@@ -318,7 +459,9 @@ water_entry = IntVar()
 water_entry = ttk.Entry(utilities_frame, textvariable=water_entry, width=10)
 water_entry.grid(row=2, column=1, padx=3, pady=3)
 
-water_btn = ttk.Button(utilities_frame, text="Submit", command=water)
+water_btn = ttk.Button(utilities_frame, text="Submit", command=lambda: water(utilities_header["text"],
+                                                                             water_lbl["text"],
+                                                                             water_entry.get()))
 water_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 gas_lbl = ttk.Label(utilities_frame, text="Gas")
@@ -328,7 +471,9 @@ gas_entry = IntVar()
 gas_entry = ttk.Entry(utilities_frame, textvariable=gas_entry, width=10)
 gas_entry.grid(row=3, column=1, padx=3, pady=3)
 
-gas_btn = ttk.Button(utilities_frame, text="Submit", command=gas)
+gas_btn = ttk.Button(utilities_frame, text="Submit", command=lambda: gas(utilities_header["text"],
+                                                                         gas_lbl["text"],
+                                                                         gas_entry.get()))
 gas_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 light_lbl = ttk.Label(utilities_frame, text="Electricity")
@@ -338,7 +483,9 @@ light_entry = IntVar()
 light_entry = ttk.Entry(utilities_frame, textvariable=light_entry, width=10)
 light_entry.grid(row=4, column=1, padx=3, pady=3)
 
-light_btn = ttk.Button(utilities_frame, text="Submit", command=light)
+light_btn = ttk.Button(utilities_frame, text="Submit", command=lambda: light(utilities_header["text"],
+                                                                             light_lbl["text"],
+                                                                             light_entry.get()))
 light_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 internet_lbl = ttk.Label(utilities_frame, text="Internet")
@@ -348,7 +495,9 @@ internet_entry = IntVar()
 internet_entry = ttk.Entry(utilities_frame, textvariable=internet_entry, width=10)
 internet_entry.grid(row=5, column=1, padx=3, pady=3)
 
-internet_btn = ttk.Button(utilities_frame, text="Submit", command=internet)
+internet_btn = ttk.Button(utilities_frame, text="Submit", command=lambda: internet(utilities_header["text"],
+                                                                                   internet_lbl["text"],
+                                                                                   internet_entry.get()))
 internet_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 phone_lbl = ttk.Label(utilities_frame, text="Phone")
@@ -358,7 +507,9 @@ phone_entry = IntVar()
 phone_entry = ttk.Entry(utilities_frame, textvariable=phone_entry, width=10)
 phone_entry.grid(row=6, column=1, padx=3, pady=3)
 
-phone_btn = ttk.Button(utilities_frame, text="Submit", command=phone)
+phone_btn = ttk.Button(utilities_frame, text="Submit", command=lambda: phone(utilities_header["text"],
+                                                                             phone_lbl["text"],
+                                                                             phone_entry.get()))
 phone_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Automobiles ***************************** #
