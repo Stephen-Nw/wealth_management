@@ -26,6 +26,7 @@ def add_new_expense(dt, cat, itm, amt):
     """Add new expense to database"""
     cursor.execute("INSERT INTO expense VALUES (:date, :category, :item, :amount)",
                    {"date": dt, "category": cat, "item": itm, "amount": amt})
+    db.commit()
 
 
 def add_new_user(name, pword, q1, a1, q2, a2, q3, a3):

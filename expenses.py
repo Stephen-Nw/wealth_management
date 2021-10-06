@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from tkinter import messagebox
 import datetime as dt
+from finance_database import add_new_expense
 
 
 app_name = "Expenses"
@@ -32,17 +33,12 @@ def mortgage(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            print(f"amount is {amt}")
-
             mort_cat = category
             mort_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            print(current_day)
-            print(f"Mortgage category is {mort_cat}")
-            print(f"Mortgage item is {mort_item}")
-            print(f"Mortgage amount is {amt}")
+            add_new_expense(current_day, mort_cat, mort_item, amt)
 
     mortgage_entry.delete(0, END)
 
