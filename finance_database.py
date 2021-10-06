@@ -16,7 +16,7 @@ cursor = db.cursor()
 # )
 
 # cursor.execute(
-#     "CREATE TABLE income (date varchar(250),"
+#     "CREATE TABLE expense (date varchar(250),"
 #     "category varchar(250),"
 #     "item varchar(250),"
 #     "amount varchar(250))"
