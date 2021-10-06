@@ -15,6 +15,14 @@ cursor = db.cursor()
 #     "answer_three varchar(250))"
 # )
 
+# cursor.execute(
+#     "CREATE TABLE income (date varchar(250),"
+#     "category varchar(250),"
+#     "item varchar(250),"
+#     "amount varchar(250))"
+# )
+
+
 def add_new_user(name, pword, q1, a1, q2, a2, q3, a3):
     """Add new user to database"""
     cursor.execute("INSERT INTO user VALUES (:user, :password, :question_one, :answer_one, :question_two, "
