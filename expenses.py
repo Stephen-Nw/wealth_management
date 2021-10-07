@@ -468,14 +468,14 @@ def car_loans(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            car_loans_cat = category
+            car_loans_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, car_loans_cat, car_loans_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    car_loans_entry.delete(0, END)
 
 
 def std_loans(category, item, amount):
@@ -487,14 +487,14 @@ def std_loans(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            std_loans_cat = category
+            std_loans_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, std_loans_cat, std_loans_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    std_loans_entry.delete(0, END)
 
 
 def cards(category, item, amount):
@@ -506,14 +506,14 @@ def cards(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            cards_cat = category
+            cards_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, cards_cat, cards_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    cards_entry.delete(0, END)
 
 
 def med_bills(category, item, amount):
@@ -525,14 +525,14 @@ def med_bills(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            med_bills_cat = category
+            med_bills_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, med_bills_cat, med_bills_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    med_bills_entry.delete(0, END)
 
 
 def taxes(category, item, amount):
@@ -544,14 +544,14 @@ def taxes(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            taxes_cat = category
+            taxes_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, taxes_cat, taxes_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    taxes_entry.delete(0, END)
 
 
 def upkeep(category, item, amount):
@@ -563,14 +563,14 @@ def upkeep(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            upkeep_cat = category
+            upkeep_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, upkeep_cat, upkeep_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    upkeep_entry.delete(0, END)
 
 
 def edu(category, item, amount):
@@ -582,14 +582,14 @@ def edu(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            edu_cat = category
+            edu_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, edu_cat, edu_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    edu_entry.delete(0, END)
 
 
 def clothing(category, item, amount):
@@ -601,14 +601,14 @@ def clothing(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            clothing_cat = category
+            clothing_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, clothing_cat, clothing_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    clothing_entry.delete(0, END)
 
 
 def person_misc(category, item, amount):
@@ -620,14 +620,14 @@ def person_misc(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            person_misc_cat = category
+            person_misc_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, person_misc_cat, person_misc_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    person_misc_entry.delete(0, END)
 
 
 def person_subscr(category, item, amount):
@@ -639,14 +639,14 @@ def person_subscr(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            person_subscr_cat = category
+            person_subscr_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, person_subscr_cat, person_subscr_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    person_subscr_entry.delete(0, END)
 
 
 def tithes(category, item, amount):
@@ -658,14 +658,14 @@ def tithes(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            tithes_cat = category
+            tithes_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, tithes_cat, tithes_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    tithes_entry.delete(0, END)
 
 
 def donations(category, item, amount):
@@ -677,14 +677,14 @@ def donations(category, item, amount):
         if amt < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
-            ent_misc_cat = category
-            ent_misc_item = item
+            donations_cat = category
+            donations_item = item
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
 
-            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+            add_new_expense(current_day, donations_cat, donations_item, amt)
 
-    ent_misc_entry.delete(0, END)
+    donations_entry.delete(0, END)
 
 
 def others(category, item, amount):
