@@ -384,91 +384,421 @@ def gym(category, item, amount):
 
 
 def streaming(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            streaming_cat = category
+            streaming_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, streaming_cat, streaming_item, amt)
+
+    streaming_entry.delete(0, END)
 
 
 def events(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            events_cat = category
+            events_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, events_cat, events_item, amt)
+
+    events_entry.delete(0, END)
 
 
 def subscriptions(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            subscriptions_cat = category
+            subscriptions_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, subscriptions_cat, subscriptions_item, amt)
+
+    subscriptions_entry.delete(0, END)
 
 
 def ent_misc(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def car_loans(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def std_loans(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def cards(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def med_bills(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def taxes(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def upkeep(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def edu(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def clothing(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def person_misc(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def person_subscr(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def tithes(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def donations(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            ent_misc_cat = category
+            ent_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, ent_misc_cat, ent_misc_item, amt)
+
+    ent_misc_entry.delete(0, END)
 
 
 def others(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            others_cat = category
+            others_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, others_cat, others_item, amt)
+
+    others_entry.delete(0, END)
 
 
 def outing(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            outing_cat = category
+            outing_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, outing_cat, outing_item, amt)
+
+    outing_entry.delete(0, END)
 
 
 def fam_clothing(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            fam_clothing_cat = category
+            fam_clothing_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, fam_clothing_cat, fam_clothing_item, amt)
+
+    fam_clothing_entry.delete(0, END)
 
 
 def fam_gifts(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            fam_gifts_cat = category
+            fam_gifts_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, fam_gifts_cat, fam_gifts_item, amt)
+
+    fam_gifts_entry.delete(0, END)
 
 
 def school(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            school_cat = category
+            school_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, school_cat, school_item, amt)
+
+    school_entry.delete(0, END)
 
 
 def fam_misc(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            fam_misc_cat = category
+            fam_misc_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, fam_misc_cat, fam_misc_item, amt)
+
+    fam_misc_entry.delete(0, END)
 
 
 # =============== FRAMES ============================ #
@@ -822,7 +1152,9 @@ streaming_entry = IntVar()
 streaming_entry = ttk.Entry(entertainment_frame, textvariable=streaming_entry, width=10)
 streaming_entry.grid(row=2, column=1, padx=3, pady=3)
 
-streaming_btn = ttk.Button(entertainment_frame, text="Submit", command=streaming)
+streaming_btn = ttk.Button(entertainment_frame, text="Submit", command=lambda: streaming(entertainment_header["text"],
+                                                                                         streaming_lbl["text"],
+                                                                                         streaming_entry.get()))
 streaming_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 events_lbl = ttk.Label(entertainment_frame, text="Events")
@@ -832,7 +1164,9 @@ events_entry = IntVar()
 events_entry = ttk.Entry(entertainment_frame, textvariable=events_entry, width=10)
 events_entry.grid(row=3, column=1, padx=3, pady=3)
 
-events_btn = ttk.Button(entertainment_frame, text="Submit", command=events)
+events_btn = ttk.Button(entertainment_frame, text="Submit", command=lambda: events(entertainment_header["text"],
+                                                                                   events_lbl["text"],
+                                                                                   events_entry.get()))
 events_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 subscriptions_lbl = ttk.Label(entertainment_frame, text="Subscriptions")
@@ -842,7 +1176,10 @@ subscriptions_entry = IntVar()
 subscriptions_entry = ttk.Entry(entertainment_frame, textvariable=subscriptions_entry, width=10)
 subscriptions_entry.grid(row=4, column=1, padx=3, pady=3)
 
-subscriptions_btn = ttk.Button(entertainment_frame, text="Submit", command=subscriptions)
+subscriptions_btn = ttk.Button(entertainment_frame, text="Submit",
+                               command=lambda: subscriptions(entertainment_header["text"],
+                                                             subscriptions_lbl["text"],
+                                                             subscriptions_entry.get()))
 subscriptions_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 ent_misc_lbl = ttk.Label(entertainment_frame, text="Miscellaneous")
@@ -852,7 +1189,9 @@ ent_misc_entry = IntVar()
 ent_misc_entry = ttk.Entry(entertainment_frame, textvariable=ent_misc_entry, width=10)
 ent_misc_entry.grid(row=5, column=1, padx=3, pady=3)
 
-ent_misc_btn = ttk.Button(entertainment_frame, text="Submit", command=ent_misc)
+ent_misc_btn = ttk.Button(entertainment_frame, text="Submit", command=lambda: ent_misc(entertainment_header["text"],
+                                                                                       ent_misc_lbl["text"],
+                                                                                       ent_misc_entry.get()))
 ent_misc_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 ent_blank1 = ttk.Label(entertainment_frame, text="")
@@ -875,7 +1214,9 @@ car_loans_entry = IntVar()
 car_loans_entry = ttk.Entry(debt_frame, textvariable=car_loans_entry, width=10)
 car_loans_entry.grid(row=2, column=1, padx=3, pady=3)
 
-car_loans_btn = ttk.Button(debt_frame, text="Submit", command=car_loans)
+car_loans_btn = ttk.Button(debt_frame, text="Submit", command=lambda: car_loans(debt_header["text"],
+                                                                                car_loans_lbl["text"],
+                                                                                car_loans_entry.get()))
 car_loans_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 std_loans_lbl = ttk.Label(debt_frame, text="Student loans")
@@ -885,7 +1226,9 @@ std_loans_entry = IntVar()
 std_loans_entry = ttk.Entry(debt_frame, textvariable=std_loans_entry, width=10)
 std_loans_entry.grid(row=3, column=1, padx=3, pady=3)
 
-std_loans_btn = ttk.Button(debt_frame, text="Submit", command=std_loans)
+std_loans_btn = ttk.Button(debt_frame, text="Submit", command=lambda: std_loans(debt_header["text"],
+                                                                                std_loans_lbl["text"],
+                                                                                std_loans_entry.get()))
 std_loans_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 cards_lbl = ttk.Label(debt_frame, text="Credit cards")
@@ -895,7 +1238,9 @@ cards_entry = IntVar()
 cards_entry = ttk.Entry(debt_frame, textvariable=cards_entry, width=10)
 cards_entry.grid(row=4, column=1, padx=3, pady=3)
 
-cards_btn = ttk.Button(debt_frame, text="Submit", command=cards)
+cards_btn = ttk.Button(debt_frame, text="Submit", command=lambda: cards(debt_header["text"],
+                                                                        cards_lbl["text"],
+                                                                        cards_entry.get()))
 cards_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 med_bills_lbl = ttk.Label(debt_frame, text="Medical bills")
@@ -905,7 +1250,9 @@ med_bills_entry = IntVar()
 med_bills_entry = ttk.Entry(debt_frame, textvariable=med_bills_entry, width=10)
 med_bills_entry.grid(row=5, column=1, padx=3, pady=3)
 
-med_bills_btn = ttk.Button(debt_frame, text="Submit", command=med_bills)
+med_bills_btn = ttk.Button(debt_frame, text="Submit", command=lambda: med_bills(debt_header["text"],
+                                                                                med_bills_lbl["text"],
+                                                                                med_bills_entry.get()))
 med_bills_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 taxes_lbl = ttk.Label(debt_frame, text="Taxes")
@@ -915,7 +1262,9 @@ taxes_entry = IntVar()
 taxes_entry = ttk.Entry(debt_frame, textvariable=taxes_entry, width=10)
 taxes_entry.grid(row=6, column=1, padx=3, pady=3)
 
-taxes_btn = ttk.Button(debt_frame, text="Submit", command=taxes)
+taxes_btn = ttk.Button(debt_frame, text="Submit", command=lambda: taxes(debt_header["text"],
+                                                                        taxes_lbl["text"],
+                                                                        taxes_entry.get()))
 taxes_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Personal ***************************** #
