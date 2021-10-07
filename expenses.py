@@ -270,15 +270,60 @@ def auto_maint(category, item, amount):
 
 
 def groceries(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            groceries_cat = category
+            groceries_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, groceries_cat, groceries_item, amt)
+
+    groceries_entry.delete(0, END)
 
 
 def eatout(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            eatout_cat = category
+            eatout_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, eatout_cat, eatout_item, amt)
+
+    eatout_entry.delete(0, END)
 
 
 def snacks(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            snacks_cat = category
+            snacks_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, snacks_cat, snacks_item, amt)
+
+    snacks_entry.delete(0, END)
 
 
 def copay(category, item, amount):
