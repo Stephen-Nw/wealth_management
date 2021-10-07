@@ -327,15 +327,60 @@ def snacks(category, item, amount):
 
 
 def copay(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            copay_cat = category
+            copay_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, copay_cat, copay_item, amt)
+
+    copay_entry.delete(0, END)
 
 
 def meds(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            meds_cat = category
+            meds_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, meds_cat, meds_item, amt)
+
+    meds_entry.delete(0, END)
 
 
 def gym(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            gym_cat = category
+            gym_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, gym_cat, gym_item, amt)
+
+    gym_entry.delete(0, END)
 
 
 def streaming(category, item, amount):
@@ -724,7 +769,9 @@ copay_entry = IntVar()
 copay_entry = ttk.Entry(health_frame, textvariable=copay_entry, width=10)
 copay_entry.grid(row=2, column=1, padx=3, pady=3)
 
-copay_btn = ttk.Button(health_frame, text="Submit", command=copay)
+copay_btn = ttk.Button(health_frame, text="Submit", command=lambda: copay(health_header["text"],
+                                                                          copay_lbl["text"],
+                                                                          copay_entry.get()))
 copay_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 meds_lbl = ttk.Label(health_frame, text="Medications")
@@ -734,7 +781,9 @@ meds_entry = IntVar()
 meds_entry = ttk.Entry(health_frame, textvariable=meds_entry, width=10)
 meds_entry.grid(row=3, column=1, padx=3, pady=3)
 
-meds_btn = ttk.Button(health_frame, text="Submit", command=meds)
+meds_btn = ttk.Button(health_frame, text="Submit", command=lambda: meds(health_header["text"],
+                                                                        meds_lbl["text"],
+                                                                        meds_entry.get()))
 meds_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 gym_lbl = ttk.Label(health_frame, text="Gym")
@@ -744,7 +793,9 @@ gym_entry = IntVar()
 gym_entry = ttk.Entry(health_frame, textvariable=gym_entry, width=10)
 gym_entry.grid(row=4, column=1, padx=3, pady=3)
 
-gym_btn = ttk.Button(health_frame, text="Submit", command=gym)
+gym_btn = ttk.Button(health_frame, text="Submit", command=lambda: gym(health_header["text"],
+                                                                      gym_lbl["text"],
+                                                                      gym_entry.get()))
 gym_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 health_blank1 = ttk.Label(health_frame, text="")
