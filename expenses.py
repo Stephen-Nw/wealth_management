@@ -41,10 +41,6 @@ def mortgage(category, item, amount):
     mortgage_entry.delete(0, END)
 
 
-def auto_gas(category, item, amount):
-    pass
-
-
 def supplies(category, item, amount):
     try:
         amt = int(amount)
@@ -216,12 +212,61 @@ def phone(category, item, amount):
     phone_entry.delete(0, END)
 
 
+def auto_gas(category, item, amount):
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            auto_gas_cat = category
+            auto_gas_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, auto_gas_cat, auto_gas_item, amt)
+
+    auto_gas_entry.delete(0, END)
+
+
 def auto_ins(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            auto_ins_cat = category
+            auto_ins_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, auto_ins_cat, auto_ins_item, amt)
+
+    auto_ins_entry.delete(0, END)
 
 
 def auto_maint(category, item, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            auto_maint_cat = category
+            auto_maint_item = item
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_expense(current_day, auto_maint_cat, auto_maint_item, amt)
+
+    auto_maint_entry.delete(0, END)
 
 
 def groceries(category, item, amount):
@@ -529,7 +574,9 @@ auto_gas_entry = IntVar()
 auto_gas_entry = ttk.Entry(auto_frame, textvariable=auto_gas_entry, width=10)
 auto_gas_entry.grid(row=2, column=1, padx=3, pady=3)
 
-auto_gas_btn = ttk.Button(auto_frame, text="Submit", command=auto_gas)
+auto_gas_btn = ttk.Button(auto_frame, text="Submit", command=lambda: auto_gas(auto_header["text"],
+                                                                              auto_gas_lbl["text"],
+                                                                              auto_gas_entry.get()))
 auto_gas_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 auto_ins_lbl = ttk.Label(auto_frame, text="Insurance")
@@ -539,7 +586,9 @@ auto_ins_entry = IntVar()
 auto_ins_entry = ttk.Entry(auto_frame, textvariable=auto_ins_entry, width=10)
 auto_ins_entry.grid(row=3, column=1, padx=3, pady=3)
 
-auto_ins_btn = ttk.Button(auto_frame, text="Submit", command=auto_ins)
+auto_ins_btn = ttk.Button(auto_frame, text="Submit", command=lambda: auto_ins(auto_header["text"],
+                                                                              auto_ins_lbl["text"],
+                                                                              auto_ins_entry.get()))
 auto_ins_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 auto_maint_lbl = ttk.Label(auto_frame, text="Maintenance")
@@ -549,7 +598,9 @@ auto_maint_entry = IntVar()
 auto_maint_entry = ttk.Entry(auto_frame, textvariable=auto_maint_entry, width=10)
 auto_maint_entry.grid(row=4, column=1, padx=3, pady=3)
 
-auto_maint_btn = ttk.Button(auto_frame, text="Submit", command=auto_maint)
+auto_maint_btn = ttk.Button(auto_frame, text="Submit", command=lambda: auto_maint(auto_header["text"],
+                                                                                  auto_maint_lbl["text"],
+                                                                                  auto_maint_entry.get()))
 auto_maint_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 auto_blank1 = ttk.Label(auto_frame, text="")
@@ -575,7 +626,9 @@ groceries_entry = IntVar()
 groceries_entry = ttk.Entry(food_frame, textvariable=groceries_entry, width=10)
 groceries_entry.grid(row=2, column=1, padx=3, pady=3)
 
-groceries_btn = ttk.Button(food_frame, text="Submit", command=groceries)
+groceries_btn = ttk.Button(food_frame, text="Submit", command=lambda: groceries(food_header["text"],
+                                                                                groceries_lbl["text"],
+                                                                                groceries_entry.get()))
 groceries_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 eatout_lbl = ttk.Label(food_frame, text="Eating Out")
@@ -585,7 +638,9 @@ eatout_entry = IntVar()
 eatout_entry = ttk.Entry(food_frame, textvariable=eatout_entry, width=10)
 eatout_entry.grid(row=3, column=1, padx=3, pady=3)
 
-eatout_btn = ttk.Button(food_frame, text="Submit", command=eatout)
+eatout_btn = ttk.Button(food_frame, text="Submit", command=lambda: eatout(food_header["text"],
+                                                                          eatout_lbl["text"],
+                                                                          eatout_entry.get()))
 eatout_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 snacks_lbl = ttk.Label(food_frame, text="Snacks")
@@ -595,7 +650,9 @@ snacks_entry = IntVar()
 snacks_entry = ttk.Entry(food_frame, textvariable=snacks_entry, width=10)
 snacks_entry.grid(row=4, column=1, padx=3, pady=3)
 
-snacks_btn = ttk.Button(food_frame, text="Submit", command=snacks)
+snacks_btn = ttk.Button(food_frame, text="Submit", command=lambda: snacks(food_header["text"],
+                                                                          snacks_lbl["text"],
+                                                                          snacks_entry.get()))
 snacks_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 food_blank1 = ttk.Label(food_frame, text="")
