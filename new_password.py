@@ -20,6 +20,7 @@ def password_reset_details():
         user_db_info = retrieve_user_info(id_name)
         if not user_db_info:
             messagebox.showwarning(title="Oops!!", message="That user does not exist.")
+            root.destroy()
         user_db_list = list(user_db_info[0])
         user_dict = {user_db_list[i]: user_db_list[i + 1] for i in range(0, len(user_db_list), 2)}
 
