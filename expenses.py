@@ -1285,7 +1285,9 @@ upkeep_entry = IntVar()
 upkeep_entry = ttk.Entry(personal_frame, textvariable=upkeep_entry, width=10)
 upkeep_entry.grid(row=2, column=1, padx=3, pady=3)
 
-upkeep_btn = ttk.Button(personal_frame, text="Submit", command=upkeep)
+upkeep_btn = ttk.Button(personal_frame, text="Submit", command=lambda: upkeep(personal_header["text"],
+                                                                              upkeep_lbl["text"],
+                                                                              upkeep_entry.get()))
 upkeep_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 edu_lbl = ttk.Label(personal_frame, text="Education")
@@ -1295,7 +1297,9 @@ edu_entry = IntVar()
 edu_entry = ttk.Entry(personal_frame, textvariable=edu_entry, width=10)
 edu_entry.grid(row=3, column=1, padx=3, pady=3)
 
-edu_btn = ttk.Button(personal_frame, text="Submit", command=edu)
+edu_btn = ttk.Button(personal_frame, text="Submit", command=lambda: edu(personal_header["text"],
+                                                                        edu_lbl["text"],
+                                                                        edu_entry.get()))
 edu_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 clothing_lbl = ttk.Label(personal_frame, text="Clothing")
@@ -1305,7 +1309,9 @@ clothing_entry = IntVar()
 clothing_entry = ttk.Entry(personal_frame, textvariable=clothing_entry, width=10)
 clothing_entry.grid(row=4, column=1, padx=3, pady=3)
 
-clothing_btn = ttk.Button(personal_frame, text="Submit", command=clothing)
+clothing_btn = ttk.Button(personal_frame, text="Submit", command=lambda: clothing(personal_header["text"],
+                                                                                  clothing_lbl["text"],
+                                                                                  clothing_entry.get()))
 clothing_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 person_misc_lbl = ttk.Label(personal_frame, text="Miscellaneous")
@@ -1315,7 +1321,9 @@ person_misc_entry = IntVar()
 person_misc_entry = ttk.Entry(personal_frame, textvariable=person_misc_entry, width=10)
 person_misc_entry.grid(row=5, column=1, padx=3, pady=3)
 
-person_misc_btn = ttk.Button(personal_frame, text="Submit", command=person_misc)
+person_misc_btn = ttk.Button(personal_frame, text="Submit", command=lambda: person_misc(personal_header["text"],
+                                                                                        person_misc_lbl["text"],
+                                                                                        person_misc_entry.get()))
 person_misc_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 person_subscr_lbl = ttk.Label(personal_frame, text="Taxes")
@@ -1325,7 +1333,9 @@ person_subscr_entry = IntVar()
 person_subscr_entry = ttk.Entry(personal_frame, textvariable=person_subscr_entry, width=10)
 person_subscr_entry.grid(row=6, column=1, padx=3, pady=3)
 
-person_subscr_btn = ttk.Button(personal_frame, text="Submit", command=person_subscr)
+person_subscr_btn = ttk.Button(personal_frame, text="Submit", command=lambda: person_subscr(personal_header["text"],
+                                                                                            person_subscr_lbl["text"],
+                                                                                            person_subscr_entry.get()))
 person_subscr_btn.grid(row=6, column=2, pady=3, padx=3)
 
 # ***************** Giving ***************************** #
@@ -1345,7 +1355,9 @@ tithes_entry = IntVar()
 tithes_entry = ttk.Entry(giving_frame, textvariable=tithes_entry, width=10)
 tithes_entry.grid(row=2, column=1, padx=3, pady=3)
 
-tithes_btn = ttk.Button(giving_frame, text="Submit", command=tithes)
+tithes_btn = ttk.Button(giving_frame, text="Submit", command=lambda: tithes(giving_header["text"],
+                                                                            tithes_lbl["text"],
+                                                                            tithes_entry.get()))
 tithes_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 donations_lbl = ttk.Label(giving_frame, text="Donations")
@@ -1355,7 +1367,9 @@ donations_entry = IntVar()
 donations_entry = ttk.Entry(giving_frame, textvariable=donations_entry, width=10)
 donations_entry.grid(row=3, column=1, padx=3, pady=3)
 
-donations_btn = ttk.Button(giving_frame, text="Submit", command=donations)
+donations_btn = ttk.Button(giving_frame, text="Submit", command=lambda: donations(giving_header["text"],
+                                                                                  donations_lbl["text"],
+                                                                                  donations_entry.get()))
 donations_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 others_lbl = ttk.Label(giving_frame, text="Other giving")
@@ -1365,7 +1379,9 @@ others_entry = IntVar()
 others_entry = ttk.Entry(giving_frame, textvariable=others_entry, width=10)
 others_entry.grid(row=4, column=1, padx=3, pady=3)
 
-others_btn = ttk.Button(giving_frame, text="Submit", command=others)
+others_btn = ttk.Button(giving_frame, text="Submit", command=lambda: others(giving_header["text"],
+                                                                            others_lbl["text"],
+                                                                            others_entry.get()))
 others_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 others_blank1 = ttk.Label(giving_frame, text="")
@@ -1391,7 +1407,9 @@ outing_entry = IntVar()
 outing_entry = ttk.Entry(family_frame, textvariable=outing_entry, width=10)
 outing_entry.grid(row=2, column=1, padx=3, pady=3)
 
-outing_btn = ttk.Button(family_frame, text="Submit", command=outing)
+outing_btn = ttk.Button(family_frame, text="Submit", command=lambda: outing(family_header["text"],
+                                                                            outing_lbl["text"],
+                                                                            outing_entry.get()))
 outing_btn.grid(row=2, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 fam_clothing_lbl = ttk.Label(family_frame, text="Clothing")
@@ -1401,7 +1419,9 @@ fam_clothing_entry = IntVar()
 fam_clothing_entry = ttk.Entry(family_frame, textvariable=fam_clothing_entry, width=10)
 fam_clothing_entry.grid(row=3, column=1, padx=3, pady=3)
 
-fam_clothing_btn = ttk.Button(family_frame, text="Submit", command=fam_clothing)
+fam_clothing_btn = ttk.Button(family_frame, text="Submit", command=lambda: fam_clothing(family_header["text"],
+                                                                                        fam_clothing_lbl["text"],
+                                                                                        fam_clothing_entry.get()))
 fam_clothing_btn.grid(row=3, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 fam_gifts_lbl = ttk.Label(family_frame, text="Gifts")
@@ -1411,7 +1431,9 @@ fam_gifts_entry = IntVar()
 fam_gifts_entry = ttk.Entry(family_frame, textvariable=fam_gifts_entry, width=10)
 fam_gifts_entry.grid(row=4, column=1, padx=3, pady=3)
 
-fam_gifts_btn = ttk.Button(family_frame, text="Submit", command=fam_gifts)
+fam_gifts_btn = ttk.Button(family_frame, text="Submit", command=lambda: fam_gifts(family_header["text"],
+                                                                                  fam_gifts_lbl["text"],
+                                                                                  fam_gifts_entry.get()))
 fam_gifts_btn.grid(row=4, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 school_lbl = ttk.Label(family_frame, text="School")
@@ -1421,7 +1443,9 @@ school_entry = IntVar()
 school_entry = ttk.Entry(family_frame, textvariable=school_entry, width=10)
 school_entry.grid(row=5, column=1, padx=3, pady=3)
 
-school_btn = ttk.Button(family_frame, text="Submit", command=school)
+school_btn = ttk.Button(family_frame, text="Submit", command=lambda: school(family_header["text"],
+                                                                            school_lbl["text"],
+                                                                            school_entry.get()))
 school_btn.grid(row=5, column=2, pady=3, padx=3)
 # ------------------------------------------------------------------------ #
 fam_misc_lbl = ttk.Label(family_frame, text="Miscellaneous")
@@ -1431,7 +1455,9 @@ fam_misc_entry = IntVar()
 fam_misc_entry = ttk.Entry(family_frame, textvariable=fam_misc_entry, width=10)
 fam_misc_entry.grid(row=6, column=1, padx=3, pady=3)
 
-fam_misc_btn = ttk.Button(family_frame, text="Submit", command=fam_misc)
+fam_misc_btn = ttk.Button(family_frame, text="Submit", command=lambda: fam_misc(family_header["text"],
+                                                                                fam_misc_lbl["text"],
+                                                                                fam_misc_entry.get()))
 fam_misc_btn.grid(row=6, column=2, pady=3, padx=3)
 
 root.mainloop()
