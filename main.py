@@ -5,6 +5,7 @@ from new_user import new_user_details
 from new_password import password_reset_details
 from finance_database import retrieve_user_info
 from tkinter import messagebox
+from home_page import home
 import werkzeug.security
 
 app_name = "Interprimos Wealth\nManagement Solution"
@@ -18,22 +19,23 @@ main_frame.grid(row=0, column=0)
 # ==============FUNCTIONS =============================== #
 def submit_login(u_name, p_word):
     """Directs user to main page of the application"""
-    print("LOGIN!!!")
     saved_user_info = retrieve_user_info(u_name)
     if not saved_user_info:
         messagebox.showwarning(title="Oops!!", message="User does not exist. Please create user")
     try:
         user_info_list = list(saved_user_info[0])
     except IndexError:
-        print("index error")
+        print(" ")
     else:
         user_dict = {user_info_list[i]: user_info_list[i + 1] for i in range(0, len(user_info_list), 2)}
-        print(user_dict)
+        # print(user_dict)
         saved_password = user_dict[u_name]
-        print(f"name: {u_name}")
-        print(f"Password: {saved_password}")
+        # print(f"name: {u_name}")
+        # print(f"Password: {saved_password}")
         if werkzeug.security.check_password_hash(saved_password, p_word):
-            print("Passwords match!! Login accepted!!")  # Directs to home page
+            # print("Passwords match!! Login accepted!!")  # Directs to home page
+            root.destroy()
+            home()
         else:
             messagebox.showwarning(title="Oops!!", message="Password is incorrect")
 

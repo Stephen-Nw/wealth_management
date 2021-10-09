@@ -31,6 +31,8 @@ def new_user_details():
             third_answer = answer_three.get()
             add_new_user(user_name, secure_password, first_question, first_answer, second_question, second_answer,
                          third_question, third_answer)
+            messagebox.showinfo(title="Success!!", message="Account has been created. Restart application to continue")
+            root.destroy()
         else:
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
 
