@@ -127,6 +127,7 @@ def password_reset_details():
     username_entry = ttk.Entry(main_frame, textvariable=username, width=20, justify="left")
     username_entry.grid(row=1, column=1)
     username_entry.focus()
+    username_entry.bind("<Return>", lambda event: ask_question())
 
     blank = ttk.Label(main_frame, text=" ")
     blank.grid(row=2, column=0)
