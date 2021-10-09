@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 
+
 app_name = "Make a Selection"
 
 root = Tk()

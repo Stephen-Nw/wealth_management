@@ -6,7 +6,6 @@ import werkzeug.security
 from finance_database import add_new_user
 
 
-
 def new_user_details():
     root = Tk()
     root.title("Interprimos Wealth Management Solution")
@@ -127,7 +126,7 @@ def new_user_details():
     blank4b = ttk.Label(main_frame, text=" ")
     blank4b.grid(row=8, column=1)
 
-    answer_one_label = ttk.Label(main_frame, text="Challenge Answer",)
+    answer_one_label = ttk.Label(main_frame, text="Challenge Answer", )
     answer_one_label.grid(row=9, column=0)
 
     challenge_answer1 = StringVar()
@@ -156,7 +155,7 @@ def new_user_details():
     blank6b = ttk.Label(main_frame, text=" ")
     blank6b.grid(row=12, column=1)
 
-    answer_two_label = ttk.Label(main_frame, text="Challenge Answer",)
+    answer_two_label = ttk.Label(main_frame, text="Challenge Answer", )
     answer_two_label.grid(row=13, column=0)
 
     challenge_answer2 = StringVar()
@@ -185,7 +184,7 @@ def new_user_details():
     blank8b = ttk.Label(main_frame, text=" ")
     blank8b.grid(row=16, column=1)
 
-    answer_three_label = ttk.Label(main_frame, text="Challenge Answer",)
+    answer_three_label = ttk.Label(main_frame, text="Challenge Answer", )
     answer_three_label.grid(row=17, column=0)
 
     challenge_answer3 = StringVar()
@@ -203,10 +202,3 @@ def new_user_details():
     submit_button.grid(row=19, column=0, columnspan=2)
 
     root.mainloop()
-
-
-
-
-
-
-
