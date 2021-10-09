@@ -36,25 +36,6 @@ def new_user_details():
         else:
             messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
 
-    def create_user2(event):
-        """Retrieves user information in window and saves to database. Takes user to main application page"""
-        initial_password = password_entry.get()
-        validate_password = reenter_password.get()
-        if initial_password == validate_password:
-            secure_password = werkzeug.security.generate_password_hash(initial_password,
-                                                                       method='pbkdf2:sha256', salt_length=8)
-            user_name = username_entry.get()
-            first_question = challenge_question1.get()
-            first_answer = answer_one.get()
-            second_question = challenge_question2.get()
-            second_answer = answer_two.get()
-            third_question = challenge_question3.get()
-            third_answer = answer_three.get()
-            add_new_user(user_name, secure_password, first_question, first_answer, second_question, second_answer,
-                         third_question, third_answer)
-        else:
-            messagebox.showwarning(title="Oops!!", message="Your passwords do not match. Try again ")
-
     # =================DROPDOWN QUESTIONS===================================== #
     challenge_questions = [
         "What is your mother's maiden name?",
@@ -192,7 +173,7 @@ def new_user_details():
     challenge_answer3 = StringVar()
     answer_three = ttk.Entry(main_frame, textvariable=challenge_answer3, width=40, justify="left")
     answer_three.grid(row=17, column=1)
-    answer_three.bind("<Return>", create_user2)
+    answer_three.bind("<Return>", lambda event: create_user())
 
     blank9a = ttk.Label(main_frame, text=" ")
     blank9a.grid(row=18, column=0)
