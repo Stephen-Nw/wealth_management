@@ -40,7 +40,7 @@ def submit_login(u_name, p_word):
             messagebox.showwarning(title="Oops!!", message="Password is incorrect")
 
 
-def login(event, ):
+def login(event, u_name, p_word):
     """Directs user to main page of the application"""
     print("LOGIN!!!")
 
@@ -102,7 +102,9 @@ password_label.grid(row=3, column=0)
 password = StringVar()
 password_entry = ttk.Entry(main_frame, textvariable=password, width=30, justify="left", show="*")
 password_entry.grid(row=3, column=1)
-password_entry.bind("<Return>", login)
+# password_entry.bind("<Return>", login)
+# password_entry.bind("<Return>", lambda: login(username_entry.get(), password_entry.get()))
+password_entry.bind("<Return>", lambda event: submit_login(username_entry.get(), password_entry.get()))
 
 blank3 = ttk.Label(main_frame, text=" ")
 blank3.grid(row=4, column=0)
