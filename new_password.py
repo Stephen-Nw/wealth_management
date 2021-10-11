@@ -8,6 +8,7 @@ import werkzeug.security
 
 
 def password_reset_details():
+    """Reset user password"""
     root = Tk()
     root.title("Interprimos Wealth Management Solution")
 
@@ -72,35 +73,23 @@ def password_reset_details():
             submit_btn.destroy()
 
             new_password_label = ttk.Label(main_frame, text="New Password")
-            new_password_label.grid(row=1, column=0)
+            new_password_label.grid(row=1, column=0, pady=5)
 
             new_password = StringVar()
             new_password = ttk.Entry(main_frame, textvariable=new_password, width=20, justify="left", show="*")
-            new_password.grid(row=1, column=1)
+            new_password.grid(row=1, column=1, pady=5, padx=5)
             new_password.focus()
 
-            blk1a = ttk.Label(main_frame, text=" ")
-            blk1a.grid(row=2, column=0)
-
-            blk1b = ttk.Label(main_frame, text=" ")
-            blk1b.grid(row=2, column=1)
-
             reenter_password_label = ttk.Label(main_frame, text="Reenter Password")
-            reenter_password_label.grid(row=3, column=0)
+            reenter_password_label.grid(row=2, column=0, pady=5)
 
             reenter_password = StringVar()
             reenter_password = ttk.Entry(main_frame, textvariable=reenter_password, width=20, justify="left", show="*")
-            reenter_password.grid(row=3, column=1)
-
-            blk2a = ttk.Label(main_frame, text=" ")
-            blk2a.grid(row=4, column=0)
-
-            blk2b = ttk.Label(main_frame, text=" ")
-            blk2b.grid(row=4, column=1)
+            reenter_password.grid(row=2, column=1, pady=5, padx=5)
 
             update_password = ttk.Button(main_frame, text="Submit",
                                          command=lambda: update_db(new_password.get(), reenter_password.get(), user))
-            update_password.grid(row=5, column=0, columnspan=2)
+            update_password.grid(row=3, column=0, columnspan=2, pady=10)
 
     def update_db(pw1, pw2, user):
         """Update database with new user password"""
@@ -139,3 +128,7 @@ def password_reset_details():
     submit_button.grid(row=3, column=1, columnspan=2)
 
     root.mainloop()
+
+# TODO 1 - Set Return Key to submit new password
+# TODO 2 - Create message notifying user password has been reset
+# TODO 3 - Return user to login page
