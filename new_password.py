@@ -4,6 +4,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from finance_database import retrieve_user_info, update_user_password
 from random import choice
+from home_page import home
 import werkzeug.security
 
 
@@ -106,7 +107,9 @@ def password_reset_details():
                                                                         method='pbkdf2:sha256', salt_length=8)
             update_user_password(user, updated_password)
 
-            messagebox.showinfo(title="Success!!", message="Your password has been updated. Please log in again")
+            messagebox.showinfo(title="Success!!", message="Your password has been updated.")
+            root.destroy()
+            home()
 
     # =============PAGE LOGIC ======================================= #
     app_name = "Password reset"
@@ -138,6 +141,5 @@ def password_reset_details():
 
     root.mainloop()
 
-# TODO 1 - Set Return Key to submit new password
-# TODO 2 - Create message notifying user password has been reset
+
 # TODO 3 - Return user to login page
