@@ -7,6 +7,7 @@ from random import choice
 import werkzeug.security
 
 
+# ==============FUNCTIONS======================== #
 def password_reset_details():
     """Reset user password"""
     root = Tk()
@@ -45,6 +46,10 @@ def password_reset_details():
         validate_user_password = ttk.Entry(main_frame, textvariable=validate_user_password, width=20, justify="left")
         validate_user_password.grid(row=2, column=0)
         validate_user_password.focus()
+        validate_user_password.bind("<Return>", lambda event: password_reset(validate_user_password.get(),
+                                                                             validate_user_question,
+                                                                             validate_user_password,
+                                                                             blank1, reset_password, user))
 
         blank1 = ttk.Label(main_frame, text=" ")
         blank1.grid(row=3, column=0)
@@ -86,6 +91,7 @@ def password_reset_details():
             reenter_password = StringVar()
             reenter_password = ttk.Entry(main_frame, textvariable=reenter_password, width=20, justify="left", show="*")
             reenter_password.grid(row=2, column=1, pady=5, padx=5)
+            reenter_password.bind("<Return>", lambda event: update_db(new_password.get(), reenter_password.get(), user))
 
             update_password = ttk.Button(main_frame, text="Submit",
                                          command=lambda: update_db(new_password.get(), reenter_password.get(), user))
@@ -100,6 +106,9 @@ def password_reset_details():
                                                                         method='pbkdf2:sha256', salt_length=8)
             update_user_password(user, updated_password)
 
+            messagebox.showinfo(title="Success!!", message="Your password has been updated. Please log in again")
+
+    # =============PAGE LOGIC ======================================= #
     app_name = "Password reset"
     title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
