@@ -38,6 +38,12 @@ def home():
     def debt_to_income_ratio():
         pass
 
+    def exit_fn():
+        """Return user to login page"""
+        root.destroy()
+        from main import main_page
+        main_page()
+
     # ==============FONTS ================================= #
     title_font = Font(family="Helvetica", size=10, weight="bold", slant="italic")
 
@@ -65,5 +71,8 @@ def home():
 
     di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=debt_to_income_ratio)
     di_ratio_button.grid(row=4, column=0, pady=5, columnspan=2, padx=5)
+
+    exit_button = ttk.Button(main_frame, text="Exit", command=exit_fn)
+    exit_button.grid(row=5, column=0, pady=5, columnspan=2, padx=5)
 
     root.mainloop()
