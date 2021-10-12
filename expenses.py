@@ -31,7 +31,10 @@ def expense_log():
         home()
 
     def exit_fxn():
-        pass
+        """Return user to login page"""
+        root.destroy()
+        from main import main_page
+        main_page()
 
     def mortgage(category, item, amount):
         try:
