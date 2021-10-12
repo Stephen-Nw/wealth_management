@@ -3,10 +3,12 @@ from tkinter import ttk
 from tkinter.font import Font
 from tkinter import messagebox
 import datetime as dt
+from home_page import home
 from finance_database import add_new_expense
 
 
 def expense_log():
+    """Logs expenses entered bu user into database"""
     # app_name = "Expenses"
 
     root = Tk()
@@ -24,7 +26,9 @@ def expense_log():
 
     # =============== FUNCTIONS ========================= #
     def return_main():
-        pass
+        """Return user to main page"""
+        root.destroy()
+        home()
 
     def exit_fxn():
         pass

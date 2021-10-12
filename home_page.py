@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
-from expenses import expense_log
+# from expenses import expense_log
 
 
 def home():
@@ -22,6 +22,7 @@ def home():
 
     def expense():
         """Directs user to expense page for user to document expenses"""
+        from expenses import expense_log
         root.destroy()
         expense_log()
 
