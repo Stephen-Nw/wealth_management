@@ -23,6 +23,12 @@ def expense_log():
     category_color = "AliceBlue"
 
     # =============== FUNCTIONS ========================= #
+    def return_main():
+        pass
+
+    def exit_fxn():
+        pass
+
     def mortgage(category, item, amount):
         try:
             amt = int(amount)
@@ -795,6 +801,9 @@ def expense_log():
     giving_frame = ttk.Frame(main_frame, style="Section.TFrame")
     giving_frame.grid(row=2, column=1, padx=10, pady=10)
 
+    closing_frame = ttk.Frame(main_frame, style="Section.TFrame")
+    closing_frame.grid(row=3, column=1, padx=10, pady=10)
+
     # ================ EXPENSES CATEGORIES ================  #
     # **************** Housing ***************************** #
     housing_header = ttk.Label(housing_frame, text="Housing", font=section_font, justify="center",
@@ -1425,5 +1434,11 @@ def expense_log():
                                                                                     fam_misc_lbl["text"],
                                                                                     fam_misc_entry.get()))
     fam_misc_btn.grid(row=6, column=2, pady=3, padx=3)
+
+    return_main_btn = ttk.Button(main_frame, text="Return to main page", command=return_main)
+    return_main_btn.grid(row=3, column=0, padx=5, pady=10)
+
+    exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
+    exit_fxn_btn.grid(row=3, column=1)
 
     root.mainloop()
