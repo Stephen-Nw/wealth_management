@@ -60,6 +60,6 @@ def update_user_password(name, p_word):
 
 def add_new_income(dt, cat, amt):
     """Add new income to income table"""
-    cursor.execute("INSERT INTO expense VALUES (:date, :category, :item, :amount)",
+    cursor.execute("INSERT INTO income VALUES (:date, :category, :amount)",
                    {"date": dt, "category": cat, "amount": amt})
     db.commit()

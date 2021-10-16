@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from tkinter import messagebox
 import datetime as dt
+from finance_database import add_new_income
 from home_page import home
 
 root = Tk()
@@ -37,27 +38,88 @@ def pri_income(category, amount):
 
 
 def sec_income(category, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            sec_income_cat = category
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_income(current_day, sec_income_cat, amt)
+
+    sec_income_entry.delete(0, END)
 
 
 def spouse_income(category, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            spouse_income_cat = category
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_income(current_day, spouse_income_cat, amt)
+
+    spouse_income_entry.delete(0, END)
 
 
 def additional_income(category, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            additional_income_cat = category
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_income(current_day, additional_income_cat, amt)
+
+    additional_income_entry.delete(0, END)
 
 
 def misc_income(category, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            misc_income_cat = category
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_income(current_day, misc_income_cat, amt)
+
+    misc_income_entry.delete(0, END)
 
 
 def return_main():
-    pass
+    """Return user to main page"""
+    root.destroy()
+    home()
 
 
 def exit_fxn():
-    pass
+    """Return user to login page"""
+    root.destroy()
+    from main import main_page
+    main_page()
 
 
 # =============== FRAMES ============================ #
