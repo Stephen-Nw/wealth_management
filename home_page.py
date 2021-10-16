@@ -18,7 +18,10 @@ def home():
         pass
 
     def income():
-        pass
+        """Directs user to income page for user to document income"""
+        from income import income_log
+        root.destroy()
+        income_log()
 
     def expense():
         """Directs user to expense page for user to document expenses"""
