@@ -12,7 +12,7 @@ def expense_log():
     # app_name = "Expenses"
 
     root = Tk()
-    root.title("Interprimos Wealth Management Solution")
+    root.title("Expenses")
     main_style = ttk.Style()
     main_style.configure("Main.TFrame", background="gray70")
     main_frame = ttk.Frame(root, padding=10, width=930, height=330, style="Main.TFrame")
