@@ -19,7 +19,21 @@ category_color = "AliceBlue"
 
 # ================= FUNCTIONS ==================================== #
 def pri_income(category, amount):
-    pass
+    try:
+        amt = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if amt < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            pri_income_cat = category
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+
+            add_new_income(current_day, pri_income_cat, amt)
+
+    pri_income_entry.delete(0, END)
 
 
 def sec_income(category, amount):
@@ -37,8 +51,10 @@ def additional_income(category, amount):
 def misc_income(category, amount):
     pass
 
+
 def return_main():
     pass
+
 
 def exit_fxn():
     pass
