@@ -3,6 +3,7 @@ import sqlite3
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
 
+
 # cursor.execute(
 #     "CREATE TABLE user (username varchar(250) NOT NULL UNIQUE,"
 #     "password varchar(250) NOT NULL UNIQUE,"
@@ -33,9 +34,6 @@ cursor = db.cursor()
 #     "deposit varchar(250),"
 #     "withdraw varchar(250))"
 # )
-
-
-
 
 
 def add_new_expense(dt, cat, itm, amt):
@@ -73,3 +71,12 @@ def add_new_income(dt, cat, amt):
     cursor.execute("INSERT INTO income VALUES (:date, :category, :amount)",
                    {"date": dt, "category": cat, "amount": amt})
     db.commit()
+
+
+def add_to_savings(dt, amt, dep):
+    """Add new income to income table"""
+    cursor.execute("INSERT INTO income VALUES (:date, :amount, :deposit)",
+                   {"date": dt, "amount": amt, "deposit": dep})
+    db.commit()
+
+
