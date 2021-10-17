@@ -37,7 +37,29 @@ def savings_add(amount):
     savings_entry.delete(0, END)
 
 
-def savings_remove(withdraw_amt):
+def savings_remove(amount):
+    try:
+        withdrawal_amount = int(amount)
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Please type whole numbers only")
+    else:
+        if withdrawal_amount < 0:
+            messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
+        else:
+            current_timestamp = dt.datetime.now()
+            current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+            deposit_amount = ""
+
+            update_savings(current_day, deposit_amount, withdrawal_amount)
+
+    savings_entry.delete(0, END)
+
+
+def return_main():
+    pass
+
+
+def exit_fxn():
     pass
 
 
@@ -61,5 +83,11 @@ savings_add_btn.grid(row=0, column=2, pady=5, padx=5)
 
 savings_remove_btn = ttk.Button(savings_frame, text="Withdraw", command=lambda: savings_remove(savings_entry.get()))
 savings_remove_btn.grid(row=0, column=3, pady=5, padx=5)
+
+# return_main_btn = ttk.Button(main_frame, text="Return to main page", command=return_main)
+# return_main_btn.grid(row=1, column=0, padx=5, pady=5)
+#
+# exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
+# exit_fxn_btn.grid(row=2, column=0)
 
 root.mainloop()
