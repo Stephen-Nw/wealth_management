@@ -35,17 +35,17 @@ savings_frame = ttk.Frame(main_frame, style="Section.TFrame")
 savings_frame.grid(row=0, column=0, padx=5, pady=5)
 
 # ============= Savings ================================= #
-savings_lbl = ttk.Label(savings_frame, text="Amount")
-savings_lbl.grid(row=0, column=0, padx=3, pady=3)
+savings_lbl = ttk.Label(savings_frame, text="Amount", font=column_font)
+savings_lbl.grid(row=0, column=0, padx=5, pady=5)
 
 savings_entry = IntVar()
 savings_entry = ttk.Entry(savings_frame, textvariable=savings_entry, width=10)
-savings_entry.grid(row=0, column=1, padx=3, pady=3)
+savings_entry.grid(row=0, column=1, padx=5, pady=5)
 
 savings_add_btn = ttk.Button(savings_frame, text="Deposit", command=lambda: savings_add(savings_entry.get()))
-savings_add_btn.grid(row=0, column=2, pady=3, padx=3)
+savings_add_btn.grid(row=0, column=2, pady=5, padx=5)
 
 savings_remove_btn = ttk.Button(savings_frame, text="Withdraw", command=lambda: savings_remove(savings_entry.get()))
-savings_remove_btn.grid(row=0, column=3, pady=3, padx=3)
+savings_remove_btn.grid(row=0, column=3, pady=5, padx=5)
 
 root.mainloop()
