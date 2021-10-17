@@ -30,7 +30,6 @@ cursor = db.cursor()
 
 # cursor.execute(
 #     "CREATE TABLE savings (date varchar(250),"
-#     "amount varchar(250),"
 #     "deposit varchar(250),"
 #     "withdraw varchar(250))"
 # )
@@ -73,10 +72,15 @@ def add_new_income(dt, cat, amt):
     db.commit()
 
 
-def add_to_savings(dt, amt, dep):
-    """Add new income to income table"""
-    cursor.execute("INSERT INTO income VALUES (:date, :amount, :deposit)",
-                   {"date": dt, "amount": amt, "deposit": dep})
+def add_to_savings(dt, dep):
+    """Add to deposits column"""
+    cursor.execute("INSERT INTO income VALUES (:date, :deposit)",
+                   {"date": dt, "deposit": dep})
     db.commit()
 
 
+def withdraw_from_savings(dt, wdraw):
+    """Add to withdraw column"""
+    cursor.execute("INSERT INTO income VALUES (:date, :withdraw)",
+                   {"date": dt, "withdraw": wdraw})
+    db.commit()
