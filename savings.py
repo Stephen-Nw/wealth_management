@@ -56,11 +56,16 @@ def savings_remove(amount):
 
 
 def return_main():
-    pass
+    """Return user to main page"""
+    root.destroy()
+    home()
 
 
 def exit_fxn():
-    pass
+    """Return user to login page"""
+    root.destroy()
+    from main import main_page
+    main_page()
 
 
 # =============== FRAMES ============================ #
