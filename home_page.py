@@ -38,7 +38,9 @@ def home():
         savings_log()
 
     def investment():
-        pass
+        from investment import investments_log
+        root.destroy()
+        investments_log()
 
     def debt_to_income_ratio():
         pass
