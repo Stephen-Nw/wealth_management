@@ -12,9 +12,7 @@ main_frame = ttk.Frame(root, padding=10, width=950, height=350)
 main_frame.grid(row=0, column=0)
 
 # ================ STYLING ====================================== #
-# section_font = Font(family="Helvetica", weight="bold", slant="italic", size=10)
 column_font = Font(family="Helvetica", weight="bold", size=8)
-# heading_color = "green1"
 category_color = "AliceBlue"
 
 
