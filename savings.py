@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from tkinter import messagebox
 import datetime as dt
-from finance_database import add_new_income, add_to_savings, withdraw_from_savings
+from finance_database import update_savings
 from home_page import home
 
 root = Tk()
@@ -19,19 +19,20 @@ category_color = "AliceBlue"
 
 
 # ================= FUNCTIONS ==================================== #
-def savings_add(deposit_amt):
+def savings_add(amount):
     try:
-        amt = int(deposit_amt)
+        deposit_amount = int(amount)
     except ValueError:
         messagebox.showerror(title="Error!!", message="Please type whole numbers only")
     else:
-        if amt < 0:
+        if deposit_amount < 0:
             messagebox.showerror(title="Error!!", message="Number cannot be less than zero!!")
         else:
             current_timestamp = dt.datetime.now()
             current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+            withdrawal_amount = ""
 
-            add_to_savings(current_day, amt)
+            update_savings(current_day, deposit_amount, withdrawal_amount)
 
     savings_entry.delete(0, END)
 

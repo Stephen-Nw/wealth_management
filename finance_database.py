@@ -75,7 +75,7 @@ def add_new_income(dt, cat, amt):
 def update_savings(dt, dep, wdraw):
     """Add to deposits column"""
     cursor.execute("INSERT INTO savings VALUES (:date, :deposit, :withdraw)",
-                   {"date": dt, "deposit": dep, "withdraw":wdraw})
+                   {"date": dt, "deposit": dep, "withdraw": wdraw})
     db.commit()
 
 
