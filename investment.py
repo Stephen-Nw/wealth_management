@@ -9,7 +9,7 @@ from home_page import home
 
 def investments_log():
     root = Tk()
-    root.title("investments")
+    root.title("Investments")
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame.grid(row=0, column=0)
 
