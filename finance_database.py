@@ -27,6 +27,16 @@ cursor = db.cursor()
 #     "amount varchar(250))"
 # )
 
+# cursor.execute(
+#     "CREATE TABLE savings (date varchar(250),"
+#     "amount varchar(250),"
+#     "deposit varchar(250),"
+#     "withdraw varchar(250))"
+# )
+
+
+
+
 
 def add_new_expense(dt, cat, itm, amt):
     """Add new expense to expense table"""
