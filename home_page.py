@@ -33,7 +33,9 @@ def home():
         pass
 
     def savings():
-        pass
+        from savings import savings_log
+        root.destroy()
+        savings_log()
 
     def investment():
         pass
