@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
@@ -90,3 +91,24 @@ def update_investments(dt, dep, wdraw):
     cursor.execute("INSERT INTO investments VALUES (:date, :deposit, :withdraw)",
                    {"date": dt, "deposit": dep, "withdraw": wdraw})
     db.commit()
+
+
+# def retrieve_expense():
+#     expense_df = pd.read_sql_query("SELECT * from expense", db)  # Read sql into dataframe
+#     print(expense_df.head())
+#     print(type(expense_df.date[1]))
+#     print("============================================")
+#     print("============================================")
+#     expense_df.date = pd.to_datetime(expense_df.date)  # or expense_df['date']
+#     print(expense_df.head())
+#     print(type(expense_df.date[1]))
+#     print("============================================")
+#     print("============================================")
+#     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year
+#     expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month
+#     print(expense_df.head())
+
+
+
+
+retrieve_expense()

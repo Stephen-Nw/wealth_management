@@ -78,10 +78,12 @@ def investments_log():
     investments_entry = ttk.Entry(investments_frame, textvariable=investments_entry, width=10)
     investments_entry.grid(row=0, column=1, padx=5, pady=5)
 
-    investments_add_btn = ttk.Button(investments_frame, text="Deposit", command=lambda: investments_add(investments_entry.get()))
+    investments_add_btn = ttk.Button(investments_frame, text="Deposit",
+                                     command=lambda: investments_add(investments_entry.get()))
     investments_add_btn.grid(row=0, column=2, pady=5, padx=5)
 
-    investments_remove_btn = ttk.Button(investments_frame, text="Withdraw", command=lambda: investments_remove(investments_entry.get()))
+    investments_remove_btn = ttk.Button(investments_frame, text="Withdraw",
+                                        command=lambda: investments_remove(investments_entry.get()))
     investments_remove_btn.grid(row=0, column=3, pady=5, padx=5)
 
     return_main_btn = ttk.Button(main_frame, text="Return to main page", command=return_main)

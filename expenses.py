@@ -48,7 +48,7 @@ def expense_log():
                 mort_cat = category
                 mort_item = item
                 current_timestamp = dt.datetime.now()
-                current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
+                current_day = dt.datetime.strftime(current_timestamp, "%Y-%b-%d")
 
                 add_new_expense(current_day, mort_cat, mort_item, amt)
 
