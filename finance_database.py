@@ -20,14 +20,6 @@ cursor = db.cursor()
 #     "CREATE TABLE expense (date varchar(250),"
 #     "category varchar(250),"
 #     "item varchar(250),"
-#     "amount varchar(250))"
-# )
-
-
-# cursor.execute(
-#     "CREATE TABLE expense (date varchar(250),"
-#     "category varchar(250),"
-#     "item varchar(250),"
 #     "amount int)"
 # )
 
@@ -116,7 +108,8 @@ def retrieve_expense():
     # print(expense_df.head())
     print(expense_df)
     # print(expense_df.tail())
-    print(expense_df.groupby("month_name")["amount"].sum())
+    monthly_expense_sum = expense_df.groupby("month_name")["amount"].sum()
+    print(monthly_expense_sum)
 
 
 # TODO 1: Group rows into categories by months; find the sum of the items by month
