@@ -23,6 +23,14 @@ cursor = db.cursor()
 #     "amount varchar(250))"
 # )
 
+
+# cursor.execute(
+#     "CREATE TABLE expense (date varchar(250),"
+#     "category varchar(250),"
+#     "item varchar(250),"
+#     "amount int)"
+# )
+
 # cursor.execute(
 #     "CREATE TABLE income (date varchar(250),"
 #     "category varchar(250),"
@@ -93,22 +101,27 @@ def update_investments(dt, dep, wdraw):
     db.commit()
 
 
-# def retrieve_expense():
-#     expense_df = pd.read_sql_query("SELECT * from expense", db)  # Read sql into dataframe
-#     print(expense_df.head())
-#     print(type(expense_df.date[1]))
-#     print("============================================")
-#     print("============================================")
-#     expense_df.date = pd.to_datetime(expense_df.date)  # or expense_df['date']
-#     print(expense_df.head())
-#     print(type(expense_df.date[1]))
-#     print("============================================")
-#     print("============================================")
-#     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year
-#     expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month
-#     print(expense_df.head())
+def retrieve_expense():
+    # ***************Read sql into dataframe *****************
+    expense_df = pd.read_sql_query("SELECT * from expense", db)
+
+    # **********Convert date to panda timestamp***********
+    expense_df.date = pd.to_datetime(expense_df.date)  # or expense_df['date']
+
+    # **************** Create new columns 'year' and add to the dataframe ********
+    expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year
+
+    # ********** Convert month from number to name using dt.month_name() function**********
+    expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
+    # print(expense_df.head())
+    print(expense_df)
+    # print(expense_df.tail())
+    print(expense_df.groupby("month_name")["amount"].sum())
 
 
+# TODO 1: Group rows into categories by months; find the sum of the items by month
+# TODO 2: Repeat for income table
+# TODO 3: Create bar chart with income/expenses per year
 
 
 retrieve_expense()
