@@ -105,8 +105,10 @@ def retrieve_expense():
 
     # ********** Convert month from number to name using dt.month_name() function**********
     expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
-    # print(expense_df.head())
-    # print(expense_df)
+    expense_df = expense_df.sort_values("date")
+    # print(type(expense_df))
+
+    # ********** Group DataFrame by month and convert to panda series**********
     expense_sum = expense_df.groupby("month_name")["amount"].sum()  # Panda series
     # print(expense_sum)
 
@@ -114,8 +116,15 @@ def retrieve_expense():
     total_expense_df = pd.DataFrame({"Month": expense_sum.index, "Expense": expense_sum.values})
     print(total_expense_df)
 
+    # ************* Sort DataFrame by month ********************
+    sort_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                  'October', 'November', 'December']
+    total_expense_df.index = pd.CategoricalIndex(total_expense_df['Month'], categories=sort_order, ordered=True)
+    total_expense_df = total_expense_df.sort_index().reset_index(drop=True)
+    print(total_expense_df)
 
-# TODO 1: Group rows into categories by months; find the sum of the items by month
+
+# TODO 1: Group rows into categories by months; find the sum of the items by month; sort rows
 # TODO 2: Repeat for income table
 # TODO 3: Create bar chart with income/expenses per year
 
