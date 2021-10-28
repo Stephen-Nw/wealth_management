@@ -114,7 +114,7 @@ def retrieve_expense():
 
     # ********** Convert Panda Series to Dataframe**********
     total_expense_df = pd.DataFrame({"Month": expense_sum.index, "Expense": expense_sum.values})
-    print(total_expense_df)
+    # print(total_expense_df)
 
     # ************* Sort DataFrame by month ********************
     sort_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
