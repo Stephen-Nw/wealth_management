@@ -106,10 +106,13 @@ def retrieve_expense():
     # ********** Convert month from number to name using dt.month_name() function**********
     expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
     # print(expense_df.head())
-    print(expense_df)
-    # print(expense_df.tail())
-    monthly_expense_sum = expense_df.groupby("month_name")["amount"].sum()
-    print(monthly_expense_sum)
+    # print(expense_df)
+    monthly_expense_sum = expense_df.groupby("month_name")["amount"].sum()  # Panda series
+    # print(monthly_expense_sum)
+
+    # ********** Convert Panda Series to Dataframe**********
+    total_monthly_expense_df = pd.DataFrame({"Month": monthly_expense_sum.index, "Expense": monthly_expense_sum.values})
+    print(total_monthly_expense_df)
 
 
 # TODO 1: Group rows into categories by months; find the sum of the items by month
