@@ -107,24 +107,25 @@ def retrieve_expense():
     # ********** Convert month from number to name using dt.month_name() function**********
     expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
     expense_df = expense_df.sort_values("date")
-    print(expense_df)
-    print("=============================")
+    # print(expense_df)
+    # print("=============================")
 
-    # *********** Create new dataframe for current year only ******************
+    # *********** Subset new dataframe for current year only ******************
     current_timestamp = dt.datetime.now()
     current_year = dt.datetime.strftime(current_timestamp, "%Y")
     is_current_year = expense_df['year'] == int(current_year)  # Boolean that evaluates for  current year
     current_year_expense_df = expense_df[is_current_year]
-    print(current_year_expense_df)
-    print("=============================")
+    # print(current_year_expense_df)
+    # print("=============================")
 
     # ********** Group DataFrame by month and convert to panda series**********
-    expense_sum = expense_df.groupby("month_name")["amount"].sum()  # Panda series
+    expense_sum = current_year_expense_df.groupby("month_name")["amount"].sum()  # Panda series
     # print(expense_sum)
 
     # ********** Convert Panda Series to Dataframe**********
     total_expense_df = pd.DataFrame({"Month": expense_sum.index, "Expense": expense_sum.values})
     # print(total_expense_df)
+    # print("=============================")
 
     # ************* Sort DataFrame by month ********************
     sort_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
