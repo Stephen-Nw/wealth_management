@@ -106,7 +106,15 @@ def retrieve_expense():
     # ********** Convert month from number to name using dt.month_name() function**********
     expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
     expense_df = expense_df.sort_values("date")
-    # print(type(expense_df))
+    print(expense_df)
+    print("=============================")
+
+    # *********** Create new dataframe for current year only ******************
+    is_2021 = expense_df['year'] == 2021  # Boolean that evaluates for  current year
+    # print(is_2021)
+    expense_df_2021 = expense_df[is_2021]
+    print(expense_df_2021)
+    print("=============================")
 
     # ********** Group DataFrame by month and convert to panda series**********
     expense_sum = expense_df.groupby("month_name")["amount"].sum()  # Panda series
