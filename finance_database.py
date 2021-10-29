@@ -112,12 +112,10 @@ def retrieve_expense():
 
     # *********** Create new dataframe for current year only ******************
     current_timestamp = dt.datetime.now()
-    current_day = dt.datetime.strftime(current_timestamp, "%Y-%b-%d")
-
-    is_2021 = expense_df['year'] == 2021  # Boolean that evaluates for  current year
-    print(is_2021)
-    expense_df_2021 = expense_df[is_2021]
-    print(expense_df_2021)
+    current_year = dt.datetime.strftime(current_timestamp, "%Y")
+    is_current_year = expense_df['year'] == int(current_year)  # Boolean that evaluates for  current year
+    current_year_expense_df = expense_df[is_current_year]
+    print(current_year_expense_df)
     print("=============================")
 
     # ********** Group DataFrame by month and convert to panda series**********
