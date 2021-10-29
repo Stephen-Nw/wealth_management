@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import datetime as dt
 
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
@@ -110,8 +111,11 @@ def retrieve_expense():
     print("=============================")
 
     # *********** Create new dataframe for current year only ******************
+    current_timestamp = dt.datetime.now()
+    current_day = dt.datetime.strftime(current_timestamp, "%Y-%b-%d")
+
     is_2021 = expense_df['year'] == 2021  # Boolean that evaluates for  current year
-    # print(is_2021)
+    print(is_2021)
     expense_df_2021 = expense_df[is_2021]
     print(expense_df_2021)
     print("=============================")
