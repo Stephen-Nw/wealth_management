@@ -27,7 +27,7 @@ cursor = db.cursor()
 # cursor.execute(
 #     "CREATE TABLE income (date varchar(250),"
 #     "category varchar(250),"
-#     "amount varchar(250))"
+#     "amount int)"
 # )
 
 # cursor.execute(
@@ -95,49 +95,61 @@ def update_investments(dt, dep, wdraw):
 
 
 def retrieve_expense():
-    # ***************Read sql into dataframe *****************
+    # ***************Read sql for income and expense into dataframe *****************
     expense_df = pd.read_sql_query("SELECT * from expense", db)
+    income_df = pd.read_sql_query("SELECT * from income", db)
 
     # **********Convert date to panda timestamp***********
     expense_df.date = pd.to_datetime(expense_df.date)  # or expense_df['date']
+    income_df.date = pd.to_datetime(income_df.date)
 
     # **************** Create new columns 'year' and add to the dataframe ********
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year
+    income_df['year'] = pd.DatetimeIndex(income_df['date']).year
 
     # ********** Convert month from number to name using dt.month_name() function**********
     expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
     expense_df = expense_df.sort_values("date")
-    # print(expense_df)
-    # print("=============================")
+
+    income_df['month_name'] = income_df.date.dt.month_name(locale='English')
+    income_df = income_df.sort_values("date")
+    # print(income_df)
 
     # *********** Subset new dataframe for current year only ******************
     current_timestamp = dt.datetime.now()
     current_year = dt.datetime.strftime(current_timestamp, "%Y")
-    is_current_year = expense_df['year'] == int(current_year)  # Boolean that evaluates for  current year
-    current_year_expense_df = expense_df[is_current_year]
-    # print(current_year_expense_df)
-    # print("=============================")
+    is_current_year_expense = expense_df['year'] == int(current_year)  # Boolean that evaluates for  current year
+    current_year_expense_df = expense_df[is_current_year_expense]
+
+    is_current_year_income = income_df['year'] == int(current_year)
+    current_year_income_df = income_df[is_current_year_income]
 
     # ********** Group DataFrame by month and convert to panda series**********
     expense_sum = current_year_expense_df.groupby("month_name")["amount"].sum()  # Panda series
-    # print(expense_sum)
+    income_sum = current_year_income_df.groupby("month_name")["amount"].sum()
 
     # ********** Convert Panda Series to Dataframe**********
     total_expense_df = pd.DataFrame({"Month": expense_sum.index, "Expense": expense_sum.values})
-    # print(total_expense_df)
-    # print("=============================")
+    total_income_df = pd.DataFrame({"Month": income_sum.index, "Income": income_sum.values})
 
     # ************* Sort DataFrame by month ********************
     sort_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
                   'October', 'November', 'December']
     total_expense_df.index = pd.CategoricalIndex(total_expense_df['Month'], categories=sort_order, ordered=True)
     total_expense_df = total_expense_df.sort_index().reset_index(drop=True)
+
+    total_income_df.index = pd.CategoricalIndex(total_income_df['Month'], categories=sort_order, ordered=True)
+    total_income_df = total_income_df.sort_index().reset_index(drop=True)
+
     print(total_expense_df)
+    print("******************************************************")
+    print(total_income_df)
 
 
 # TODO 1: Group rows into categories by months; find the sum of the items by month; sort rows
 # TODO 2: Repeat for income table
-# TODO 3: Create bar chart with income/expenses per year
+# TODO 3: Combine income and expense table
+# TODO 4: Create bar chart with income/expenses per year
 
 
 retrieve_expense()
