@@ -144,6 +144,16 @@ def retrieve_expense():
     print(total_expense_df)
     print("******************************************************")
     print(total_income_df)
+    print("******************************************************")
+
+    # ************** Merge income and expense dataframes ************************
+    # merged_df_1 = pd.merge(total_expense_df, total_income_df, how="left")
+    # print(merged_df_1)
+    # print("******************************************************")
+
+    merged_df_3 = pd.merge(total_expense_df, total_income_df, how="outer")
+    print(merged_df_3)
+
 
 
 # TODO 1: Group rows into categories by months; find the sum of the items by month; sort rows
