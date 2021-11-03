@@ -6,6 +6,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from home_page import home
 
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
@@ -106,6 +107,17 @@ def financial_overview():
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame.grid(row=0, column=0)
 
+    def return_main():
+        """Return user to main page"""
+        root.destroy()
+        home()
+
+    def exit_fxn():
+        """Return user to login page"""
+        root.destroy()
+        from main import main_page
+        main_page()
+
     # ***************Read sql for income and expense into dataframe *****************
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     income_df = pd.read_sql_query("SELECT * from income", db)
@@ -196,6 +208,12 @@ def financial_overview():
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+
+    return_main_btn = ttk.Button(main_frame, text="Return to main page", command=return_main)
+    return_main_btn.grid(row=1, column=0, padx=5, pady=5)
+
+    exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
+    exit_fxn_btn.grid(row=2, column=0)
 
     plt.show()
 
