@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 import datetime as dt
+import matplotlib.pyplot as plt
+import numpy as np
 
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
@@ -140,25 +142,44 @@ def retrieve_expense():
 
     total_income_df.index = pd.CategoricalIndex(total_income_df['Month'], categories=sort_order, ordered=True)
     total_income_df = total_income_df.sort_index().reset_index(drop=True)
-
-    print(total_expense_df)
-    print("******************************************************")
-    print(total_income_df)
-    print("******************************************************")
+    #
+    # print(total_expense_df)
+    # print("******************************************************")
+    # print(total_income_df)
+    # print("******************************************************")
 
     # ************** Merge income and expense dataframes ************************
     # merged_df_1 = pd.merge(total_expense_df, total_income_df, how="left")
     # print(merged_df_1)
     # print("******************************************************")
 
-    merged_df_3 = pd.merge(total_expense_df, total_income_df, how="outer")
-    print(merged_df_3)
+    combined_df = pd.merge(total_expense_df, total_income_df, how="outer")
+    print(combined_df)
+
+    # ************** Create bar charts ************************
+
+    labels = combined_df['Month']
+    expense_column = combined_df['Expense']
+    income_column = combined_df['Income']
+
+    label_list = []
+    expense_list = []
+    income_list = []
+
+    for item in labels:
+        label_list.append(item)
+
+    for item in expense_column:
+        expense_list.append(item)
+
+    for item in income_column:
+        income_list.append(item)
+
+    # plt.bar(inc, inc)
+    # plt.show()
 
 
 
-# TODO 1: Group rows into categories by months; find the sum of the items by month; sort rows
-# TODO 2: Repeat for income table
-# TODO 3: Combine income and expense table
 # TODO 4: Create bar chart with income/expenses per year
 
 
