@@ -142,11 +142,6 @@ def retrieve_expense():
 
     total_income_df.index = pd.CategoricalIndex(total_income_df['Month'], categories=sort_order, ordered=True)
     total_income_df = total_income_df.sort_index().reset_index(drop=True)
-    #
-    # print(total_expense_df)
-    # print("******************************************************")
-    # print(total_income_df)
-    # print("******************************************************")
 
     # ************** Merge income and expense dataframes ************************
     # merged_df_1 = pd.merge(total_expense_df, total_income_df, how="left")
@@ -175,8 +170,40 @@ def retrieve_expense():
     for item in income_column:
         income_list.append(item)
 
+    # print(label_list)
+    # print(expense_list)
+    # print(income_list)
+
     # plt.bar(inc, inc)
     # plt.show()
+
+    x = np.arange(len(label_list))  # label locations on chart
+    width = 0.35  # width of bars
+
+    fig, ax = plt.subplots()
+    inc = ax.bar(x - width/2, income_list, width, label='Income')
+    exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
+
+    # ax.bar(x - width/2, income_list, width, label='Income')
+    # ax.bar(x + width / 2, expense_list, width, label='Expenses')
+
+    ax.set_ylabel("Amount($)")
+    ax.set_title("Financial Summary")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.legend()
+
+    ax.bar_label(inc, padding=2)
+    ax.bar_label(exp, padding=2)
+
+    fig.tight_layout()
+
+    plt.show()
+
+
+
+
+
 
 
 
