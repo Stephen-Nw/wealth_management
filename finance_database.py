@@ -96,7 +96,8 @@ def update_investments(dt, dep, wdraw):
     db.commit()
 
 
-def retrieve_expense():
+def financial_overview():
+    """Create a bar chart summary of income and expenses for current year"""
     # ***************Read sql for income and expense into dataframe *****************
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     income_df = pd.read_sql_query("SELECT * from income", db)
@@ -144,10 +145,6 @@ def retrieve_expense():
     total_income_df = total_income_df.sort_index().reset_index(drop=True)
 
     # ************** Merge income and expense dataframes ************************
-    # merged_df_1 = pd.merge(total_expense_df, total_income_df, how="left")
-    # print(merged_df_1)
-    # print("******************************************************")
-
     combined_df = pd.merge(total_expense_df, total_income_df, how="outer")
     print(combined_df)
 
@@ -170,22 +167,12 @@ def retrieve_expense():
     for item in income_column:
         income_list.append(item)
 
-    # print(label_list)
-    # print(expense_list)
-    # print(income_list)
-
-    # plt.bar(inc, inc)
-    # plt.show()
-
     x = np.arange(len(label_list))  # label locations on chart
     width = 0.35  # width of bars
 
     fig, ax = plt.subplots()
     inc = ax.bar(x - width/2, income_list, width, label='Income')
     exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
-
-    # ax.bar(x - width/2, income_list, width, label='Income')
-    # ax.bar(x + width / 2, expense_list, width, label='Expenses')
 
     ax.set_ylabel("Amount($)")
     ax.set_title("Financial Summary")
@@ -203,11 +190,3 @@ def retrieve_expense():
 
 
 
-
-
-
-
-# TODO 4: Create bar chart with income/expenses per year
-
-
-retrieve_expense()
