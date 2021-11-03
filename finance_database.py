@@ -166,7 +166,7 @@ def financial_overview():
 
     # ************** Merge income and expense dataframes ************************
     combined_df = pd.merge(total_expense_df, total_income_df, how="outer")
-    print(combined_df)
+    # print(combined_df)
 
     # ************** Create bar charts ************************
 
@@ -205,8 +205,6 @@ def financial_overview():
 
     fig.tight_layout()
 
-    plt.show()
-
     # Embed bar chart tkinter GUI
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
@@ -218,9 +216,15 @@ def financial_overview():
     exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
     exit_fxn_btn.grid(row=2, column=0)
 
+    plt.show()
 
 
-financial_overview()
+
+# financial_overview()
+
+
+
+
 
 
 

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 # from expenses import expense_log
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 def home():
@@ -15,7 +16,10 @@ def home():
 
     # =============BUTTON CONTROLS ============================== #
     def overview():
-        pass
+        """Directs user to overview page"""
+        from finance_database import financial_overview
+        root.destroy()
+        financial_overview()
 
     def income():
         """Directs user to income page for user to document income"""
