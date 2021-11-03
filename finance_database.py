@@ -205,6 +205,9 @@ def financial_overview():
 
     fig.tight_layout()
 
+    plt.show()
+
+    # Embed bar chart tkinter GUI
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
@@ -215,7 +218,7 @@ def financial_overview():
     exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
     exit_fxn_btn.grid(row=2, column=0)
 
-    plt.show()
+
 
 financial_overview()
 
