@@ -1,8 +1,11 @@
+from tkinter import *
+from tkinter import ttk
 import sqlite3
 import pandas as pd
 import datetime as dt
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 db = sqlite3.connect("finance-db")
 cursor = db.cursor()
@@ -98,6 +101,11 @@ def update_investments(dt, dep, wdraw):
 
 def financial_overview():
     """Create a bar chart summary of income and expenses for current year"""
+    root = Tk()
+    root.title("Overview")
+    main_frame = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame.grid(row=0, column=0)
+
     # ***************Read sql for income and expense into dataframe *****************
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     income_df = pd.read_sql_query("SELECT * from income", db)
@@ -185,7 +193,13 @@ def financial_overview():
 
     fig.tight_layout()
 
+    canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+
     plt.show()
+
+financial_overview()
 
 
 
