@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 # from expenses import expense_log
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 
 
 def home():

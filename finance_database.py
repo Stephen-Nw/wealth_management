@@ -216,7 +216,9 @@ def financial_overview():
     exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
     exit_fxn_btn.grid(row=2, column=0)
 
-    plt.show()
+    # plt.show()
+    plt.close()
+    root.mainloop()
 
 
 
