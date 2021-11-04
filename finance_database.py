@@ -205,7 +205,7 @@ def financial_overview():
 
     fig.tight_layout()
 
-    # Embed bar chart tkinter GUI
+    # ******************** Embed bar chart tkinter GUI **********************************
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
