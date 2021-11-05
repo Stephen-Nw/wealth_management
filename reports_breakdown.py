@@ -1,11 +1,15 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
+from home_page import home
 
 root = Tk()
 root.title("Reports")
 main_frame = ttk.Frame(root, padding=10, width=950, height=350)
 main_frame.grid(row=0, column=0)
+
+exit_frame = ttk.Frame(root, width=950, height=350)
+exit_frame.grid(row=1, column=0)
 
 label_font = Font(family="Helvetica", size=8, weight="bold")
 
@@ -21,6 +25,19 @@ def yearly_breakdown():
 
 def monthly_report():
     pass
+
+
+def return_main():
+    """Return user to main page"""
+    root.destroy()
+    home()
+
+
+def exit_fxn():
+    """Return user to login page"""
+    root.destroy()
+    from main import main_page
+    main_page()
 
 
 # ************* CONSTANTS *******************
@@ -69,15 +86,21 @@ choose_year3 = StringVar()
 choose_year3.set("Year")
 selected_year3 = ttk.Combobox(main_frame, textvariable=choose_year3, values=year, state="readonly",
                               width=5, justify="center")
-selected_year3.grid(row=2, column=1, padx=5, pady=5)
+selected_year3.grid(row=2, column=1, padx=5)
 
 choose_month = StringVar()
 choose_month.set("Month")
 selected_month = ttk.Combobox(main_frame, textvariable=choose_month, values=month, state="readonly",
                               width=10, justify="center")
-selected_month.grid(row=2, column=2, padx=5, pady=5)
+selected_month.grid(row=2, column=2, padx=5)
 
 month_button = ttk.Button(main_frame, text="Submit", command=monthly_report)
-month_button.grid(row=2, column=3, padx=5, pady=5)
+month_button.grid(row=2, column=3, padx=5)
+
+return_main_btn = ttk.Button(exit_frame, text="Return to main page", command=return_main)
+return_main_btn.grid(row=0, column=0)
+
+exit_fxn_btn = ttk.Button(exit_frame, text="Exit", command=exit_fxn)
+exit_fxn_btn.grid(row=1, column=0, pady=5)
 
 root.mainloop()
