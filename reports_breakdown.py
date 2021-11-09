@@ -16,7 +16,9 @@ label_font = Font(family="Helvetica", size=8, weight="bold")
 
 # ************** FUNCTIONS *****************************
 def yearly_summary():
-    pass
+    chosen_year = choose_year1.get()
+    print(chosen_year)
+
 
 
 def yearly_breakdown():

@@ -244,6 +244,7 @@ def financial_summary():
     savings_text = "Yearly Savings"
     investment_text = "Yearly Investments"
 
+    # ****************** CREATE FINANCIAL SUMMARY STRUCTURE *************************
     heading_label = ttk.Label(main_frame, text=heading_text, font=heading_font, anchor="center", padding=5)
     heading_label.grid(row=0, column=0, columnspan=2, padx=5)
 
