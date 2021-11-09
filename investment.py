@@ -29,7 +29,7 @@ def investments_log():
             else:
                 current_timestamp = dt.datetime.now()
                 current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
-                withdrawal_amount = ""
+                withdrawal_amount = 0
 
                 update_investments(current_day, deposit_amount, withdrawal_amount)
 
@@ -46,7 +46,7 @@ def investments_log():
             else:
                 current_timestamp = dt.datetime.now()
                 current_day = dt.datetime.strftime(current_timestamp, "%Y-%m-%d")
-                deposit_amount = ""
+                deposit_amount = 0
 
                 update_investments(current_day, deposit_amount, withdrawal_amount)
 

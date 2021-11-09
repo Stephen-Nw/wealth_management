@@ -332,24 +332,15 @@ def financial_summary():
 
     print("++++++++++++++++++++++++++++++++++++++++++++++++++")
     savings_deposit = requested_year_savings_df["deposit"].sum()
-    print(savings_deposit)
-    # saving_withdraw = requested_year_savings_df["withdraw"].sum()
-    # print(saving_withdraw)
-    # savings_balance = savings_deposit - saving_withdraw
-    # print(savings_balance)
+    savings_withdraw = requested_year_savings_df["withdraw"].sum()
+    savings_balance = savings_deposit - savings_withdraw
+    print(savings_balance)
 
-
-
-
-
-
-
-
-
-
-
-
-
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++")
+    investments_deposit = requested_year_investments_df["deposit"].sum()
+    investments_withdraw = requested_year_investments_df["withdraw"].sum()
+    investments_balance = investments_deposit - investments_withdraw
+    print(investments_balance)
 
 
 
