@@ -39,14 +39,14 @@ cursor = db.cursor()
 
 # cursor.execute(
 #     "CREATE TABLE savings (date varchar(250),"
-#     "deposit varchar(250),"
-#     "withdraw varchar(250))"
+#     "deposit int,"
+#     "withdraw int)"
 # )
-
+#
 # cursor.execute(
 #     "CREATE TABLE investments (date varchar(250),"
-#     "deposit varchar(250),"
-#     "withdraw varchar(250))"
+#     "deposit int,"
+#     "withdraw int)"
 # )
 
 
@@ -192,7 +192,7 @@ def financial_overview():
     width = 0.35  # width of bars
 
     fig, ax = plt.subplots()
-    inc = ax.bar(x - width/2, income_list, width, label='Income')
+    inc = ax.bar(x - width / 2, income_list, width, label='Income')
     exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
 
     ax.set_ylabel("Amount($)")
@@ -220,10 +220,6 @@ def financial_overview():
     # plt.show()
     plt.close()
     root.mainloop()
-
-
-
-# financial_overview()
 
 
 def financial_summary():
@@ -275,18 +271,96 @@ def financial_summary():
     back_btn = ttk.Button(main_frame, text="Back", command=go_back)
     back_btn.grid(row=5, column=0, columnspan=2, pady=5)
 
+    # ************** RETRIEVE DATA FROM DATABASE ***********************************
+    expense_df = pd.read_sql_query("SELECT * from expense", db)
+    income_df = pd.read_sql_query("SELECT * from income", db)
+    savings_df = pd.read_sql_query("SELECT * from savings", db)
+    investments_df = pd.read_sql_query("SELECT * from investments", db)
+
+    #  **********Convert date to panda timestamp***********
+    expense_df.date = pd.to_datetime(expense_df.date)
+    income_df.date = pd.to_datetime(income_df.date)
+    savings_df.date = pd.to_datetime(savings_df.date)
+    investments_df.date = pd.to_datetime(investments_df.date)
+
+    # **************** Create new columns 'year' and add to the dataframe ********
+    expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year
+    income_df['year'] = pd.DatetimeIndex(income_df['date']).year
+    savings_df['year'] = pd.DatetimeIndex(savings_df['date']).year
+    investments_df['year'] = pd.DatetimeIndex(investments_df['date']).year
+
+    # ********** Convert month from number to name using dt.month_name() function**********
+    expense_df['month_name'] = expense_df.date.dt.month_name(locale='English')
+    expense_df = expense_df.sort_values("date")
+
+    income_df['month_name'] = income_df.date.dt.month_name(locale='English')
+    income_df = income_df.sort_values("date")
+
+    savings_df['month_name'] = savings_df.date.dt.month_name(locale='English')
+    savings_df = savings_df.sort_values("date")
+
+    investments_df['month_name'] = investments_df.date.dt.month_name(locale='English')
+    investments_df = investments_df.sort_values("date")
+
+    # ******************** Create df of year requested by user ***********************************
+    requested_year = 2021
+    requested_year_expense = expense_df['year'] == requested_year
+    requested_year_expense_df = expense_df[requested_year_expense]
+
+    requested_year_income = income_df['year'] == requested_year
+    requested_year_income_df = income_df[requested_year_income]
+
+    requested_year_savings = savings_df['year'] == requested_year
+    requested_year_savings_df = savings_df[requested_year_savings]
+
+    requested_year_investments = investments_df['year'] == requested_year
+    requested_year_investments_df = investments_df[requested_year_investments]
+
+    print(requested_year_expense_df)
+    print("=========================================")
+    print(requested_year_income_df)
+    print("=========================================")
+    print(requested_year_savings_df)
+    print("=========================================")
+    print(requested_year_investments_df)
+
+    income_sum = requested_year_income_df["amount"].sum()
+    print(income_sum)
+
+    expense_sum = requested_year_expense_df["amount"].sum()
+    print(expense_sum)
+
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++")
+    savings_deposit = requested_year_savings_df["deposit"].sum()
+    print(savings_deposit)
+    # saving_withdraw = requested_year_savings_df["withdraw"].sum()
+    # print(saving_withdraw)
+    # savings_balance = savings_deposit - saving_withdraw
+    # print(savings_balance)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
     root.mainloop()
 
+
 financial_summary()
-
-
-
-
-
-
-
-
