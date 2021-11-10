@@ -301,7 +301,7 @@ def financial_summary():
     heading_font = Font(family="Helvetica", size=10, weight="bold")
     label_font = Font(family="Helvetica", size=8, weight="bold")
 
-    heading_text = "Financial Summary"
+    heading_text = f"{requested_year} Financial Summary"
     income_text = "Total Income"
     expense_text = "Total Expenses"
     savings_text = "Total Savings"
