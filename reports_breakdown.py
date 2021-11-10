@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 from home_page import home
+from finance_database import financial_summary
 
 root = Tk()
 root.title("Reports")
@@ -18,6 +19,8 @@ label_font = Font(family="Helvetica", size=8, weight="bold")
 def yearly_summary():
     chosen_year = choose_year1.get()
     print(chosen_year)
+    root.destroy()
+    financial_summary()
 
 
 

@@ -354,4 +354,4 @@ def financial_summary():
     root.mainloop()
 
 
-financial_summary()
+# financial_summary()
