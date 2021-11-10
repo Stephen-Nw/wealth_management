@@ -313,25 +313,25 @@ def financial_summary():
     income_label = ttk.Label(main_frame, text=income_text, font=label_font, justify="right")
     income_label.grid(row=1, column=0, pady=5, padx=5)
 
-    income_amount = ttk.Label(main_frame, text=formatted_income)
+    income_amount = ttk.Label(main_frame, text=formatted_income, relief="solid", padding=(5, 0, 5, 0))
     income_amount.grid(row=1, column=1, pady=5, padx=5)
 
     expense_label = ttk.Label(main_frame, text=expense_text, font=label_font, justify="right")
     expense_label.grid(row=2, column=0, pady=5, padx=5)
 
-    expense_amount = ttk.Label(main_frame, text=formatted_expense)
+    expense_amount = ttk.Label(main_frame, text=formatted_expense, relief="solid", padding=(5, 0, 5, 0))
     expense_amount.grid(row=2, column=1, padx=5)
 
     savings_label = ttk.Label(main_frame, text=savings_text, font=label_font, justify="right")
     savings_label.grid(row=3, column=0, pady=5, padx=5)
 
-    savings_amount = ttk.Label(main_frame, text=formatted_savings)
+    savings_amount = ttk.Label(main_frame, text=formatted_savings, relief="solid", padding=(5, 0, 5, 0))
     savings_amount.grid(row=3, column=1, padx=5)
 
     investment_label = ttk.Label(main_frame, text=investment_text, font=label_font, justify="right")
     investment_label.grid(row=4, column=0, pady=5, padx=5)
 
-    investment_amount = ttk.Label(main_frame, text=formatted_investments)
+    investment_amount = ttk.Label(main_frame, text=formatted_investments, relief="solid", padding=(5, 0, 5, 0))
     investment_amount.grid(row=4, column=1, padx=5)
 
     back_btn = ttk.Button(main_frame, text="Back", command=go_back)
