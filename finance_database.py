@@ -310,25 +310,25 @@ def financial_summary():
     heading_label = ttk.Label(main_frame, text=heading_text, font=heading_font, anchor="center", padding=5)
     heading_label.grid(row=0, column=0, columnspan=2, padx=5)
 
-    income_label = ttk.Label(main_frame, text=income_text, font=label_font)
+    income_label = ttk.Label(main_frame, text=income_text, font=label_font, justify="right")
     income_label.grid(row=1, column=0, pady=5, padx=5)
 
     income_amount = ttk.Label(main_frame, text=formatted_income)
     income_amount.grid(row=1, column=1, pady=5, padx=5)
 
-    expense_label = ttk.Label(main_frame, text=expense_text, font=label_font)
+    expense_label = ttk.Label(main_frame, text=expense_text, font=label_font, justify="right")
     expense_label.grid(row=2, column=0, pady=5, padx=5)
 
     expense_amount = ttk.Label(main_frame, text=formatted_expense)
     expense_amount.grid(row=2, column=1, padx=5)
 
-    savings_label = ttk.Label(main_frame, text=savings_text, font=label_font)
+    savings_label = ttk.Label(main_frame, text=savings_text, font=label_font, justify="right")
     savings_label.grid(row=3, column=0, pady=5, padx=5)
 
     savings_amount = ttk.Label(main_frame, text=formatted_savings)
     savings_amount.grid(row=3, column=1, padx=5)
 
-    investment_label = ttk.Label(main_frame, text=investment_text, font=label_font)
+    investment_label = ttk.Label(main_frame, text=investment_text, font=label_font, justify="right")
     investment_label.grid(row=4, column=0, pady=5, padx=5)
 
     investment_amount = ttk.Label(main_frame, text=formatted_investments)
