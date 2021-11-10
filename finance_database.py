@@ -302,10 +302,10 @@ def financial_summary():
     label_font = Font(family="Helvetica", size=8, weight="bold")
 
     heading_text = "Financial Summary"
-    income_text = "Yearly Income"
-    expense_text = "Yearly Expenses"
-    savings_text = "Yearly Savings"
-    investment_text = "Yearly Investments"
+    income_text = "Total Income"
+    expense_text = "Total Expenses"
+    savings_text = "Total Savings"
+    investment_text = "Total Investments"
 
     heading_label = ttk.Label(main_frame, text=heading_text, font=heading_font, anchor="center", padding=5)
     heading_label.grid(row=0, column=0, columnspan=2, padx=5)
@@ -329,7 +329,7 @@ def financial_summary():
     savings_amount.grid(row=3, column=1)
 
     investment_label = ttk.Label(main_frame, text=investment_text, font=label_font, justify="right")
-    investment_label.grid(row=4, column=0, pady=5)
+    investment_label.grid(row=4, column=0, pady=5, padx=5)
 
     investment_amount = ttk.Label(main_frame, text=formatted_investments, relief="solid", padding=(5, 0, 5, 0))
     investment_amount.grid(row=4, column=1)
