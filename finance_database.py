@@ -223,13 +223,17 @@ def financial_overview():
 
 
 def financial_summary(chosen_year):
+    """Calculate financial summary for selected year"""
     root = Tk()
     root.title("Yearly Summary")
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame.grid(row=0, column=0)
 
     def go_back():
-        pass
+        """Return to home page"""
+        root.destroy()
+        from home_page import home
+        home()
 
     # ****************************************************************************** #
     #                RETRIEVE DATA FROM DATABASE                                     #

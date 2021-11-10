@@ -18,6 +18,7 @@ label_font = Font(family="Helvetica", size=8, weight="bold")
 
 # ************** FUNCTIONS *****************************
 def yearly_summary():
+    """Display financial summary for chosen year"""
     try:
         chosen_year = int(choose_year1.get())
     except ValueError:
@@ -26,7 +27,6 @@ def yearly_summary():
         print(chosen_year)
         root.destroy()
         financial_summary(chosen_year)
-
 
 
 def yearly_breakdown():
