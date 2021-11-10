@@ -17,10 +17,10 @@ label_font = Font(family="Helvetica", size=8, weight="bold")
 
 # ************** FUNCTIONS *****************************
 def yearly_summary():
-    chosen_year = choose_year1.get()
+    chosen_year = int(choose_year1.get())
     print(chosen_year)
     root.destroy()
-    financial_summary()
+    financial_summary(chosen_year)
 
 
 

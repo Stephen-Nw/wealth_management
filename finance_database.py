@@ -222,7 +222,7 @@ def financial_overview():
     root.mainloop()
 
 
-def financial_summary():
+def financial_summary(chosen_year):
     root = Tk()
     root.title("Yearly Summary")
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
@@ -265,7 +265,8 @@ def financial_summary():
     investments_df = investments_df.sort_values("date")
 
     # ******************** Create df of year requested by user ***********************************
-    requested_year = 2021
+    requested_year = chosen_year
+    # requested_year = 2021
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]
 
