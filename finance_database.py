@@ -278,35 +278,21 @@ def financial_summary():
     requested_year_investments = investments_df['year'] == requested_year
     requested_year_investments_df = investments_df[requested_year_investments]
 
-    # print(requested_year_expense_df)
-    # print("=========================================")
-    # print(requested_year_income_df)
-    # print("=========================================")
-    # print(requested_year_savings_df)
-    # print("=========================================")
-    # print(requested_year_investments_df)
-
     income_sum = requested_year_income_df["amount"].sum()
     formatted_income = "$" + str(income_sum) + ".00"
-    print(formatted_income)
 
     expense_sum = requested_year_expense_df["amount"].sum()
     formatted_expense = "$" + str(expense_sum) + ".00"
-    print(formatted_expense)
 
-    print("++++++++++++++++++++++++++++++++++++++++++++++++++")
     savings_deposit = requested_year_savings_df["deposit"].sum()
     savings_withdraw = requested_year_savings_df["withdraw"].sum()
     savings_balance = savings_deposit - savings_withdraw
     formatted_savings = "$" + str(savings_balance) + ".00"
-    print(formatted_savings)
 
-    print("++++++++++++++++++++++++++++++++++++++++++++++++++")
     investments_deposit = requested_year_investments_df["deposit"].sum()
     investments_withdraw = requested_year_investments_df["withdraw"].sum()
     investments_balance = investments_deposit - investments_withdraw
     formatted_investments = "$" + str(investments_balance) + ".00"
-    print(formatted_investments)
 
     # ****************************************************************************** #
     #          CREATE FINANCIAL SUMMARY STRUCTURE                                    #
