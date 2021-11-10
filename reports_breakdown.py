@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 from home_page import home
+from tkinter import messagebox
 from finance_database import financial_summary
 
 root = Tk()
@@ -17,10 +18,14 @@ label_font = Font(family="Helvetica", size=8, weight="bold")
 
 # ************** FUNCTIONS *****************************
 def yearly_summary():
-    chosen_year = int(choose_year1.get())
-    print(chosen_year)
-    root.destroy()
-    financial_summary(chosen_year)
+    try:
+        chosen_year = int(choose_year1.get())
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Choose a Year!!")
+    else:
+        print(chosen_year)
+        root.destroy()
+        financial_summary(chosen_year)
 
 
 
