@@ -346,11 +346,27 @@ def financial_summary(chosen_year):
 
 
 def yearly_expense_breakdown():
-    """Calculate financial summary for selected year"""
+    """Calculate yearly breakdown for selected year"""
     root = Tk()
     root.title("Yearly Expense Breakdown")
     main_frame = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame.grid(row=0, column=0)
+
+    # ****************************************************************************** #
+    #                RETRIEVE DATA FROM DATABASE                                     #
+    # ****************************************************************************** #
+    expense_df = pd.read_sql_query("SELECT * from expense", db)
+    expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
+    expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
+    # print(expense_df)
+
+    requested_year = 2021
+    requested_year_expense = expense_df['year'] == requested_year
+    requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
+    # print(requested_year_expense_df)
+
+    expense_sum = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
+    print(expense_sum)
 
 
 
@@ -379,6 +395,8 @@ def yearly_expense_breakdown():
 
     root.mainloop()
 
+
+yearly_expense_breakdown()
 
 
 
