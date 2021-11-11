@@ -358,15 +358,40 @@ def yearly_expense_breakdown():
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
-    # print(expense_df)
 
     requested_year = 2021
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
-    # print(requested_year_expense_df)
 
-    expense_sum = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
-    print(expense_sum)
+    expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
+    expense_breakdown_df = pd.DataFrame({"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
+    print(expense_breakdown_df)
+
+
+    category_list = []
+    category_amount = []
+
+
+
+
+    # labels = combined_df['Month']
+    # expense_column = combined_df['Expense']
+    # income_column = combined_df['Income']
+    #
+    # label_list = []
+    # expense_list = []
+    # income_list = []
+    #
+    # for item in labels:
+    #     label_list.append(item)
+    #
+    # for item in expense_column:
+    #     expense_list.append(item)
+    #
+    # for item in income_column:
+    #     income_list.append(item)
+
+
 
 
 
