@@ -367,29 +367,30 @@ def yearly_expense_breakdown():
     expense_breakdown_df = pd.DataFrame({"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
     print(expense_breakdown_df)
 
+    category_column = expense_breakdown_df['Category']
+    amount_column = expense_breakdown_df['Amount']
 
     category_list = []
     category_amount = []
 
+    for item in category_column:
+        category_list.append(item)
+
+    for item in amount_column:
+        category_amount.append(item)
+
+    print(category_list)
+    print(category_amount)
+
+    # ****************************************************************************** #
+    #                           CREATE PIE CHART                                     #
+    # ****************************************************************************** #
+    fig, ax = plt.subplots()
+    ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
+    ax.axis('equal')
+    plt.show()
 
 
-
-    # labels = combined_df['Month']
-    # expense_column = combined_df['Expense']
-    # income_column = combined_df['Income']
-    #
-    # label_list = []
-    # expense_list = []
-    # income_list = []
-    #
-    # for item in labels:
-    #     label_list.append(item)
-    #
-    # for item in expense_column:
-    #     expense_list.append(item)
-    #
-    # for item in income_column:
-    #     income_list.append(item)
 
 
 
