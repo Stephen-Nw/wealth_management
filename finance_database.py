@@ -342,9 +342,30 @@ def financial_summary(chosen_year):
     back_btn = ttk.Button(main_frame, text="Back", command=go_back)
     back_btn.grid(row=5, column=0, columnspan=2, pady=5)
 
+    root.mainloop()
 
 
-    # TODO 1: Use get request to capture year for yearly summary
+def yearly_expense_breakdown():
+    """Calculate financial summary for selected year"""
+    root = Tk()
+    root.title("Yearly Expense Breakdown")
+    main_frame = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame.grid(row=0, column=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -359,4 +380,19 @@ def financial_summary(chosen_year):
     root.mainloop()
 
 
-# financial_summary()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
