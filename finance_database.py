@@ -350,16 +350,16 @@ def yearly_financial_breakdown():
     root = Tk()
     root.title("Yearly Expense Breakdown")
 
-    main_frame = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame = ttk.Frame(root, padding=10, width=950, height=300)
     main_frame.grid(row=0, column=0)
 
-    main_frame2 = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame2 = ttk.Frame(root, padding=10, width=950, height=300)
     main_frame2.grid(row=0, column=1)
 
-    main_frame3 = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame3 = ttk.Frame(root, padding=10, width=950, height=300)
     main_frame3.grid(row=1, column=0)
 
-    main_frame4 = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame4 = ttk.Frame(root, padding=10, width=950, height=300)
     main_frame4.grid(row=1, column=1)
 
     # ****************************************************************************** #
@@ -561,6 +561,15 @@ def yearly_financial_breakdown():
     pry_income_text = "Primary income"
     sec_income_text = "Secondary income"
     spouse_income_text = "Spouse income"
+
+    income_dictionary = dict(zip(income_list, income_amount))
+    print(income_dictionary)
+
+    formatted_add_income = "$" + str(income_dictionary["Additional income"]) + ".00"
+    formatted_misc_income = "$" + str(income_dictionary["Miscellaneous"]) + ".00"
+    formatted_pry_income = "$" + str(income_dictionary["Primary income"]) + ".00"
+    formatted_sec_income = "$" + str(income_dictionary["Secondary income"]) + ".00"
+    formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
 
     income_category_label = ttk.Label(main_frame4, text=income_category_text, font=heading_font, anchor="center", padding=5)
     income_category_label.grid(row=0, column=0, padx=5)
