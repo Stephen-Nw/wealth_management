@@ -458,7 +458,6 @@ def yearly_financial_breakdown():
     heading_font = Font(family="Helvetica", size=10, weight="bold")
     label_font = Font(family="Helvetica", size=8, weight="bold")
 
-    # heading_text = f"{requested_year} Financial Summary"
     category_text = "Category"
     amount_text = "Amount"
     automobile_text = "Automobile"
@@ -551,6 +550,54 @@ def yearly_financial_breakdown():
 
     utilities_amount = ttk.Label(main_frame2, text=formatted_utilities, relief="solid", padding=(5, 0, 5, 0))
     utilities_amount.grid(row=10, column=1)
+
+    # ****************************************************************************** #
+    #             CREATE INCOME TABLE BREAKDOWN                                      #
+    # ****************************************************************************** #
+    income_category_text = "Category"
+    income_amount_text = "Amount"
+    add_income_text = "Additional income"
+    misc_income_text = "Miscellaneous"
+    pry_income_text = "Primary income"
+    sec_income_text = "Secondary income"
+    spouse_income_text = "Spouse income"
+
+    income_category_label = ttk.Label(main_frame4, text=income_category_text, font=heading_font, anchor="center", padding=5)
+    income_category_label.grid(row=0, column=0, padx=5)
+
+    income_amount_label = ttk.Label(main_frame4, text=income_amount_text, font=heading_font, anchor="center", padding=5)
+    income_amount_label.grid(row=0, column=1, padx=5)
+
+    add_income_label = ttk.Label(main_frame4, text=add_income_text, font=label_font, justify="right")
+    add_income_label.grid(row=1, column=0, pady=5)
+
+    add_income_amount = ttk.Label(main_frame4, text=formatted_add_income, relief="solid", padding=(5, 0, 5, 0))
+    add_income_amount.grid(row=1, column=1, pady=5)
+
+    misc_income_label = ttk.Label(main_frame4, text=misc_income_text, font=label_font, justify="right")
+    misc_income_label.grid(row=2, column=0, pady=5)
+
+    misc_income_amount = ttk.Label(main_frame4, text=formatted_misc_income, relief="solid", padding=(5, 0, 5, 0))
+    misc_income_amount.grid(row=2, column=1)
+
+    pry_income_label = ttk.Label(main_frame4, text=pry_income_text, font=label_font, justify="right")
+    pry_income_label.grid(row=3, column=0, pady=5)
+
+    pry_income_amount = ttk.Label(main_frame4, text=formatted_pry_income, relief="solid", padding=(5, 0, 5, 0))
+    pry_income_amount.grid(row=3, column=1)
+
+    sec_income_label = ttk.Label(main_frame4, text=sec_income_text, font=label_font, justify="right")
+    sec_income_label.grid(row=4, column=0, pady=5, padx=5)
+
+    sec_income_amount = ttk.Label(main_frame4, text=formatted_sec_income, relief="solid", padding=(5, 0, 5, 0))
+    sec_income_amount.grid(row=4, column=1)
+
+    spouse_income_label = ttk.Label(main_frame4, text=spouse_income_text, font=label_font, justify="right")
+    spouse_income_label.grid(row=5, column=0, pady=5)
+
+    spouse_income_amount = ttk.Label(main_frame4, text=formatted_spouse_income, relief="solid", padding=(5, 0, 5, 0))
+    spouse_income_amount.grid(row=5, column=1)
+
 
     # back_btn = ttk.Button(main_frame, text="Back", command=go_back)
     # back_btn.grid(row=5, column=0, columnspan=2, pady=5)
