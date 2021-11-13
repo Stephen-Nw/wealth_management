@@ -475,95 +475,75 @@ def yearly_financial_breakdown(chosen_year):
     expense_dictionary = dict(zip(category_list, category_amount))
     # print(expense_dictionary)
 
-    # formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
-    # formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
-    # formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
-    # formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
-    # formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
-    # formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
-    # formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
-    # formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
-    # formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
-    # formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
-
     try:
         expense_dictionary["Automobile"]
     except KeyError:
-        formatted_automobile = 0
+        formatted_automobile = "$" + str(0) + ".00"
     else:
         formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
 
     try:
         expense_dictionary["Debt"]
     except KeyError:
-        formatted_debt = 0
+        formatted_debt = "$" + str(0) + ".00"
     else:
         formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
 
     try:
         expense_dictionary["Entertainment"]
     except KeyError:
-        formatted_entertainment = 0
+        formatted_entertainment = "$" + str(0) + ".00"
     else:
         formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
 
     try:
         expense_dictionary["Family"]
     except KeyError:
-        formatted_family = 0
+        formatted_family = "$" + str(0) + ".00"
     else:
         formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
 
     try:
         expense_dictionary["Food"]
     except KeyError:
-        formatted_food = 0
+        formatted_food = "$" + str(0) + ".00"
     else:
         formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
 
     try:
         expense_dictionary["Health/Fitness"]
     except KeyError:
-        formatted_fitness = 0
+        formatted_fitness = "$" + str(0) + ".00"
     else:
         formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
 
     try:
         expense_dictionary["Giving"]
     except KeyError:
-        formatted_giving = 0
+        formatted_giving = "$" + str(0) + ".00"
     else:
         formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
 
     try:
         expense_dictionary["Housing"]
     except KeyError:
-        formatted_housing = 0
+        formatted_housing = "$" + str(0) + ".00"
     else:
         formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
 
     try:
         expense_dictionary["Personal"]
     except KeyError:
-        formatted_personal = 0
+        formatted_personal = "$" + str(0) + ".00"
     else:
         formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
 
     try:
         expense_dictionary["Utilities"]
     except KeyError:
-        formatted_utilities = 0
+        formatted_utilities = "$" + str(0) + ".00"
     else:
         formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
-
-
-
-
-
-
-
-
-
 
     category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
     category_label.grid(row=0, column=0, padx=5)
@@ -645,11 +625,47 @@ def yearly_financial_breakdown(chosen_year):
     income_dictionary = dict(zip(income_list, income_amount))
     print(income_dictionary)
 
-    formatted_add_income = "$" + str(income_dictionary["Additional income"]) + ".00"
-    formatted_misc_income = "$" + str(income_dictionary["Miscellaneous"]) + ".00"
-    formatted_pry_income = "$" + str(income_dictionary["Primary income"]) + ".00"
-    formatted_sec_income = "$" + str(income_dictionary["Secondary income"]) + ".00"
-    formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
+    # formatted_add_income = "$" + str(income_dictionary["Additional income"]) + ".00"
+    # formatted_misc_income = "$" + str(income_dictionary["Miscellaneous"]) + ".00"
+    # formatted_pry_income = "$" + str(income_dictionary["Primary income"]) + ".00"
+    # formatted_sec_income = "$" + str(income_dictionary["Secondary income"]) + ".00"
+    # formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
+
+    try:
+        income_dictionary["Additional income"]
+    except KeyError:
+        formatted_add_income = "$" + str(0) + ".00"
+    else:
+        formatted_add_income = "$" + str(income_dictionary["Additional income"]) + ".00"
+
+    try:
+        income_dictionary["Miscellaneous"]
+    except KeyError:
+        formatted_misc_income = "$" + str(0) + ".00"
+    else:
+        formatted_misc_income = "$" + str(income_dictionary["Miscellaneous"]) + ".00"
+
+    try:
+        income_dictionary["Primary income"]
+    except KeyError:
+        formatted_pry_income = "$" + str(0) + ".00"
+    else:
+        formatted_pry_income = "$" + str(income_dictionary["Primary income"]) + ".00"
+
+    try:
+        income_dictionary["Secondary income"]
+    except KeyError:
+        formatted_sec_income = "$" + str(0) + ".00"
+    else:
+        formatted_sec_income = "$" + str(income_dictionary["Secondary income"]) + ".00"
+
+    try:
+        income_dictionary["Spouse income"]
+    except KeyError:
+        formatted_spouse_income = "$" + str(0) + ".00"
+    else:
+        formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
+
 
     income_category_label = ttk.Label(main_frame4, text=income_category_text, font=heading_font, anchor="center", padding=5)
     income_category_label.grid(row=0, column=0, padx=5)
