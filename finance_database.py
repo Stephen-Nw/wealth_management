@@ -424,12 +424,6 @@ def yearly_financial_breakdown():
     print(income_list)
     print(income_amount)
 
-
-
-
-
-
-
     # ****************************************************************************** #
     #                   CREATE EXPENSE PIE CHART                                     #
     # ****************************************************************************** #
@@ -439,6 +433,20 @@ def yearly_financial_breakdown():
     plt.title(f"{requested_year} Expense Breakdown")
 
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+    # plt.show()
+    # plt.close()
+
+    # ****************************************************************************** #
+    #                   CREATE INCOME PIE CHART                                      #
+    # ****************************************************************************** #
+    fig1, ax1 = plt.subplots()
+    ax1.pie(income_amount, labels=income_list, shadow=False, startangle=90, autopct='%1.1f%%')
+    ax1.axis('equal')
+    plt.title(f"{requested_year} Income Breakdown")
+
+    canvas = FigureCanvasTkAgg(fig1, master=main_frame3)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
     # plt.show()
