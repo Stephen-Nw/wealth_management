@@ -420,80 +420,86 @@ def yearly_expense_breakdown():
     personal_text = "Personal"
     utilities_text = "Utilities"
 
-    # income_sum = requested_year_income_df["amount"].sum()
-    # formatted_income = "$" + str(income_sum) + ".00"
-
-    # formatted_automobile = "$" + expense_breakdown_df["Automobile"] + ".00"
-    # print(formatted_automobile)
-
     expense_dictionary = dict(zip(category_list, category_amount))
     print(expense_dictionary)
 
-    # category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
-    # category_label.grid(row=0, column=0, padx=5)
-    #
-    # amount_label = ttk.Label(main_frame2, text=amount_text, font=heading_font, anchor="center", padding=5)
-    # amount_label.grid(row=0, column=1, padx=5)
-    #
-    # automobile_label = ttk.Label(main_frame2, text=automobile_text, font=label_font, justify="right")
-    # automobile_label.grid(row=1, column=0, pady=5)
-    #
-    # automobile_amount = ttk.Label(main_frame2, text=formatted_automobile, relief="solid", padding=(5, 0, 5, 0))
-    # automobile_amount.grid(row=1, column=1, pady=5)
-    #
-    # debt_label = ttk.Label(main_frame2, text=debt_text, font=label_font, justify="right")
-    # debt_label.grid(row=2, column=0, pady=5)
-    #
-    # debt_amount = ttk.Label(main_frame2, text=formatted_debt, relief="solid", padding=(5, 0, 5, 0))
-    # debt_amount.grid(row=2, column=1)
-    #
-    # entertainment_label = ttk.Label(main_frame2, text=entertainment_text, font=label_font, justify="right")
-    # entertainment_label.grid(row=3, column=0, pady=5)
-    #
-    # entertainment_amount = ttk.Label(main_frame2, text=formatted_entertainment, relief="solid", padding=(5, 0, 5, 0))
-    # entertainment_amount.grid(row=3, column=1)
-    #
-    # family_label = ttk.Label(main_frame2, text=family_text, font=label_font, justify="right")
-    # family_label.grid(row=4, column=0, pady=5, padx=5)
-    #
-    # family_amount = ttk.Label(main_frame2, text=formatted_family, relief="solid", padding=(5, 0, 5, 0))
-    # family_amount.grid(row=4, column=1)
-    #
-    # food_label = ttk.Label(main_frame2, text=food_text, font=label_font, justify="right")
-    # food_label.grid(row=5, column=0, pady=5)
-    #
-    # food_amount = ttk.Label(main_frame2, text=formatted_food, relief="solid", padding=(5, 0, 5, 0))
-    # food_amount.grid(row=5, column=1)
-    #
-    # giving_label = ttk.Label(main_frame2, text=giving_text, font=label_font, justify="right")
-    # giving_label.grid(row=6, column=0, pady=5)
-    #
-    # giving_amount = ttk.Label(main_frame2, text=formatted_giving, relief="solid", padding=(5, 0, 5, 0))
-    # giving_amount.grid(row=6, column=1)
-    #
-    # fitness_label = ttk.Label(main_frame2, text=fitness_text, font=label_font, justify="right")
-    # fitness_label.grid(row=7, column=0, pady=5, padx=5)
-    #
-    # fitness_amount = ttk.Label(main_frame2, text=formatted_fitness, relief="solid", padding=(5, 0, 5, 0))
-    # fitness_amount.grid(row=7, column=1)
-    #
-    # housing_label = ttk.Label(main_frame2, text=housing_text, font=label_font, justify="right")
-    # housing_label.grid(row=8, column=0, pady=5)
-    #
-    # housing_amount = ttk.Label(main_frame2, text=formatted_housing, relief="solid", padding=(5, 0, 5, 0))
-    # housing_amount.grid(row=8, column=1)
-    #
-    # personal_label = ttk.Label(main_frame2, text=personal_text, font=label_font, justify="right")
-    # personal_label.grid(row=9, column=0, pady=5)
-    #
-    # personal_amount = ttk.Label(main_frame2, text=formatted_personal, relief="solid", padding=(5, 0, 5, 0))
-    # personal_amount.grid(row=9, column=1)
-    #
-    # utilities_label = ttk.Label(main_frame2, text=utilities_text, font=label_font, justify="right")
-    # utilities_label.grid(row=10, column=0, pady=5, padx=5)
-    #
-    # utilities_amount = ttk.Label(main_frame2, text=formatted_utilities, relief="solid", padding=(5, 0, 5, 0))
-    # utilities_amount.grid(row=10, column=1)
+    formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
+    formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
+    formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
+    formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
+    formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
+    formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
+    formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
+    formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
+    formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
+    formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
+
+
+    category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
+    category_label.grid(row=0, column=0, padx=5)
+
+    amount_label = ttk.Label(main_frame2, text=amount_text, font=heading_font, anchor="center", padding=5)
+    amount_label.grid(row=0, column=1, padx=5)
+
+    automobile_label = ttk.Label(main_frame2, text=automobile_text, font=label_font, justify="right")
+    automobile_label.grid(row=1, column=0, pady=5)
+
+    automobile_amount = ttk.Label(main_frame2, text=formatted_automobile, relief="solid", padding=(5, 0, 5, 0))
+    automobile_amount.grid(row=1, column=1, pady=5)
+
+    debt_label = ttk.Label(main_frame2, text=debt_text, font=label_font, justify="right")
+    debt_label.grid(row=2, column=0, pady=5)
+
+    debt_amount = ttk.Label(main_frame2, text=formatted_debt, relief="solid", padding=(5, 0, 5, 0))
+    debt_amount.grid(row=2, column=1)
+
+    entertainment_label = ttk.Label(main_frame2, text=entertainment_text, font=label_font, justify="right")
+    entertainment_label.grid(row=3, column=0, pady=5)
+
+    entertainment_amount = ttk.Label(main_frame2, text=formatted_entertainment, relief="solid", padding=(5, 0, 5, 0))
+    entertainment_amount.grid(row=3, column=1)
+
+    family_label = ttk.Label(main_frame2, text=family_text, font=label_font, justify="right")
+    family_label.grid(row=4, column=0, pady=5, padx=5)
+
+    family_amount = ttk.Label(main_frame2, text=formatted_family, relief="solid", padding=(5, 0, 5, 0))
+    family_amount.grid(row=4, column=1)
+
+    food_label = ttk.Label(main_frame2, text=food_text, font=label_font, justify="right")
+    food_label.grid(row=5, column=0, pady=5)
+
+    food_amount = ttk.Label(main_frame2, text=formatted_food, relief="solid", padding=(5, 0, 5, 0))
+    food_amount.grid(row=5, column=1)
+
+    giving_label = ttk.Label(main_frame2, text=giving_text, font=label_font, justify="right")
+    giving_label.grid(row=6, column=0, pady=5)
+
+    giving_amount = ttk.Label(main_frame2, text=formatted_giving, relief="solid", padding=(5, 0, 5, 0))
+    giving_amount.grid(row=6, column=1)
+
+    fitness_label = ttk.Label(main_frame2, text=fitness_text, font=label_font, justify="right")
+    fitness_label.grid(row=7, column=0, pady=5, padx=5)
+
+    fitness_amount = ttk.Label(main_frame2, text=formatted_fitness, relief="solid", padding=(5, 0, 5, 0))
+    fitness_amount.grid(row=7, column=1)
+
+    housing_label = ttk.Label(main_frame2, text=housing_text, font=label_font, justify="right")
+    housing_label.grid(row=8, column=0, pady=5)
+
+    housing_amount = ttk.Label(main_frame2, text=formatted_housing, relief="solid", padding=(5, 0, 5, 0))
+    housing_amount.grid(row=8, column=1)
+
+    personal_label = ttk.Label(main_frame2, text=personal_text, font=label_font, justify="right")
+    personal_label.grid(row=9, column=0, pady=5)
+
+    personal_amount = ttk.Label(main_frame2, text=formatted_personal, relief="solid", padding=(5, 0, 5, 0))
+    personal_amount.grid(row=9, column=1)
+
+    utilities_label = ttk.Label(main_frame2, text=utilities_text, font=label_font, justify="right")
+    utilities_label.grid(row=10, column=0, pady=5, padx=5)
+
+    utilities_amount = ttk.Label(main_frame2, text=formatted_utilities, relief="solid", padding=(5, 0, 5, 0))
+    utilities_amount.grid(row=10, column=1)
 
     # back_btn = ttk.Button(main_frame, text="Back", command=go_back)
     # back_btn.grid(row=5, column=0, columnspan=2, pady=5)
