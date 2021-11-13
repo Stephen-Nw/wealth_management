@@ -345,7 +345,7 @@ def financial_summary(chosen_year):
     root.mainloop()
 
 
-def yearly_financial_breakdown():
+def yearly_financial_breakdown(chosen_year):
     """Calculate yearly breakdown for selected year"""
     root = Tk()
     root.title("Yearly Expense Breakdown")
@@ -371,7 +371,8 @@ def yearly_financial_breakdown():
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
 
-    requested_year = 2021
+    requested_year = chosen_year
+    # requested_year = 2021
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
 
@@ -474,16 +475,95 @@ def yearly_financial_breakdown():
     expense_dictionary = dict(zip(category_list, category_amount))
     # print(expense_dictionary)
 
-    formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
-    formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
-    formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
-    formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
-    formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
-    formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
-    formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
-    formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
-    formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
-    formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
+    # formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
+    # formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
+    # formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
+    # formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
+    # formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
+    # formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
+    # formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
+    # formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
+    # formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
+    # formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
+
+    try:
+        expense_dictionary["Automobile"]
+    except KeyError:
+        formatted_automobile = 0
+    else:
+        formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
+
+    try:
+        expense_dictionary["Debt"]
+    except KeyError:
+        formatted_debt = 0
+    else:
+        formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
+
+    try:
+        expense_dictionary["Entertainment"]
+    except KeyError:
+        formatted_entertainment = 0
+    else:
+        formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
+
+    try:
+        expense_dictionary["Family"]
+    except KeyError:
+        formatted_family = 0
+    else:
+        formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
+
+    try:
+        expense_dictionary["Food"]
+    except KeyError:
+        formatted_food = 0
+    else:
+        formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
+
+    try:
+        expense_dictionary["Health/Fitness"]
+    except KeyError:
+        formatted_fitness = 0
+    else:
+        formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
+
+    try:
+        expense_dictionary["Giving"]
+    except KeyError:
+        formatted_giving = 0
+    else:
+        formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
+
+    try:
+        expense_dictionary["Housing"]
+    except KeyError:
+        formatted_housing = 0
+    else:
+        formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
+
+    try:
+        expense_dictionary["Personal"]
+    except KeyError:
+        formatted_personal = 0
+    else:
+        formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
+
+    try:
+        expense_dictionary["Utilities"]
+    except KeyError:
+        formatted_utilities = 0
+    else:
+        formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
+
+
+
+
+
+
+
+
+
 
     category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
     category_label.grid(row=0, column=0, padx=5)
@@ -614,4 +694,4 @@ def yearly_financial_breakdown():
     root.mainloop()
 
 
-yearly_financial_breakdown()
+# yearly_financial_breakdown()

@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from home_page import home
 from tkinter import messagebox
-from finance_database import financial_summary
+from finance_database import financial_summary, yearly_financial_breakdown
 
 root = Tk()
 root.title("Reports")
@@ -24,13 +24,20 @@ def yearly_summary():
     except ValueError:
         messagebox.showerror(title="Error!!", message="Choose a Year!!")
     else:
-        print(chosen_year)
         root.destroy()
         financial_summary(chosen_year)
 
 
 def yearly_breakdown():
-    pass
+    """Display financial breakdown for chosen year"""
+    try:
+        chosen_year = int(choose_year2.get())
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Choose a Year!!")
+    else:
+        print(chosen_year)
+        root.destroy()
+        yearly_financial_breakdown(chosen_year)
 
 
 def monthly_report():
