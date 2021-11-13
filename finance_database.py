@@ -356,9 +356,17 @@ def yearly_financial_breakdown():
     main_frame2 = ttk.Frame(root, padding=10, width=950, height=350)
     main_frame2.grid(row=0, column=1)
 
+    main_frame3 = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame3.grid(row=1, column=0)
+
+    main_frame4 = ttk.Frame(root, padding=10, width=950, height=350)
+    main_frame4.grid(row=1, column=1)
+
     # ****************************************************************************** #
     #                RETRIEVE DATA FROM DATABASE                                     #
     # ****************************************************************************** #
+
+    # ============Expenses==========================
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
@@ -387,6 +395,7 @@ def yearly_financial_breakdown():
     # print(category_list)
     # print(category_amount)
 
+    # ======Income================
     income_df = pd.read_sql_query("SELECT * from income", db)
     income_df.date = pd.to_datetime(income_df.date)  # Convert date to Panda timestamp
     income_df['year'] = pd.DatetimeIndex(income_df['date']).year  # Create new Year column
