@@ -388,37 +388,12 @@ def yearly_expense_breakdown():
     fig, ax = plt.subplots()
     ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
     ax.axis('equal')
-    plt.show()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+    # plt.show()
+    # plt.close()
     root.mainloop()
 
 
