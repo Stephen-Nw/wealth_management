@@ -345,7 +345,7 @@ def financial_summary(chosen_year):
     root.mainloop()
 
 
-def yearly_expense_breakdown():
+def yearly_financial_breakdown():
     """Calculate yearly breakdown for selected year"""
     root = Tk()
     root.title("Yearly Expense Breakdown")
@@ -370,7 +370,7 @@ def yearly_expense_breakdown():
     expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
         {"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
-    print(expense_breakdown_df)
+    # print(expense_breakdown_df)
 
     category_column = expense_breakdown_df['Category']
     amount_column = expense_breakdown_df['Amount']
@@ -384,11 +384,45 @@ def yearly_expense_breakdown():
     for item in amount_column:
         category_amount.append(item)
 
-    print(category_list)
-    print(category_amount)
+    # print(category_list)
+    # print(category_amount)
+
+    income_df = pd.read_sql_query("SELECT * from income", db)
+    income_df.date = pd.to_datetime(income_df.date)  # Convert date to Panda timestamp
+    income_df['year'] = pd.DatetimeIndex(income_df['date']).year  # Create new Year column
+
+    # requested_year = 2021
+    requested_year_income = income_df['year'] == requested_year
+    requested_year_income_df = income_df[requested_year_income]  # Create df of user requested year
+
+    income_breakdown = requested_year_income_df.groupby("category")["amount"].sum()  # Panda series
+    income_breakdown_df = pd.DataFrame(
+        {"Category": income_breakdown.index, "Amount": income_breakdown.values})  # Convert series to dataframe
+    print(income_breakdown_df)
+
+    income_column = income_breakdown_df['Category']
+    amount_column = income_breakdown_df['Amount']
+
+    income_list = []
+    income_amount = []
+
+    for item in income_column:
+        income_list.append(item)
+
+    for item in amount_column:
+        income_amount.append(item)
+
+    print(income_list)
+    print(income_amount)
+
+
+
+
+
+
 
     # ****************************************************************************** #
-    #                           CREATE PIE CHART                                     #
+    #                   CREATE EXPENSE PIE CHART                                     #
     # ****************************************************************************** #
     fig, ax = plt.subplots()
     ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
@@ -422,7 +456,7 @@ def yearly_expense_breakdown():
     utilities_text = "Utilities"
 
     expense_dictionary = dict(zip(category_list, category_amount))
-    print(expense_dictionary)
+    # print(expense_dictionary)
 
     formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
     formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
@@ -507,4 +541,4 @@ def yearly_expense_breakdown():
     root.mainloop()
 
 
-yearly_expense_breakdown()
+yearly_financial_breakdown()
