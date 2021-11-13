@@ -393,6 +393,7 @@ def yearly_expense_breakdown():
     fig, ax = plt.subplots()
     ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
     ax.axis('equal')
+    plt.title(f"{requested_year} Expense Breakdown")
 
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
@@ -433,7 +434,6 @@ def yearly_expense_breakdown():
     formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
     formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
     formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
-
 
     category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
     category_label.grid(row=0, column=0, padx=5)
