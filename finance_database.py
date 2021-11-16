@@ -736,12 +736,17 @@ def monthly_financial_breakdown():
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
     expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month_name()  # Create new Month column
-    print(expense_df)
+    # print(expense_df)
 
     # requested_year = chosen_year
     requested_year = 2021
+    requested_month = "November"
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
+    # print(requested_year_expense_df)
+    requested_month_expense = requested_year_expense_df['month'] == requested_month
+    requested_month_expense_df = requested_year_expense_df[requested_month_expense]  # Create df of requested month
+    print(requested_month_expense_df)
 
     expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
@@ -762,35 +767,6 @@ def monthly_financial_breakdown():
 
     # print(category_list)
     # print(category_amount)
-
-    # ======Income================
-    income_df = pd.read_sql_query("SELECT * from income", db)
-    income_df.date = pd.to_datetime(income_df.date)  # Convert date to Panda timestamp
-    income_df['year'] = pd.DatetimeIndex(income_df['date']).year  # Create new Year column
-
-    # requested_year = 2021
-    requested_year_income = income_df['year'] == requested_year
-    requested_year_income_df = income_df[requested_year_income]  # Create df of user requested year
-
-    income_breakdown = requested_year_income_df.groupby("category")["amount"].sum()  # Panda series
-    income_breakdown_df = pd.DataFrame(
-        {"Category": income_breakdown.index, "Amount": income_breakdown.values})  # Convert series to dataframe
-    # print(income_breakdown_df)
-
-    income_column = income_breakdown_df['Category']
-    amount_column = income_breakdown_df['Amount']
-
-    income_list = []
-    income_amount = []
-
-    for item in income_column:
-        income_list.append(item)
-
-    for item in amount_column:
-        income_amount.append(item)
-
-    # print(income_list)
-    # print(income_amount)
 
     # ****************************************************************************** #
     #                   CREATE EXPENSE PIE CHART                                     #
