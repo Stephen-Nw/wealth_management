@@ -735,7 +735,7 @@ def monthly_financial_breakdown():
     expense_df = pd.read_sql_query("SELECT * from expense", db)
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
-    expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month
+    expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month_name()  # Create new Month column
     print(expense_df)
 
     # requested_year = chosen_year
