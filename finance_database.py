@@ -710,4 +710,107 @@ def yearly_financial_breakdown(chosen_year):
     root.mainloop()
 
 
-# yearly_financial_breakdown()
+def monthly_financial_breakdown():
+    """Calculate expense breakdown for selected year and month"""
+    root = Tk()
+    root.title("Monthly Expense Breakdown")
+
+    main_frame = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame.grid(row=0, column=0)
+
+    main_frame2 = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame2.grid(row=0, column=1)
+
+    # main_frame3 = ttk.Frame(root, padding=10, width=950, height=300)
+    # main_frame3.grid(row=1, column=0)
+    #
+    # main_frame4 = ttk.Frame(root, padding=10, width=950, height=300)
+    # main_frame4.grid(row=1, column=1)
+
+    # ****************************************************************************** #
+    #                RETRIEVE DATA FROM DATABASE                                     #
+    # ****************************************************************************** #
+
+    # ============Expenses==========================
+    expense_df = pd.read_sql_query("SELECT * from expense", db)
+    expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
+    expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
+    expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month
+    print(expense_df)
+
+    # requested_year = chosen_year
+    requested_year = 2021
+    requested_year_expense = expense_df['year'] == requested_year
+    requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
+
+    expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
+    expense_breakdown_df = pd.DataFrame(
+        {"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
+    # print(expense_breakdown_df)
+
+    category_column = expense_breakdown_df['Category']
+    amount_column = expense_breakdown_df['Amount']
+
+    category_list = []
+    category_amount = []
+
+    for item in category_column:
+        category_list.append(item)
+
+    for item in amount_column:
+        category_amount.append(item)
+
+    # print(category_list)
+    # print(category_amount)
+
+    # ======Income================
+    income_df = pd.read_sql_query("SELECT * from income", db)
+    income_df.date = pd.to_datetime(income_df.date)  # Convert date to Panda timestamp
+    income_df['year'] = pd.DatetimeIndex(income_df['date']).year  # Create new Year column
+
+    # requested_year = 2021
+    requested_year_income = income_df['year'] == requested_year
+    requested_year_income_df = income_df[requested_year_income]  # Create df of user requested year
+
+    income_breakdown = requested_year_income_df.groupby("category")["amount"].sum()  # Panda series
+    income_breakdown_df = pd.DataFrame(
+        {"Category": income_breakdown.index, "Amount": income_breakdown.values})  # Convert series to dataframe
+    # print(income_breakdown_df)
+
+    income_column = income_breakdown_df['Category']
+    amount_column = income_breakdown_df['Amount']
+
+    income_list = []
+    income_amount = []
+
+    for item in income_column:
+        income_list.append(item)
+
+    for item in amount_column:
+        income_amount.append(item)
+
+    # print(income_list)
+    # print(income_amount)
+
+    # ****************************************************************************** #
+    #                   CREATE EXPENSE PIE CHART                                     #
+    # ****************************************************************************** #
+    fig, ax = plt.subplots()
+    ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
+    ax.axis('equal')
+    plt.title(f"{requested_year} Expense Breakdown")
+
+    canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+    # plt.show()
+    # plt.close()
+
+    root.mainloop()
+monthly_financial_breakdown()
+
+
+
+
+# TODO 1 Add back button
+# TODO 2 Work on 3rd report (mth/yr breakdown)
