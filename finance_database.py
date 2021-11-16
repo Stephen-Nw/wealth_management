@@ -746,12 +746,12 @@ def monthly_financial_breakdown():
     # print(requested_year_expense_df)
     requested_month_expense = requested_year_expense_df['month'] == requested_month
     requested_month_expense_df = requested_year_expense_df[requested_month_expense]  # Create df of requested month
-    print(requested_month_expense_df)
+    # print(requested_month_expense_df)
 
-    expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
+    expense_breakdown = requested_month_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
         {"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
-    # print(expense_breakdown_df)
+    print(expense_breakdown_df)
 
     category_column = expense_breakdown_df['Category']
     amount_column = expense_breakdown_df['Amount']
@@ -781,6 +781,51 @@ def monthly_financial_breakdown():
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
     # plt.show()
     # plt.close()
+
+    exp_categories = expense_breakdown_df["Category"]
+    expense_list = []
+
+    for item in exp_categories:
+        expense_list.append(item)
+    print(expense_list)
+
+
+    # labels = combined_df['Month']
+    # expense_column = combined_df['Expense']
+    # income_column = combined_df['Income']
+    #
+    # label_list = []
+    # expense_list = []
+    # income_list = []
+    #
+    # for item in labels:
+    #     label_list.append(item)
+    #
+    # for item in expense_column:
+    #     expense_list.append(item)
+    #
+    # for item in income_column:
+    #     income_list.append(item)
+    #
+    # x = np.arange(len(label_list))  # label locations on chart
+    # width = 0.35  # width of bars
+    #
+    # fig, ax = plt.subplots()
+    # inc = ax.bar(x - width / 2, income_list, width, label='Income')
+    # exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
+    #
+    # ax.set_ylabel("Amount($)")
+    # ax.set_title("Financial Summary")
+    # ax.set_xticks(x)
+    # ax.set_xticklabels(labels)
+    # ax.legend()
+    #
+    # ax.bar_label(inc, padding=2)
+    # ax.bar_label(exp, padding=2)
+    #
+    # fig.tight_layout()
+
+
 
     root.mainloop()
 monthly_financial_breakdown()
