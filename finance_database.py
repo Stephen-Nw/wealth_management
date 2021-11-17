@@ -771,59 +771,49 @@ def monthly_financial_breakdown():
     # ****************************************************************************** #
     #                   CREATE EXPENSE PIE CHART                                     #
     # ****************************************************************************** #
-    fig, ax = plt.subplots()
-    ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
-    ax.axis('equal')
-    plt.title(f"{requested_year} Expense Breakdown")
-
-    canvas = FigureCanvasTkAgg(fig, master=main_frame)
-    canvas.draw()
-    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
-    # plt.show()
-    # plt.close()
-
-    exp_categories = expense_breakdown_df["Category"]
-    expense_list = []
-
-    for item in exp_categories:
-        expense_list.append(item)
-    print(expense_list)
-
-
-    # labels = combined_df['Month']
-    # expense_column = combined_df['Expense']
-    # income_column = combined_df['Income']
-    #
-    # label_list = []
-    # expense_list = []
-    # income_list = []
-    #
-    # for item in labels:
-    #     label_list.append(item)
-    #
-    # for item in expense_column:
-    #     expense_list.append(item)
-    #
-    # for item in income_column:
-    #     income_list.append(item)
-    #
-    # x = np.arange(len(label_list))  # label locations on chart
-    # width = 0.35  # width of bars
-    #
     # fig, ax = plt.subplots()
-    # inc = ax.bar(x - width / 2, income_list, width, label='Income')
-    # exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
+    # ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
+    # ax.axis('equal')
+    # plt.title(f"{requested_year} Expense Breakdown")
     #
-    # ax.set_ylabel("Amount($)")
-    # ax.set_title("Financial Summary")
-    # ax.set_xticks(x)
-    # ax.set_xticklabels(labels)
-    # ax.legend()
-    #
-    # ax.bar_label(inc, padding=2)
-    # ax.bar_label(exp, padding=2)
-    #
-    # fig.tight_layout()
+    # canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    # canvas.draw()
+    # canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+    # # plt.show()
+    # # plt.close()
+
+    exp_amount = expense_breakdown_df["Amount"]
+    expense_amount = []
+
+    exp_category = expense_breakdown_df["Category"]
+    expense_category = []
+
+    for item in exp_category:
+        expense_category.append(item)
+
+    for item in exp_amount:
+        expense_amount.append(item)
+    # print(expense_amount)
+
+    x = np.arange(len(expense_amount))  # label locations on chart
+    width = 0.35  # width of bars
+
+    fig, ax = plt.subplots()
+    exp = ax.bar(x, expense_amount, width, label='Expenses')
+
+    ax.set_ylabel("Amount($)")
+    ax.set_title("Monthly Summary")
+    ax.set_xticks(x)
+    ax.set_xticklabels(expense_category, rotation='vertical')
+    ax.legend()
+
+    ax.bar_label(exp, padding=2)
+
+    plt.show()
+
+    fig.tight_layout()
+
+
 
 
 
