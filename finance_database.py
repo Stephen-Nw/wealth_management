@@ -798,13 +798,13 @@ def monthly_financial_breakdown():
     x = np.arange(len(expense_amount))  # label locations on chart
     width = 0.35  # width of bars
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 5))
     exp = ax.bar(x, expense_amount, width, label='Expenses')
 
     ax.set_ylabel("Amount($)")
     ax.set_title("Monthly Summary")
     ax.set_xticks(x)
-    ax.set_xticklabels(expense_category, rotation='vertical')
+    ax.set_xticklabels(expense_category, rotation=45, fontsize=8)
     ax.legend()
 
     ax.bar_label(exp, padding=2)
