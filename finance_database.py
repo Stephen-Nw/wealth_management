@@ -765,23 +765,9 @@ def monthly_financial_breakdown():
     for item in amount_column:
         category_amount.append(item)
 
-    # print(category_list)
-    # print(category_amount)
-
     # ****************************************************************************** #
-    #                   CREATE EXPENSE PIE CHART                                     #
+    #                   CREATE EXPENSE BAR CHART                                     #
     # ****************************************************************************** #
-    # fig, ax = plt.subplots()
-    # ax.pie(category_amount, labels=category_list, shadow=False, startangle=90, autopct='%1.1f%%')
-    # ax.axis('equal')
-    # plt.title(f"{requested_year} Expense Breakdown")
-    #
-    # canvas = FigureCanvasTkAgg(fig, master=main_frame)
-    # canvas.draw()
-    # canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
-    # # plt.show()
-    # # plt.close()
-
     exp_amount = expense_breakdown_df["Amount"]
     expense_amount = []
 
@@ -793,7 +779,6 @@ def monthly_financial_breakdown():
 
     for item in exp_amount:
         expense_amount.append(item)
-    # print(expense_amount)
 
     x = np.arange(len(expense_amount))  # label locations on chart
     width = 0.35  # width of bars
@@ -809,23 +794,19 @@ def monthly_financial_breakdown():
     ax.legend()
 
     ax.bar_label(exp, padding=2)
-
-    # plt.show()
-
     fig.tight_layout()
 
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
-    # plt.show()
-    # plt.close()
+
 
 
 
 
 
     root.mainloop()
-monthly_financial_breakdown()
+# monthly_financial_breakdown()
 
 
 

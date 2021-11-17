@@ -41,7 +41,15 @@ def yearly_breakdown():
 
 
 def monthly_report():
-    pass
+    """Display financial breakdown for chosen month"""
+    try:
+        chosen_year = int(choose_year3.get())
+    except ValueError:
+        messagebox.showerror(title="Error!!", message="Choose a Year!!")
+    else:
+        print(chosen_year)
+        chosen_month = choose_month.get()
+        print(chosen_month)
 
 
 def return_main():
@@ -106,7 +114,7 @@ selected_year3 = ttk.Combobox(main_frame, textvariable=choose_year3, values=year
 selected_year3.grid(row=2, column=1, padx=5)
 
 choose_month = StringVar()
-choose_month.set("Month")
+choose_month.set(month[0])
 selected_month = ttk.Combobox(main_frame, textvariable=choose_month, values=month, state="readonly",
                               width=10, justify="center")
 selected_month.grid(row=2, column=2, padx=5)
