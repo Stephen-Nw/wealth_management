@@ -802,16 +802,23 @@ def monthly_financial_breakdown():
     exp = ax.bar(x, expense_amount, width, label='Expenses')
 
     ax.set_ylabel("Amount($)")
+    plt.ylim(0, 5000)
     ax.set_title("Monthly Summary")
     ax.set_xticks(x)
-    ax.set_xticklabels(expense_category, rotation=45, fontsize=8)
+    ax.set_xticklabels(expense_category, rotation='vertical', fontsize=10)
     ax.legend()
 
     ax.bar_label(exp, padding=2)
 
-    plt.show()
+    # plt.show()
 
     fig.tight_layout()
+
+    canvas = FigureCanvasTkAgg(fig, master=main_frame)
+    canvas.draw()
+    canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+    # plt.show()
+    # plt.close()
 
 
 
