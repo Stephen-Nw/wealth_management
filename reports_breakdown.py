@@ -35,7 +35,6 @@ def yearly_breakdown():
     except ValueError:
         messagebox.showerror(title="Error!!", message="Choose a Year!!")
     else:
-        print(chosen_year)
         root.destroy()
         yearly_financial_breakdown(chosen_year)
 
@@ -47,9 +46,8 @@ def monthly_report():
     except ValueError:
         messagebox.showerror(title="Error!!", message="Choose a Year!!")
     else:
-        print(chosen_year)
+        root.destroy()
         chosen_month = choose_month.get()
-        print(chosen_month)
         monthly_financial_breakdown(chosen_year, chosen_month)
 
 

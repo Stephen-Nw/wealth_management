@@ -137,7 +137,6 @@ def financial_overview():
 
     income_df['month_name'] = income_df.date.dt.month_name(locale='English')
     income_df = income_df.sort_values("date")
-    # print(income_df)
 
     # *********** Subset new dataframe for current year only ******************
     current_timestamp = dt.datetime.now()
@@ -217,7 +216,6 @@ def financial_overview():
     exit_fxn_btn = ttk.Button(main_frame, text="Exit", command=exit_fxn)
     exit_fxn_btn.grid(row=2, column=0)
 
-    # plt.show()
     plt.close()
     root.mainloop()
 
@@ -378,14 +376,12 @@ def yearly_financial_breakdown(chosen_year):
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
 
     requested_year = chosen_year
-    # requested_year = 2021
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
 
     expense_breakdown = requested_year_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
         {"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
-    # print(expense_breakdown_df)
 
     category_column = expense_breakdown_df['Category']
     amount_column = expense_breakdown_df['Amount']
@@ -399,9 +395,6 @@ def yearly_financial_breakdown(chosen_year):
     for item in amount_column:
         category_amount.append(item)
 
-    # print(category_list)
-    # print(category_amount)
-
     # ======Income================
     income_df = pd.read_sql_query("SELECT * from income", db)
     income_df.date = pd.to_datetime(income_df.date)  # Convert date to Panda timestamp
@@ -414,7 +407,6 @@ def yearly_financial_breakdown(chosen_year):
     income_breakdown = requested_year_income_df.groupby("category")["amount"].sum()  # Panda series
     income_breakdown_df = pd.DataFrame(
         {"Category": income_breakdown.index, "Amount": income_breakdown.values})  # Convert series to dataframe
-    print(income_breakdown_df)
 
     income_column = income_breakdown_df['Category']
     amount_column = income_breakdown_df['Amount']
@@ -725,12 +717,6 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
         from home_page import home
         home()
 
-    # main_frame3 = ttk.Frame(root, padding=10, width=950, height=300)
-    # main_frame3.grid(row=1, column=0)
-    #
-    # main_frame4 = ttk.Frame(root, padding=10, width=950, height=300)
-    # main_frame4.grid(row=1, column=1)
-
     # ****************************************************************************** #
     #                RETRIEVE DATA FROM DATABASE                                     #
     # ****************************************************************************** #
@@ -740,18 +726,13 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     expense_df.date = pd.to_datetime(expense_df.date)  # Convert date to Panda timestamp
     expense_df['year'] = pd.DatetimeIndex(expense_df['date']).year  # Create new Year column
     expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month_name()  # Create new Month column
-    # print(expense_df)
 
     requested_year = chosen_year
-    # requested_year = 2021
-    # requested_month = "November"
     requested_month = chosen_month
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
-    # print(requested_year_expense_df)
     requested_month_expense = requested_year_expense_df['month'] == requested_month
     requested_month_expense_df = requested_year_expense_df[requested_month_expense]  # Create df of requested month
-    # print(requested_month_expense_df)
 
     expense_breakdown = requested_month_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
@@ -825,7 +806,6 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     utilities_text = "Utilities"
 
     expense_dictionary = dict(zip(category_list, category_amount))
-    # print(expense_dictionary)
 
     try:
         expense_dictionary["Automobile"]
@@ -963,16 +943,17 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     utilities_amount = ttk.Label(main_frame2, text=formatted_utilities, relief="solid", padding=(5, 0, 5, 0))
     utilities_amount.grid(row=10, column=1)
 
+    back_btn = ttk.Button(main_frame, text="Back", command=go_back)
+    back_btn.grid(row=1, column=0, columnspan=2, pady=5)
+
 
 
 
 
 
     root.mainloop()
-# monthly_financial_breakdown()
 
 
 
 
-# TODO 1 Add back button
-# TODO 2 Work on 3rd report (mth/yr breakdown)
+
