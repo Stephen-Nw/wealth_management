@@ -625,12 +625,6 @@ def yearly_financial_breakdown(chosen_year):
     income_dictionary = dict(zip(income_list, income_amount))
     print(income_dictionary)
 
-    # formatted_add_income = "$" + str(income_dictionary["Additional income"]) + ".00"
-    # formatted_misc_income = "$" + str(income_dictionary["Miscellaneous"]) + ".00"
-    # formatted_pry_income = "$" + str(income_dictionary["Primary income"]) + ".00"
-    # formatted_sec_income = "$" + str(income_dictionary["Secondary income"]) + ".00"
-    # formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
-
     try:
         income_dictionary["Additional income"]
     except KeyError:
@@ -665,7 +659,6 @@ def yearly_financial_breakdown(chosen_year):
         formatted_spouse_income = "$" + str(0) + ".00"
     else:
         formatted_spouse_income = "$" + str(income_dictionary["Spouse income"]) + ".00"
-
 
     income_category_label = ttk.Label(main_frame4, text=income_category_text, font=heading_font, anchor="center", padding=5)
     income_category_label.grid(row=0, column=0, padx=5)
@@ -738,9 +731,10 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     expense_df['month'] = pd.DatetimeIndex(expense_df['date']).month_name()  # Create new Month column
     # print(expense_df)
 
-    # requested_year = chosen_year
-    requested_year = 2021
-    requested_month = "November"
+    requested_year = chosen_year
+    # requested_year = 2021
+    # requested_month = "November"
+    requested_month = chosen_month
     requested_year_expense = expense_df['year'] == requested_year
     requested_year_expense_df = expense_df[requested_year_expense]  # Create df of user requested year
     # print(requested_year_expense_df)
@@ -799,6 +793,164 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     canvas = FigureCanvasTkAgg(fig, master=main_frame)
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0, padx=5, pady=5)
+
+    # ****************************************************************************** #
+    #             CREATE EXPENSE TABLE BREAKDOWN                                     #
+    # ****************************************************************************** #
+    heading_font = Font(family="Helvetica", size=10, weight="bold")
+    label_font = Font(family="Helvetica", size=8, weight="bold")
+
+    category_text = "Category"
+    amount_text = "Amount"
+    automobile_text = "Automobile"
+    debt_text = "Debt"
+    entertainment_text = "Entertainment"
+    family_text = "Family"
+    food_text = "Food"
+    giving_text = "Giving"
+    fitness_text = "Health/Fitness"
+    housing_text = "Housing"
+    personal_text = "Personal"
+    utilities_text = "Utilities"
+
+    expense_dictionary = dict(zip(category_list, category_amount))
+    # print(expense_dictionary)
+
+    try:
+        expense_dictionary["Automobile"]
+    except KeyError:
+        formatted_automobile = "$" + str(0) + ".00"
+    else:
+        formatted_automobile = "$" + str(expense_dictionary["Automobile"]) + ".00"
+
+    try:
+        expense_dictionary["Debt"]
+    except KeyError:
+        formatted_debt = "$" + str(0) + ".00"
+    else:
+        formatted_debt = "$" + str(expense_dictionary["Debt"]) + ".00"
+
+    try:
+        expense_dictionary["Entertainment"]
+    except KeyError:
+        formatted_entertainment = "$" + str(0) + ".00"
+    else:
+        formatted_entertainment = "$" + str(expense_dictionary["Entertainment"]) + ".00"
+
+    try:
+        expense_dictionary["Family"]
+    except KeyError:
+        formatted_family = "$" + str(0) + ".00"
+    else:
+        formatted_family = "$" + str(expense_dictionary["Family"]) + ".00"
+
+    try:
+        expense_dictionary["Food"]
+    except KeyError:
+        formatted_food = "$" + str(0) + ".00"
+    else:
+        formatted_food = "$" + str(expense_dictionary["Food"]) + ".00"
+
+    try:
+        expense_dictionary["Health/Fitness"]
+    except KeyError:
+        formatted_fitness = "$" + str(0) + ".00"
+    else:
+        formatted_fitness = "$" + str(expense_dictionary["Health/Fitness"]) + ".00"
+
+    try:
+        expense_dictionary["Giving"]
+    except KeyError:
+        formatted_giving = "$" + str(0) + ".00"
+    else:
+        formatted_giving = "$" + str(expense_dictionary["Giving"]) + ".00"
+
+    try:
+        expense_dictionary["Housing"]
+    except KeyError:
+        formatted_housing = "$" + str(0) + ".00"
+    else:
+        formatted_housing = "$" + str(expense_dictionary["Housing"]) + ".00"
+
+    try:
+        expense_dictionary["Personal"]
+    except KeyError:
+        formatted_personal = "$" + str(0) + ".00"
+    else:
+        formatted_personal = "$" + str(expense_dictionary["Personal"]) + ".00"
+
+    try:
+        expense_dictionary["Utilities"]
+    except KeyError:
+        formatted_utilities = "$" + str(0) + ".00"
+    else:
+        formatted_utilities = "$" + str(expense_dictionary["Utilities"]) + ".00"
+
+    category_label = ttk.Label(main_frame2, text=category_text, font=heading_font, anchor="center", padding=5)
+    category_label.grid(row=0, column=0, padx=5)
+
+    amount_label = ttk.Label(main_frame2, text=amount_text, font=heading_font, anchor="center", padding=5)
+    amount_label.grid(row=0, column=1, padx=5)
+
+    automobile_label = ttk.Label(main_frame2, text=automobile_text, font=label_font, justify="right")
+    automobile_label.grid(row=1, column=0, pady=5)
+
+    automobile_amount = ttk.Label(main_frame2, text=formatted_automobile, relief="solid", padding=(5, 0, 5, 0))
+    automobile_amount.grid(row=1, column=1, pady=5)
+
+    debt_label = ttk.Label(main_frame2, text=debt_text, font=label_font, justify="right")
+    debt_label.grid(row=2, column=0, pady=5)
+
+    debt_amount = ttk.Label(main_frame2, text=formatted_debt, relief="solid", padding=(5, 0, 5, 0))
+    debt_amount.grid(row=2, column=1)
+
+    entertainment_label = ttk.Label(main_frame2, text=entertainment_text, font=label_font, justify="right")
+    entertainment_label.grid(row=3, column=0, pady=5)
+
+    entertainment_amount = ttk.Label(main_frame2, text=formatted_entertainment, relief="solid", padding=(5, 0, 5, 0))
+    entertainment_amount.grid(row=3, column=1)
+
+    family_label = ttk.Label(main_frame2, text=family_text, font=label_font, justify="right")
+    family_label.grid(row=4, column=0, pady=5, padx=5)
+
+    family_amount = ttk.Label(main_frame2, text=formatted_family, relief="solid", padding=(5, 0, 5, 0))
+    family_amount.grid(row=4, column=1)
+
+    food_label = ttk.Label(main_frame2, text=food_text, font=label_font, justify="right")
+    food_label.grid(row=5, column=0, pady=5)
+
+    food_amount = ttk.Label(main_frame2, text=formatted_food, relief="solid", padding=(5, 0, 5, 0))
+    food_amount.grid(row=5, column=1)
+
+    giving_label = ttk.Label(main_frame2, text=giving_text, font=label_font, justify="right")
+    giving_label.grid(row=6, column=0, pady=5)
+
+    giving_amount = ttk.Label(main_frame2, text=formatted_giving, relief="solid", padding=(5, 0, 5, 0))
+    giving_amount.grid(row=6, column=1)
+
+    fitness_label = ttk.Label(main_frame2, text=fitness_text, font=label_font, justify="right")
+    fitness_label.grid(row=7, column=0, pady=5, padx=5)
+
+    fitness_amount = ttk.Label(main_frame2, text=formatted_fitness, relief="solid", padding=(5, 0, 5, 0))
+    fitness_amount.grid(row=7, column=1)
+
+    housing_label = ttk.Label(main_frame2, text=housing_text, font=label_font, justify="right")
+    housing_label.grid(row=8, column=0, pady=5)
+
+    housing_amount = ttk.Label(main_frame2, text=formatted_housing, relief="solid", padding=(5, 0, 5, 0))
+    housing_amount.grid(row=8, column=1)
+
+    personal_label = ttk.Label(main_frame2, text=personal_text, font=label_font, justify="right")
+    personal_label.grid(row=9, column=0, pady=5)
+
+    personal_amount = ttk.Label(main_frame2, text=formatted_personal, relief="solid", padding=(5, 0, 5, 0))
+    personal_amount.grid(row=9, column=1)
+
+    utilities_label = ttk.Label(main_frame2, text=utilities_text, font=label_font, justify="right")
+    utilities_label.grid(row=10, column=0, pady=5, padx=5)
+
+    utilities_amount = ttk.Label(main_frame2, text=formatted_utilities, relief="solid", padding=(5, 0, 5, 0))
+    utilities_amount.grid(row=10, column=1)
 
 
 
