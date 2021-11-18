@@ -782,7 +782,7 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
 
     ax.set_ylabel("Amount($)")
     plt.ylim(0, 5000)
-    ax.set_title("Monthly Summary")
+    ax.set_title(f"{requested_month} {requested_year} Monthly Summary")  # heading_text = f"{requested_year} Financial Summary"
     ax.set_xticks(x)
     ax.set_xticklabels(expense_category, rotation='vertical', fontsize=10)
     ax.legend()
