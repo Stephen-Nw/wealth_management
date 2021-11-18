@@ -48,8 +48,8 @@ def home():
         root.destroy()
         investments_log()
 
-    def debt_to_income_ratio():
-        pass
+    # def debt_to_income_ratio():
+    #     pass
 
     def exit_fn():
         """Return user to login page"""
@@ -82,8 +82,8 @@ def home():
     investment_button = ttk.Button(main_frame, text="Investment", command=investment)
     investment_button.grid(row=3, column=1, pady=5, padx=5)
 
-    di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=debt_to_income_ratio)
-    di_ratio_button.grid(row=4, column=0, pady=5, columnspan=2, padx=5)
+    # di_ratio_button = ttk.Button(main_frame, text="Debt-Income ratio", command=debt_to_income_ratio)
+    # di_ratio_button.grid(row=4, column=0, pady=5, columnspan=2, padx=5)
 
     exit_button = ttk.Button(main_frame, text="Exit", command=exit_fn)
     exit_button.grid(row=5, column=0, pady=5, columnspan=2, padx=5)
