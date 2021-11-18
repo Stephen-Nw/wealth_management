@@ -710,7 +710,7 @@ def yearly_financial_breakdown(chosen_year):
     root.mainloop()
 
 
-def monthly_financial_breakdown():
+def monthly_financial_breakdown(chosen_year, chosen_month):
     """Calculate expense breakdown for selected year and month"""
     root = Tk()
     root.title("Monthly Expense Breakdown")

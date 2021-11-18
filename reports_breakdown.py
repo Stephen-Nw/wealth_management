@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter.font import Font
 from home_page import home
 from tkinter import messagebox
-from finance_database import financial_summary, yearly_financial_breakdown
+from finance_database import financial_summary, yearly_financial_breakdown, monthly_financial_breakdown
 
 root = Tk()
 root.title("Reports")
@@ -50,6 +50,7 @@ def monthly_report():
         print(chosen_year)
         chosen_month = choose_month.get()
         print(chosen_month)
+        monthly_financial_breakdown(chosen_year, chosen_month)
 
 
 def return_main():
