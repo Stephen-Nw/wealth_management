@@ -419,9 +419,6 @@ def yearly_financial_breakdown(chosen_year):
     for item in amount_column:
         income_amount.append(item)
 
-    print(income_list)
-    print(income_amount)
-
     # ****************************************************************************** #
     #                   CREATE EXPENSE PIE CHART                                     #
     # ****************************************************************************** #
@@ -470,7 +467,6 @@ def yearly_financial_breakdown(chosen_year):
     utilities_text = "Utilities"
 
     expense_dictionary = dict(zip(category_list, category_amount))
-    # print(expense_dictionary)
 
     try:
         expense_dictionary["Automobile"]
@@ -620,7 +616,6 @@ def yearly_financial_breakdown(chosen_year):
     spouse_income_text = "Spouse income"
 
     income_dictionary = dict(zip(income_list, income_amount))
-    print(income_dictionary)
 
     try:
         income_dictionary["Additional income"]
@@ -736,7 +731,6 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
     expense_breakdown = requested_month_expense_df.groupby("category")["amount"].sum()  # Panda series
     expense_breakdown_df = pd.DataFrame(
         {"Category": expense_breakdown.index, "Amount": expense_breakdown.values})  # Convert series to dataframe
-    print(expense_breakdown_df)
 
     category_column = expense_breakdown_df['Category']
     amount_column = expense_breakdown_df['Amount']
