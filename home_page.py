@@ -4,7 +4,6 @@ from tkinter.font import Font
 # from expenses import expense_log
 
 
-
 def home():
     """Home page after successful login"""
     app_name = "Make a Selection"
@@ -34,7 +33,10 @@ def home():
         expense_log()
 
     def reports():
-        pass
+        """Directs user to reports page to retrieve financial logs"""
+        from reports_breakdown import reports_log
+        root.destroy()
+        reports_log()
 
     def savings():
         from savings import savings_log
