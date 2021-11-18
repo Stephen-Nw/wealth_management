@@ -350,17 +350,23 @@ def yearly_financial_breakdown(chosen_year):
     root = Tk()
     root.title("Yearly Expense Breakdown")
 
-    main_frame = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame = ttk.Frame(root, padding=10, width=850, height=200)
     main_frame.grid(row=0, column=0)
 
-    main_frame2 = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame2 = ttk.Frame(root, padding=10, width=850, height=200)
     main_frame2.grid(row=0, column=1)
 
-    main_frame3 = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame3 = ttk.Frame(root, padding=10, width=850, height=200)
     main_frame3.grid(row=1, column=0)
 
-    main_frame4 = ttk.Frame(root, padding=10, width=950, height=300)
+    main_frame4 = ttk.Frame(root, padding=10, width=850, height=200)
     main_frame4.grid(row=1, column=1)
+
+    def go_back():
+        """Return to home page"""
+        root.destroy()
+        from home_page import home
+        home()
 
     # ****************************************************************************** #
     #                RETRIEVE DATA FROM DATABASE                                     #
@@ -696,9 +702,8 @@ def yearly_financial_breakdown(chosen_year):
     spouse_income_amount = ttk.Label(main_frame4, text=formatted_spouse_income, relief="solid", padding=(5, 0, 5, 0))
     spouse_income_amount.grid(row=5, column=1)
 
-
-    # back_btn = ttk.Button(main_frame, text="Back", command=go_back)
-    # back_btn.grid(row=5, column=0, columnspan=2, pady=5)
+    back_btn = ttk.Button(main_frame4, text="Back", command=go_back)
+    back_btn.grid(row=6, column=0, columnspan=2, pady=15)
 
     root.mainloop()
 
@@ -713,6 +718,12 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
 
     main_frame2 = ttk.Frame(root, padding=10, width=950, height=300)
     main_frame2.grid(row=0, column=1)
+
+    def go_back():
+        """Return to home page"""
+        root.destroy()
+        from home_page import home
+        home()
 
     # main_frame3 = ttk.Frame(root, padding=10, width=950, height=300)
     # main_frame3.grid(row=1, column=0)
@@ -782,7 +793,7 @@ def monthly_financial_breakdown(chosen_year, chosen_month):
 
     ax.set_ylabel("Amount($)")
     plt.ylim(0, 5000)
-    ax.set_title(f"{requested_month} {requested_year} Monthly Summary")  # heading_text = f"{requested_year} Financial Summary"
+    ax.set_title(f"{requested_month} {requested_year} Monthly Summary")
     ax.set_xticks(x)
     ax.set_xticklabels(expense_category, rotation='vertical', fontsize=10)
     ax.legend()
