@@ -166,7 +166,6 @@ def financial_overview():
 
     # ************** Merge income and expense dataframes ************************
     combined_df = pd.merge(total_expense_df, total_income_df, how="outer")
-    # print(combined_df)
 
     # ************** Create bar charts ************************
 
@@ -195,7 +194,7 @@ def financial_overview():
     exp = ax.bar(x + width / 2, expense_list, width, label='Expenses')
 
     ax.set_ylabel("Amount($)")
-    ax.set_title("Financial Summary")
+    ax.set_title(f"{current_year} Financial Summary")
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
     ax.legend()
